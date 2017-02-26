@@ -1,4 +1,4 @@
-angular.module("trilhasBCC", [])
+angular.module("yggdrasil", [])
 
 .controller("AppCtrl", function($scope) {
 
