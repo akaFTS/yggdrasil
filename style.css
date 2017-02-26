@@ -56,6 +56,21 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.content .skill-list .skill-box .skill-img-wrap {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    height: 170px;
+}
+
+.content .skill-list .skill-box .skill-img-wrap .skill-img {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    height: 100%;
 }
 
 .content .skill-list .skill-box .skill {
@@ -106,8 +121,9 @@ body {
 .drawer-skill-info {
     width: 35%;
     position: fixed;
-    height: calc(100% - 135px);
+    height: 100%;
     right: 0;
+    top: 0;
     overflow-y: scroll;
 
     -webkit-box-shadow: -2px 0px 9px 0px rgba(50, 50, 50, 0.5);
@@ -122,7 +138,6 @@ body {
 @media(max-width: 992px) {
     .drawer-skill-info {
         width: 70%;
-        top: 135px;
     }
 }
 
@@ -177,6 +192,13 @@ body {
     font-size: 16px;
     color: #666;
     margin: 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 13px;
+    color: #888;
 }
 
 .blue {
