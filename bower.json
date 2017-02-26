@@ -15,5 +15,8 @@
     "client/source/vendor",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.6.2"
+  }
 }

@@ -1,0 +1,104 @@
+body {
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.header {
+    background-color: #F0F0F0;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #DDD;
+
+/*    -webkit-box-shadow: 0px 2px 7px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    0px 2px 7px 0px rgba(50, 50, 50, 0.2);
+    box-shadow:         0px 2px 7px 0px rgba(50, 50, 50, 0.2);*/
+}
+
+.header .header-title {
+    border-top: 5px solid #666;
+    border-bottom: 5px solid #666;
+    color: #666;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+}
+
+.header .subtitle {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: -5px;
+    color: #999;
+}
+
+.content .skill-list {
+    border-right: 1px solid #DDD;
+}
+
+.content .skill-list .skill-title {
+    background-color: #F5F5F5;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #DDD;
+}
+
+.content .skill-list .skill-box {
+    padding: 20px 10px;
+    border-bottom: 1px solid #DDD;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content .skill-list .skill-box .skill {
+    text-align: center;
+    width: 16.5%;
+    margin-bottom: 20px;
+}
+
+.content .skill-list .skill-box .skill .skill-name {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 5px;
+    height: 36px;
+    overflow-y: hidden;
+}
+
+.content .skill-list .skill-box .skill .skill-code {
+    font-size: 15px;
+    text-align: uppercase;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.content .skill-list .skill-box .skill .skill-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.content .skill-list .skill-box .skill .empty-skill-icon {
+    width: 40px;
+    height: 40px;
+    //background-color: #F0F0F0;
+    border-radius: 8px;
+    border: 2px dashed #DDD;
+    margin: 0 auto;
+}
+
+.blue {
+    color: #3F51B5 !important;
+}
+
+.border-blue {
+    border-color: #3F51B5 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
