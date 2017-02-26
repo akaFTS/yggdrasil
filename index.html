@@ -29,44 +29,44 @@
             </div>
             <img src="images/ferreiro.png">
         </div>
-        <div class="content row nomargin">
+        <div class="content row nomargin" ng-controller="AppCtrl">
             <div class="col-md-8 nopadding">
                 <div class="skill-list">
                     <div class="skill-title blue">
                         Obrigatórias
                     </div>
                     <div class="skill-box">
-                        <div class="skill">
+                        <div class="skill" ng-class="isSelected ? 'selected' : ''" ng-click="selectSkill()">
                             <div class="skill-name">Introdução à Computação</div>
                             <img class="skill-icon" src="images/skills/wz_waterball.gif">
                             <div class="skill-code blue">MAC0110</div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
                         </div>
-                        <div class="skill">
+                        <div class="skill empty">
                             <div class="skill-name"></div>
                             <div class="empty-skill-icon"></div>
                             <div class="skill-code blue"></div>
@@ -74,14 +74,14 @@
                     </div>
                 </div>
             </div>
-<!--             <div class="col-md-4 nopadding">
-                
-            </div> -->
-            <div class="col-md-4 nopadding col-skill-info">
+            <div class="drawer-skill-info" ng-class="isSelected ? '' : 'archived'">
                 <div class="skill-info">
                     <div class="skill-name bg-blue">
                         <h3>Introdução à Computação</h3>
                         <p>MAC0110</p>
+                        <div class="close-skill" ng-click="deselect()">
+                            <span>&times;</span>
+                        </div>
                     </div>
                     <div class="skill-desc">
                         <h3>Semestre ideal: <span class="blue bold">1º</span></h3>
