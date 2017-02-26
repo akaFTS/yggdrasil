@@ -1,0 +1,15 @@
+{
+  "name": "trilhas",
+  "version": "0.0.1",
+  "description": "Sistema de apoio das trilhas do BCC.",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavo Silva",
+  "license": "MIT"
+}

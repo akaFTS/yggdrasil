@@ -1,0 +1,19 @@
+{
+  "name": "trilhas",
+  "description": "Sistema de apoio das trilhas do BCC.",
+  "main": "index.js",
+  "authors": [
+    "Gustavo Silva"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/source/vendor",
+    "test",
+    "tests"
+  ]
+}
