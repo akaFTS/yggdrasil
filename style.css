@@ -54,8 +54,7 @@ body {
     background-color: white;
     border-bottom: 1px solid #DDD;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
 }
 
@@ -71,6 +70,12 @@ body {
     top: -50%;
     left: 0;
     height: 100%;
+}
+
+.content .skill-list .skill-box .skill-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
 
 .content .skill-list .skill-box .skill {

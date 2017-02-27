@@ -1,0 +1,8 @@
+[{
+    "name": "Introdução à Computação",
+    "code": "MAC0110",
+    "semester": 1,
+    "icon": "wz_waterball",
+    "description": "Breve história da computação.  Algoritmos: caracterização, notação, estruturas básicas.  Computadores: unidades básicas, instruções, programa armazenado, endereçamento, programas em linguagem de máquina.  Conceitos de linguagens algorítmicas: expressões; comandos seqüenciais, seletivos e repetitivos; entrada/saída; variáveis estruturadas; funções.  Desenvolvimento e documentação de programas.  Exemplos de processamento não-numérico.  Extensa prática de programação e depuração de programas.",
+    "position": [0,2]
+}]
