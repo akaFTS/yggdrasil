@@ -1,0 +1,57 @@
+<html>
+    <head>
+
+    <meta charset="utf8">
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+
+        <!-- JS DO SISTEMA -->
+        <script src="companion.js"></script>
+    </head>
+    <body ng-app="companionApp">
+        <div ng-controller="companionCtrl">
+            <div style="width: 50%; float: left;">
+                <p>
+                    <button ng-click="load(0)">Carregar obrigatórias</button>
+                    <button ng-click="load(1)">Carregar teoria</button>
+                    <button ng-click="load(2)">Carregar sistemas</button>
+                    <button ng-click="load(3)">Carregar IA</button>
+                    <button ng-click="load(4)">Carregar escience</button>
+                </p>
+                <div ng-show="isLoaded">
+                    <p> Carregado: <b>{{loadedTrack}}</b></p>
+                    <div>
+                        <label>Nome</label>
+                        <input type="text" ng-model="curSkill.name">
+                        <br>
+                        <label>Código</label>
+                        <input type="text" ng-model="curSkill.code">
+                        <br>
+                        <label>Semestre Ideal</label>
+                        <input type="text" ng-model="curSkill.semester">
+                        <br>
+                        <label>Ícone</label>
+                        <input type="text" ng-model="curSkill.icon">
+                        <br>
+                        <label>Ementa</label>
+                        <textarea ng-model="curSkill.description" rows=8></textarea>
+                        <br>
+                        <label>Posição</label>
+                        <input type="text" ng-model="X" style="width: 30px;">x<input type="text" ng-model="Y" style="width: 30px;">
+
+                        <button ng-click="addSkill()">Adicionar</button>
+                    </div>
+                    <h4>No arquivo:</h4>
+                    <ul>
+                        <li ng-repeat="track in tracklist">{{track.name}}</li>
+                    </ul>
+                    <p><button ng-click="reset()">Voltar</button></p>
+
+                </div>
+            </div>
+            <div style="width: 50%; float: left;">
+                <textarea style="width: 100%;" rows=20 >{{ tracklist | filter:toJson }}</textarea>
+            </div>
+        </div>
+    </body>
+</html>
