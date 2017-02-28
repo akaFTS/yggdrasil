@@ -1,5 +1,11 @@
 angular.module("companionApp", [])
 
+.config(function($sceProvider) {
+  // Completely disable SCE.  For demonstration purposes only!
+  // Do not use in new projects.
+  $sceProvider.enabled(false);
+})
+
 .controller("companionCtrl", function($scope, $http) {
 
     $scope.curSkill = {};
@@ -19,6 +25,13 @@ angular.module("companionApp", [])
         $scope.loadedTrack = undefined;
         $scope.isLoaded = false;
         $scope.tracklist = "";
+    }
+
+    $scope.loadSkill = function() {
+        $http.get("http://bcc.ime.usp.br/catalogo2017/disciplinas/"+$scope.curSkill.code+".html").then(function(data) {
+            $scope.website = data.data;
+            
+        });
     }
 
     $scope.addSkill = function() {

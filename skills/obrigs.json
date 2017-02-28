@@ -2,42 +2,96 @@
     "name": "Introdução à Computação",
     "code": "MAC0110",
     "semester": 1,
-    "icon": "wz_waterball",
+    "icon": "mg_firebolt",
     "description": "Breve história da computação.  Algoritmos: caracterização, notação, estruturas básicas.  Computadores: unidades básicas, instruções, programa armazenado, endereçamento, programas em linguagem de máquina.  Conceitos de linguagens algorítmicas: expressões; comandos seqüenciais, seletivos e repetitivos; entrada/saída; variáveis estruturadas; funções.  Desenvolvimento e documentação de programas.  Exemplos de processamento não-numérico.  Extensa prática de programação e depuração de programas.",
-    "position": [0, 2]
+    "position": [0, 2],
+    "credits": 4
 }, {
     "name": "Integração na Universidade e na Profissão",
     "code": "MAC0101",
     "semester": "1",
     "icon": "nv_basic",
     "description": "Apresentar o Bacharelado em Ciência da Computação (BCC) aos estudantes que acabaram de ingressar no curso. Orientar os estudantes sobre as várias possibilidades de formação como indivíduos, como cidadãos e como cientistas da computação que a Universidade de São Paulo, o Instituto de Matemática e Estatística e o Departamento de Ciência da Computação (DCC) oferecem. Expandir os conceitos que os estudantes tem sobre Ciência da Computação e apresentá-los aos recursos disponibilizados a eles pelo DCC. Além disso, está disciplina é um lugar onde os estudantes podem constituir grupos de interesse e estender seus horizontes dentro do DCC.",
-    "position": [0, 0]
+    "position": [0, 0],
+    "credits": 2
 }, {
     "name": "Fundamentos de Matemática para a Computação",
     "code": "MAC0105",
     "semester": "1",
     "icon": "ac_increaseagi",
     "description": "Discurso matemático: leitura e escrita matemática. Estratégias de demonstrações. Princípio da indução finita. Sequências, somas, recorrências e contagem. Algoritmo de Euclides. Divisibilidade nos inteiros. Sistemas de numeração. MDC e MMC. Teorema de Bézout. Teorema fundamental da aritmética. Congruências. O anel dos inteiros módulo m. Os corpos Zp. Relações de equivalência, conjunto quociente, definição de funções e operações no conjunto quociente. Ordem, fecho transitivo de relações. Conjuntos infinitos.",
-    "position": [0, 1]
+    "position": [0, 1],
+    "credits": 4
 }, {
     "name": "Álgebra Booleana e Circuitos Digitais",
     "code": "MAC0329",
     "semester": "1",
-    "icon": "bl_irontemper",
+    "icon": "kn_pierce",
     "description": "Sistemas de representação numérica: bases binária, octal e hexadecimal, conversão entre bases, aritmética com números binários. Noções de circuitos lógicos: funções lógicas, tabelas-verdade, portas lógicas. Noções de organização de computadores. Expressões booleanas: formas canônicas e suas formas minimais, mapas de Karnaugh e outros métodos para minimização de expressões booleanas. PLA e circuitos combinacionais. Circuitos sequenciais: flip-flops e registradores, noções de análise e projeto de circuitos sequenciais. Exemplos de circuitos: somadores, subtratores, multiplicadores, divisores, verificadores de paridade, decodificadores, seletores ou multiplexadores, demultiplexadores, comparadores, conversores de código, deslocadores e contadores. Álgebra booleana: definição axiomática, exemplos (álgebra de conjuntos, cálculo proposicional, funções lógicas), propriedades, e ordens parciais em álgebras booleanas.",
-    "position": [0, 3]
+    "position": [0, 3],
+    "credits": 4
 }, {
     "name": "Cálculo Diferencial e Integral I",
     "code": "MAT2453",
     "semester": "1",
     "icon": "ar_vulture",
     "description": "Funções trigonométricas. Funções exponenciais. Função composta e função inversa. Limites: noção intuitiva, propriedades algébricas. Teorema do Confronto. Continuidade. Derivadas: definição, interpretações geométrica e física. Regras de derivação, regra de cadeia, derivada da função inversa e derivação implícita. Aplicações. Teorema do valor médio e consequências. Regras de L'Hospital. Gráficos. Resolução de problemas de Máximos e Mínimos. Integral de Riemann. Técnicas de integração. Aplicações: cálculos de volumes de revolução, comprimento de curvas. Fórmula de Taylor.",
-    "position": [0, 4]
+    "position": [0, 4],
+    "credits": 6
 }, {
     "name": "Vetores e Geometria",
     "code": "MAT0112",
     "semester": "1",
-    "icon": "cr_holycross",
+    "icon": "cr_resistantsouls",
     "description": "Vetores, operações, módulo de um vetor, ângulo de dois vetores. Dependência linear, bases, mudança de bases. Sistema de coordenadas no espaço, transformação de coordenadas. Bases ortogonais, matrizes ortogonais, produto escalar. Orientação do espaço, produto vetorial. Equações vetoriais da reta e do plano no espaço. Paralelismo entre retas e planos. Ortogonalidade entre retas e planos. Distância de dois pontos, de ponto a uma reta e a um plano. Áreas e volumes. Curvas planas, cônicas. Curvas e superfícies no espaço. Noções sobre quádricas.",
-    "position": [0, 5]
+    "position": [0, 5],
+    "credits": 4
+}, {
+    "code": "MAC0121",
+    "name": "Algoritmos e Estruturas de Dados I",
+    "semester": "2",
+    "credits": "4",
+    "description": "Noções de correção e desempenho de algoritmos. Noções de tipos abstratos de dados. Vetores e matrizes. Alocação dinâmica de memória. Apontadores. Listas ligadas. Árvores binárias. Pilhas e filas. Noções de filas de prioridade. Recursão. Algoritmos de ordenação. Processamento elementar de texto. Tabelas de símbolos elementares, incluindo árvores binárias de busca. Noções de estratégias algorítmicas.",
+    "icon": "wz_meteorstorm",
+    "position": [1, 2]
+}, {
+    "code": "MAC0216",
+    "name": "Técnicas de Programação I",
+    "description": "Arquitetura de computadores. Linguagem de montagem e ligação de código objeto. Interação com o sistema operacional e Shell scripts. Gerenciamento de compilação de programas Modularização de código. Bibliotecas estáticas e dinâmicas. Teste e depuração. Linguagens procedimentais de alto nível. Linguagens dinâmicas de script. Introdução aos conceitos de orientação a objetos.",
+    "credits": "4",
+    "semester": "2",
+    "icon": "kn_spearstab",
+    "position": [1, 3]
+}, {
+    "code": "MAC0239",
+    "name": "Introdução à Lógica e Verificação de Programas",
+    "semester": "2",
+    "icon": "mn_summonsphere",
+    "credits": "4",
+    "description": "Lógica Proposicional Clássica: Os conectivos Booleanos e a linguagem da LPC. Semântica clássica. Tabelas da Verdade. Implicação Lógica. Equivalência Lógica e formas normais. Métodos de prova e inferência lógica, tais como Axiomatizações, Dedução Natural e métodos de Tableaux. Noções sobre correção e completude. Algoritmo ingênuo e não-determinístico de decisão da satisfazibilidade (SAT). Lógica de Primeira Ordem: Linguagem, e semântica em termos de estruturas relacionais. Implicação Lógica, Equivalência Lógica e forma normal prenex. Extensão dos Métodos de prova e inferência lógica para LPO, tais como Axiomatizações. Dedução Natural e métodos de Tableaux. Verificação de Programas pelo método Lógica de Hoare extendendo LPO: Semântica axiomática dos comandos básicos de programação. Lógica de Hoare. Pré- e pós-condições. Comandos nulos, atribuição, seleção, iteração; Invariantes. Terminação. Exemplos clássicos de provas de correção parcial e correção total de programas.",
+    "position": [1, 0]
+}, {
+    "code": "MAE0119",
+    "name": "Introdução à Probabilidade e à Estatística",
+    "semester": "2",
+    "credits": "6",
+    "description": "Estatística Descritiva uni e bidimensional. Probabilidade. Variáveis aleatórias e principais distribuições discretas e contínuas. Aproximação normal. Distribuições amostrais e Teorema Limite Central. Estimadores e propriedades. Estimação pontual e por intervalo. Testes de hipóteses para uma média, uma proporção. Testes de comparação de médias e proporções; Testes qui-quadrado. Teste de Hipóteses para Variância. Regressão e correlação.",
+    "icon": "sg_study",
+    "position": [1, 1]
+}, {
+    "code": "MAT2454",
+    "name": "Cálculo Diferencial e Integral II",
+    "semester": "2",
+    "credits": "4",
+    "icon": "ar_doublestrafe",
+    "description": "Limites e derivadas de funções de duas ou mais variáveis; Teorema de Schwarz; Fórmula de Taylor; Máximos e Mínimos; Multiplicadores de Lagrange.",
+    "position": [1, 4]
+}, {
+    "code": "MAT0122",
+    "name": "Álgebra Linear I",
+    "semester": "2",
+    "credits": "4",
+    "description": "Espaços vetoriais: definição, subespaços, dependência linear, bases, dimensão. Cálculo matricial,\ndeterminantes, sistemas lineares. Transformações lineares e matrizes, núcleo, imagem, posto. Espaços com\nproduto interno: produto interno, norma, ortogonalidade, processo de Gram-Schmidt, complemento ortogonal,\nprojeção. Autovalores e autovetores.",
+    "icon": "cr_holycross",
+    "position": [1, 5]
 }]

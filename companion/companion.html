@@ -26,12 +26,16 @@
                         <br>
                         <label>Código</label>
                         <input type="text" ng-model="curSkill.code">
+                        <button ng-click="loadSkill()">Carregar</button>
                         <br>
                         <label>Semestre Ideal</label>
                         <input type="text" ng-model="curSkill.semester">
                         <br>
                         <label>Ícone</label>
                         <input type="text" ng-model="curSkill.icon">
+                        <br>
+                        <label>Créditos</label>
+                        <input type="text" ng-model="curSkill.credits">
                         <br>
                         <label>Ementa</label>
                         <textarea ng-model="curSkill.description" rows=8></textarea>
@@ -51,6 +55,7 @@
             </div>
             <div style="width: 50%; float: left;">
                 <textarea style="width: 100%;" rows=20 >{{ tracklist | filter:toJson }}</textarea>
+                <div ng-bind-html="website"></div>
             </div>
         </div>
     </body>
