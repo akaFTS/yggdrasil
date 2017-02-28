@@ -82,4 +82,95 @@
     "credits": "4",
     "description": "Espaços vetoriais: definição, subespaços, dependência linear, bases, dimensão. Cálculo matricial,\ndeterminantes, sistemas lineares. Transformações lineares e matrizes, núcleo, imagem, posto. Espaços com\nproduto interno: produto interno, norma, ortogonalidade, processo de Gram-Schmidt, complemento ortogonal,\nprojeção. Autovalores e autovetores.",
     "position": [1, 5]
+}, {
+    "code": "MAC0102",
+    "name": "Caminhos no Bacharelado em Ciência da Computação",
+    "semester": "3",
+    "credits": "2",
+    "description": "Apresentar o Bacharelado em Ciência da Computação (BCC) aos estudantes que estão prestes a selecionar as suas disciplinas optativas eletivas e livres e eventuais trilhas do BCC que desejam seguir. Orientar os estudantes sobre as várias possibilidades de formação como cientistas da computação que a Universidade de São Paulo, o Instituto de Matemática e Estatística e o Departamento de Ciência da Computação (DCC) oferecem. Expandir os conceitos que os estudantes tem sobre Ciência da Computação e apresentar os diversos grupos de pesquisa do DCC.",
+    "position": [2, 0]
+}, {
+    "code": "MAC0209",
+    "name": "Modelagem e Simulação",
+    "semester": "3",
+    "credits": "4",
+    "description": "Estudo de aspectos da pesquisa científica e seus métodos. Realização de experimentos simples em sala de aula, conceituação de medidas, leis, corroboração, falseamento, levando à modelagem matemática, determinística e estocástica de sistemas físicos. Realização computacional de modelos, com simulações apresentadas na forma analítica e de animações gráficas, em ambientes computacionais especializados para simulação e animação. Estudos de caso: principalmente fenômenos da mecânica clássica com modelos contínuos.",
+    "position": [2, 3]
+}, {
+    "code": "MAC0210",
+    "name": "Laboratório de Métodos Numéricos",
+    "semester": "3",
+    "credits": "4",
+    "description": "Introduzir conhecimentos práticos sobre técnicas modernas de computação científica. Sem abandonar o rigor matemático, a disciplina enfatiza os aspectos computacionais dos algoritmos introduzidos, analisando seus alcances e limitações. Diferentes algoritmos para a resolução do mesmo problema são abordados, enfatizando a análise de erros e a eficiência computacional. A abordagem algorítmica da disciplina está focada em técnicas de grande aplicação prática nas áreas de ciência da computação, engenharia e matemática industrial.",
+    "position": [2, 5]
+}, {
+    "code": "MAC0323",
+    "name": "Algoritmos Estruturas de Dados II",
+    "semester": "3",
+    "credits": "4",
+    "description": "Tipos abstratos de dados e suas implementações. Tabelas de símbolos: árvores de busca balanceadas, tabelas de espalhamento (hashing). Grafos: busca em profundidade, busca em largura. Processamento de texto: expressões regulares, busca de padrões, compressão de dados.",
+    "position": [2, 2]
+}, {
+    "code": "MAT0236",
+    "name": "Funções Diferenciáveis e Séries",
+    "semester": "3",
+    "credits": "4",
+    "description": "-------",
+    "position": [2, 4]
+}, {
+    "code": "MAC0316",
+    "name": "Conceitos Fundamentais de Linguagens de Programação",
+    "semester": "4",
+    "credits": "4",
+    "description": "Linguagens funcionais. Funções como valores de primeira ordem; polimorfismo; ambientes e fechamentos; avaliação \"adiada\"; linguagens funcionais; linguagens orientadas a objetos. Tipos abstratos de dados. Módulos. Herança e hierarquias. Linguagens lógicas. Predicados, cláusulas e o modelo de unificação. Implementação dos vários paradigmas em um interpretador; compilação vs implementação. Administração de memória; pilha vs heap; coleta de lixo.",
+    "position": [3, 1]
+}, {
+    "code": "MAC0338",
+    "name": "Análise de Algoritmos",
+    "semester": "4",
+    "credits": "4",
+    "description": "Análise da correção e do desempenho de algoritmos. Análise amortizada de estruturas dinâmicas. Paradigmas de projeto de algoritmos. Estudo de casos. Introdução à complexidade computacional.",
+    "position": [3, 2]
+}, {
+    "code": "MAC0422",
+    "name": "Sistemas Operacionais",
+    "semester": "4",
+    "credits": "4",
+    "description": "Introdução a arquiteturas: convencionais, multiprocessadores, paralelas com memória distribuída e redes. Multiprocessamento e multiprogramação. Gerenciamento de memória: memória real vs virtual, paginação e segmentação, memória cache. Processos: estados, contexto, gerenciamento pelo kernel, escalonamento, sinais e interrupções. Comunicação local: pipes, FIFOs, message queues, memória compartilhada. Comunicação remota: síncrona, assíncrona, sockets, chamada remota de procedimentos (RPC) e rendezvous. Protocolos de comunicação em redes: IP, TCP, UDP.  Threads: gerenciamento, sincronização, semáforos, regiões críticas condicionais, monitores. Entrada e saída: aspectos de hardware e software, dispositivos de bloco e caracteres (terminais, discos, relógio, rede), independência de dispositivo, drivers. Sistemas de arquivos. Tipos de arquivos: seqüenciais, acesso indexado, acesso direto, diretórios hierárquicos, organização física e acesso a arquivos, mecanismos de proteção distribuída. Segurança.",
+    "position": [3, 3]
+}, {
+    "code": "MAC0350",
+    "name": "Introdução ao Desenvolvimento de Sistemas de Software",
+    "semester": "5",
+    "credits": "4",
+    "description": "Princípios e técnicas de desenvolvimento de sistemas de software de média escala. Arquitetura de software. Manutenção de software. Testes de software. Persistência de dados. Modelo entidade relacionamento e modelo relacional.",
+    "position": [4, 3]
+}, {
+    "code": "MAC0499",
+    "name": "Trabalho de Formatura Supervisionado",
+    "semester": "7",
+    "credits": "16",
+    "description": "O aluno desenvolverá durante um ano um trabalho de formatura sob supervisão de um docente do Departamento. O trabalho deverá discorrer sobre alguma experiência acadêmica ou profissional do aluno obtida durante a realização de estágio ou participação do programa de Iniciação Científica.",
+    "position": [6, 0]
+}, {
+    "code": "MAC0499",
+    "description": "O aluno desenvolverá durante um ano um trabalho de formatura sob supervisão de um docente do Departamento. O trabalho deverá discorrer sobre alguma experiência acadêmica ou profissional do aluno obtida durante a realização de estágio ou participação do programa de Iniciação Científica.",
+    "credits": "16",
+    "semester": "8",
+    "name": "Trabalho de Formatura Supervisionado",
+    "position": [7, 0]
+}, {
+    "code": "FLC0474",
+    "semester": "7",
+    "credits": "3",
+    "name": "Língua Portuguesa",
+    "description": "-------",
+    "position": [7, 1]
+}, {
+    "code": "---",
+    "semester": "4",
+    "credits": "4",
+    "name": "Optativa de Ciências",
+    "description": "Optativa a ser cursada no IAG, IF ou outro instituto.",
+    "position": [3, 0]
 }]
