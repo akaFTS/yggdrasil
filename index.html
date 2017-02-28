@@ -2,6 +2,7 @@
     <head>
         <title>Yggdrasil - BCC</title>
         <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         <!-- STYLES -->
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -45,7 +46,7 @@
                                 <div class="skill" ng-repeat="skill in row" ng-class="{'empty' : skill.empty, 'selected' : (skill == selectedSkill && showPanel)}" ng-click="selectSkill(skill)">
                                     <div class="skill-name">{{skill.name}}</div>
                                     <div class="empty-skill-icon" ng-if="skill.empty"></div>
-                                    <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.icon}}.gif">
+                                    <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
                                     <div class="skill-code blue">{{skill.code}}</div>   
                                 </div>
                             </div>
