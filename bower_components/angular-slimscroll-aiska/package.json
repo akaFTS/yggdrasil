@@ -1,0 +1,35 @@
+{
+  "name": "angular-slimscroll-aiska",
+  "version": "1.0.0",
+  "description": "Angular JS implementation of jQuery-slimScroll without JQuery Dependencies",
+  "main": "angular-slimScroll.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "gulp-closure-compiler": "^0.4.0",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiska/angular-slimScroll.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "directive",
+    "slimscroll",
+    "scroller",
+    "scroll"
+  ],
+  "author": "Aiska Hendra <aiskahendra@gmail.com> (http://aiskahendra.wordpress.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aiska/angular-slimScroll/issues"
+  },
+  "homepage": "https://github.com/aiska/angular-slimScroll#readme"
+}

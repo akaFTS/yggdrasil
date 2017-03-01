@@ -1,0 +1,38 @@
+{
+  "name": "angular-slimscroll-aiska",
+  "main": "angular-slimscroll-aiska.js",
+  "homepage": "https://github.com/aiska/angular-slimScroll",
+  "authors": [
+    "Aiska Hendra <aiskahendra@gmail.com>"
+  ],
+  "description": "AngularJS implementation of slimScroll",
+  "moduleType": [],
+  "keywords": [
+    "AngularJS",
+    "directive",
+    "slimscroll",
+    "scroller",
+    "scroll"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0"
+  },
+  "_release": "8c709fc0d3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8c709fc0d3c34a22b9bb496cb6089715992b6730"
+  },
+  "_source": "https://github.com/aiska/angular-slimScroll.git",
+  "_target": "*",
+  "_originalSource": "angular-slimScroll",
+  "_direct": true
+}

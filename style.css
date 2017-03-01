@@ -36,6 +36,12 @@ body {
     color: #999;
 }
 
+.header .subtitle .beta {
+    font-size:12px;
+    position: relative;
+    top: -8px;
+}
+
 .content .skill-list {
     border-right: 1px solid #DDD;
 }
@@ -270,7 +276,7 @@ body {
 
 .footer {
     text-align: center;
-    padding: 5px 0;
+    padding: 5px;
     font-size: 13px;
     color: #888;
 }
@@ -282,7 +288,7 @@ body {
     }
 
     .content .skill-list .skill-box .skill-wrap {
-        width: 25%;
+        width: 23%;
         flex-shrink: 0;
     }
 
@@ -292,6 +298,12 @@ body {
 
     .drawer-skill-info.archived {
         right: -70%;
+    }
+
+    .footer {
+        padding: 5px 10px;
+        font-size: 11px;
+        color: #999;
     }
 }
 
