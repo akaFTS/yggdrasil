@@ -19,7 +19,7 @@ angular.module("yggdrasil", [])
             $scope.selectedSkill = skill;
 
             //marcar nos analytics
-            FB.AppEvents.logEvent("viewedSkill");
+            FB.AppEvents.logEvent("viewedSkill", null, {"skill" : skill.code});
         }
     }
 
