@@ -34,20 +34,25 @@
             <div class="col-md-8 nopadding">
                 <div class="skill-list">
                     <div ng-repeat="track in tracks">
-                        <div class="skill-title blue">
+                        <div class="skill-title blue" ng-click="track.collapsed = !track.collapsed">
                             {{track.name}}
-                            <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'" ng-click="track.collapsed = !track.collapsed"></div>
+                            <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                         </div>
                         <div class="skill-box" ng-hide="track.collapsed">
                             <div class="skill-img-wrap hidden-xs hidden-sm">
                                 <img ng-src="images/{{track.icon}}.png" class="skill-img">
                             </div>
                             <div ng-repeat="row in track.skills" class="skill-row">
-                                <div class="skill" ng-repeat="skill in row" ng-class="{'empty' : skill.empty, 'selected' : (skill == selectedSkill && showPanel)}" ng-click="selectSkill(skill)">
-                                    <div class="skill-name">{{skill.name}}</div>
-                                    <div class="empty-skill-icon" ng-if="skill.empty"></div>
-                                    <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
-                                    <div class="skill-code blue">{{skill.code}}</div>   
+                                <div class="skill-wrap" ng-repeat="skill in row" ng-class="getBlockClasses(skill)">
+                                    <div class="skill" ng-click="selectSkill(skill)" ng-class="getSkillClasses(skill)">
+                                        <div class="skill-name">{{skill.name}}</div>
+                                        <div class="empty-skill-icon" ng-if="skill.empty"></div>
+                                        <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
+                                        <div class="skill-code blue">{{skill.code}}</div>
+                                    </div>
+                                    <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="getLabelClasses(skill)">
+                                        <b>{{skill.block.name}}</b> ({{skill.block.rate}})
+                                    </div>   
                                 </div>
                             </div>
                         </div>

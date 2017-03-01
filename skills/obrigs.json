@@ -115,7 +115,7 @@
     "name": "Funções Diferenciáveis e Séries",
     "semester": "3",
     "credits": "4",
-    "description": "-------",
+    "description": "Funções diferenciáveis de R^n em R^p. Regra da Cadeia. Funções de classe C^k. Teorema da Função Implícita para funções de R^2 em R (enunciado e demonstração). Enunciado dos teoremas da função inversa e implícita para funções de R^n em R^p. Método dos multiplicadores de Lagrange para funções em R^n sujeitas a p vínculos. Sequências e séries numéricas. Critérios de convergência. Sequências e séries de funções. Convergência pontual e uniforme. Derivação e integração termo a termo. Séries de potências.",
     "position": [2, 4]
 }, {
     "code": "MAC0316",
@@ -164,7 +164,7 @@
     "semester": "7",
     "credits": "3",
     "name": "Língua Portuguesa",
-    "description": "-------",
+    "description": "Aspectos linguísticos e discursivos do texto acadêmico. Análise de textos acadêmicos com ênfase aos da área de especialidade (Ciências Exatas: Ciências da Computação, Estatística e Matemática), do ponto de vista da estrutura linguística e discursiva. Produção e edição de textos acadêmicos da área de especialidade (Ciências Exatas: Ciências da Computação, Estatística e Matemática).",
     "position": [7, 1]
 }, {
     "code": "---",
@@ -173,4 +173,25 @@
     "name": "Optativa de Ciências",
     "description": "Optativa a ser cursada no IAG, IF ou outro instituto.",
     "position": [3, 0]
+}, {
+    "code": "MAE0217",
+    "name": "Estatística Descritiva",
+    "semester": "3",
+    "credits": "4",
+    "description": "Introdução: estatística descritiva e inferência estatística, tipos de dados, bancos de dados, ordem de grandeza, precisão e arredondamento de dados quantitativos, proporções e porcentagens, taxas e números índices, sugestões para construção e apresentação de gráficos e tabelas. Representação gráfica e tabular da distribuição de dados: tabelas de frequências, gráficos de barras e do tipo \"torta\", histogramas, função de distribuição empírica. Medidas resumo: medidas de posição, de dispersão, de assimetria e curtose, gráficos do tipo \"boxplot\". Modelos para distribuições de frequências: gráficos de probabilidade, estatística de Pearson para avaliação de aderência. Associação entre variáveis qualitativas: tabelas de contingência, coeficientes de associação, sensitividade e especificidade, risco relativo, razão de chances. Associação entre uma variável quantitativa e uma variável qualitativa: homogeneidade de distribuições (análise de variância com um fator), gráficos de médias, gráficos de perfis, regressão logística. Associação entre variáveis quantitativas: gráficos de dispersão, correlação linear, concordância, gráficos de perfis, regressão linear simples, suavização. Associação entre três ou mais variáveis: tabelas de contingência de múltiplas entradas, distribuições multivariadas, matrizes de covariâncias, análise de variância com dois ou mais fatores, regressão linear múltipla. Outros tópicos: elaboração de relatórios técnicos, análise de sobrevivência e tábuas atuariais, modelos estatísticos (parametrização e identificabilidade).",
+    "position": [5, 3]
+}, {
+    "name": "Probabilidade I",
+    "code": "MAE0221",
+    "semester": "3",
+    "credits": "6",
+    "description": "Contagem: princípio multiplicativo, permutações, combinações. Espaço de probabilidade. Probabilidade condicional e independência. Variáveis e vetores aleatórios: definição, caracterizações e propriedades. Esperança matemática, funções geradoras de probabilidade e de momentos e suas propriedades. Principais distribuições de probabilidade (univariadas e multivariadas): uniforme discreta, Bernoulli, binomial, geométrica, Poisson, binomial negativa, hipergeométrica, multinomial, exponencial, normal, Cauchy e uniforme contínua. Transformações de variáveis: direta e método do jacobiano. Distribuição da soma, produto e quociente de variáveis aleatórias. Estatísticas de ordem, distribuições t-Student, F-Snedecor, qui-quadrado, gama, beta e suas relações. Distribuição normal multivariada e propriedades. Lei dos grandes números. Teorema limite central.",
+    "position": [5, 4]
+}, {
+    "name": "Noções de Probabilidade e Processos Estocásticos",
+    "code": "MAE0228",
+    "semester": "3",
+    "credits": "4",
+    "description": "Probabilidade em espaços amostrais discretos. Probabilidade condicional e independência. Variáveis aleatórias discretas: binomial, hipergeométrica, geométrica e Poisson. Variáveis aleatórias contínuas: exponencial e gama. Noções gerais sobre processos estocásticos. Cadeias de Markov a parâmetro discreto: definição, probabilidade de transição, classificação dos estados e medidas de probabilidade invariantes. Processo de Poisson: propriedades e aplicações. Noções de cadeias de Markov a parâmetro contínuo.",
+    "position": [5, 5]
 }]

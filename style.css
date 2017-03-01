@@ -56,7 +56,7 @@ body {
     height: 0;
 }
 
-.content .skill-list .skill-title .arrow:hover {
+.content .skill-list .skill-title:hover {
     cursor: pointer;
 }
 
@@ -105,12 +105,59 @@ body {
     justify-content: left;
 }
 
+.content .skill-list .skill-box .skill-wrap {
+    width: 16.5%;
+    margin-bottom: 20px;    
+    position: relative;
+}
+
+.content .skill-list .skill-box .skill-wrap .block-label {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    width: 150%;
+    margin-left: -25%;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-top-left {
+    border-top-left-radius: 8px;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-top-right {
+    border-top-right-radius: 8px;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-bottom-left {
+    border-bottom-left-radius: 8px;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-bottom-right {
+    border-bottom-right-radius: 8px;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-top {
+    border-top: 3px solid transparent;
+}
+.content .skill-list .skill-box .skill-wrap.block-bottom {
+    border-bottom: 3px solid transparent;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-left {
+    border-left: 3px solid transparent;
+}
+
+.content .skill-list .skill-box .skill-wrap.block-right {
+    border-right: 3px solid transparent;
+}
+
 .content .skill-list .skill-box .skill {
     text-align: center;
-    width: 16.5%;
-    margin-bottom: 20px;
     padding: 5px;
     border-radius: 8px;
+    width: 100%;
 }
 
 .content .skill-list .skill-box .skill:not(.empty):hover {
@@ -165,12 +212,6 @@ body {
     background-color: white;
     transition: 0.4s;
     transition-timing-function: ease-out;
-}
-
-@media(max-width: 992px) {
-    .drawer-skill-info {
-        width: 70%;
-    }
 }
 
 .drawer-skill-info.archived {
@@ -234,6 +275,16 @@ body {
     color: #888;
 }
 
+@media(max-width: 992px) {
+    .drawer-skill-info {
+        width: 70%;
+    }
+
+    .drawer-skill-info.archived {
+        right: -70%;
+    }
+}
+
 .blue {
     color: #3F51B5 !important;
 }
@@ -244,6 +295,22 @@ body {
 
 .border-blue {
     border-color: #3F51B5 !important;
+}
+
+.green {
+    color: #4CAF50 !important;
+}
+
+.border-green {
+    border-color: #4CAF50 !important;
+}
+
+.bg-green {
+    background-color: #4CAF50 !important;
+}
+
+.bg-light-green {
+    background-color: #E8F5E9;
 }
 
 .bold {

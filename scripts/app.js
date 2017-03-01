@@ -25,7 +25,57 @@ angular.module("yggdrasil", [])
         }, 500);
     }
 
+    $scope.getSkillClasses = function (skill) {
+
+        var classes = [];
+
+        if(skill.empty)
+            classes.push("empty");
+
+        if(skill == $scope.selectedSkill && $scope.showPanel)
+            classes.push("selected");
+
+        return classes;
+    }
+
+    $scope.getBlockClasses = function (skill) {
+
+        var classes = [];
+
+        if(skill.block) {
+
+            //adicionar as cores
+            classes.push("bg-light-"+skill.block.color);
+            classes.push("border-"+skill.block.color);
+
+            //adicionar as bordas
+            angular.forEach(skill.block_position_x, function(pos) {
+                classes.push("block-"+pos);
+                angular.forEach(skill.block_position_y, function(side) {
+                    classes.push("block-"+pos+"-"+side);
+                });
+            });
+            angular.forEach(skill.block_position_y, function(side) {
+                classes.push("block-"+side);
+            });
+        }
+
+        return classes;
+    }
+
+    $scope.getLabelClasses = function(skill) {
+        var classes = [];
+
+        if(skill.block) {
+            classes.push("bg-"+skill.block.color);
+        }
+
+        return classes;
+    }
+
     $scope.tracks = trackService.getTracks();
+    $scope.angular = angular;
+
 })
 
 .service("trackService", function(skillService) {
@@ -72,7 +122,7 @@ angular.module("yggdrasil", [])
     }
 })
 
-.service("skillService", function($http) {
+.service("skillService", function($http, blockService) {
 
     //0 = obrigatorias, 1 = teoria,
     //2 = sistemas, 3 = IA, 4 = e-science
@@ -85,6 +135,21 @@ angular.module("yggdrasil", [])
         $http.get("skills/"+options[track]+".json").then(function(data) {
             angular.forEach(data.data, function(item) {
                 skills[item.position[0]][item.position[1]] = item;
+            });
+
+            blockService.getBlocks(track).then(function(blocks) {
+                angular.forEach(blocks, function(block) {
+                    skills[5][3].block = block;
+                    skills[5][3].block_position_x = ["top","bottom"];
+                    skills[5][3].block_position_y = ["left"];
+
+                    skills[5][4].block = block;
+                    skills[5][4].block_position_x = ["top", "bottom"];
+
+                    skills[5][5].block = block;
+                    skills[5][5].block_position_x = ["top","bottom"];
+                    skills[5][5].block_position_y = ["right"];
+                });
             });
         });
 
@@ -101,5 +166,26 @@ angular.module("yggdrasil", [])
             }
         }
         return rows;
+    }
+})
+
+.service("blockService", function($http, $q) {
+
+    this.getBlocks = function(track) {
+
+        var deferred = $q.defer();
+
+        var blocks = [];
+
+        $http.get("skills/blocks.json").then(function(data) {
+            angular.forEach(data.data, function(block) {
+                if(block.track == track)
+                    blocks.push(block);
+            });
+
+            deferred.resolve(blocks);
+        })
+
+        return deferred.promise;
     }
 })
