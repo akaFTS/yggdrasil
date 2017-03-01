@@ -50,7 +50,7 @@
                                         <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
                                         <div class="skill-code blue">{{skill.code}}</div>
                                     </div>
-                                    <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="getLabelClasses(skill)">
+                                    <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="'bg-'+skill.block.color">
                                         <b>{{skill.block.name}}</b> ({{skill.block.rate}})
                                     </div>   
                                 </div>
