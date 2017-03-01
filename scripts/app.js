@@ -19,7 +19,6 @@ angular.module("yggdrasil", [])
             $scope.selectedSkill = skill;
 
             //marcar nos analytics
-            FB.AppEvents.logEvent("viewedSkill", null, {"skill" : skill.code});
         }
     }
 
@@ -41,7 +40,6 @@ angular.module("yggdrasil", [])
         //abre e marca no analytics
         else {
             track.collapsed = true;
-            FB.AppEvents.logEvent("openTrack", null, {"track": track});
         }
     }
 
