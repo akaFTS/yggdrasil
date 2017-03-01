@@ -31,6 +31,20 @@ angular.module("yggdrasil", [])
         }, 500);
     }
 
+    //abre ou fecha um painel
+    $scope.toggleTrack = function(track) {
+
+        //fecha
+        if(track.collapsed)
+            track.collapsed = false;
+
+        //abre e marca no analytics
+        else {
+            track.collapsed = true;
+            FB.AppEvents.logEvent("openTrack", null, {"track": track});
+        }
+    }
+
     //retorna um array de classes CSS para o objeto daquela skill.
     $scope.getSkillClasses = function (skill) {
         var classes = [];
