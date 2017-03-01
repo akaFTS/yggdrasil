@@ -6,7 +6,7 @@ body {
 .header {
     background-color: #F0F0F0;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px;
     border-bottom: 1px solid #DDD;
     display: flex;
     justify-content: center;
@@ -281,15 +281,23 @@ body {
     color: #888;
 }
 
-@media(max-width: 992px) {
+@media(max-width: 767px) {
 
     .content .skill-list .skill-box .skill-row {
         overflow-x: scroll;
+        overflow-y: hidden;
     }
 
     .content .skill-list .skill-box .skill-wrap {
         width: 23%;
         flex-shrink: 0;
+    }
+
+    .content .skill-list .skill-box .skill-wrap .block-label {
+        font-size: 10px;
+        padding: 3px;
+        width: 200%;
+        margin-left: -50%;
     }
 
     .drawer-skill-info {

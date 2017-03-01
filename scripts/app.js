@@ -1,4 +1,4 @@
-angular.module("yggdrasil", ['ngSlimScroll'])
+angular.module("yggdrasil", [])
 
 
 //controller do sistema
