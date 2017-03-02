@@ -97,13 +97,6 @@ angular.module("yggdrasil", [])
         tracks.push(tmptrack);
 
         tmptrack = {};
-        tmptrack.name = "Teoria da Computação";
-        tmptrack.icon = "mestre";
-        tmptrack.skills = skillService.getSkills(1, 8);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
-
-        tmptrack = {};
         tmptrack.name = "Sistemas de Software";
         tmptrack.icon = "algoz";
         tmptrack.skills = skillService.getSkills(2, 3);
@@ -114,6 +107,7 @@ angular.module("yggdrasil", [])
         tmptrack.name = "Inteligência Artificial";
         tmptrack.icon = "arquimago";
         tmptrack.skills = skillService.getSkills(3, 3);
+        tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         tmptrack = {};
@@ -121,6 +115,12 @@ angular.module("yggdrasil", [])
         tmptrack.icon = "criador";
         tmptrack.skills = skillService.getSkills(4, 2);
         tmptrack.collapsed = true;
+        tracks.push(tmptrack);
+
+        tmptrack = {};
+        tmptrack.name = "Teoria da Computação";
+        tmptrack.icon = "mestre";
+        tmptrack.skills = skillService.getSkills(1, 8);
         tracks.push(tmptrack);
 
         return tracks;

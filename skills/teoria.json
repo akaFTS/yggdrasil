@@ -1,1 +1,38 @@
-[]
+[{
+    "code": "MAC0328",
+    "name": "Algoritmos em Grafos",
+    "description": "Conexão de grafos: componentes, grafos biconexos. Digrafos fortemente conexos (algoritmo de Kosaraju-Sharir, algoritmo de Tarjan) Emparelhamentos máximos em grafos bipartidos. Emparelhamentos em grafos arbitrários (algoritmo de Edmonds). Fluxo máximo (algoritmo de Ford-Fulkerson). Coloração de vértices. Circuitos hamiltonianos. Tópicos opcionais: link analysis, network analysis, redes aleatórias.",
+    "credits": "4",
+    "position": [0, 0]
+}, {
+    "code": "MAC0414",
+    "name": "Autômatos, Computabilidade e Complexidade",
+    "credits": "4",
+    "description": "Palavras, linguagens, operações sobre linguagens. Linguagens regulares. Autômatos finitos determinísticos e não determinísticos. Teorema de Kleene. Autômatos reduzidos. Modelos de computação; máquinas de Turing. Tese de Church. Redutibilidade e problemas indecidíveis. Complexidade, problemas decidíveis em tempo polinomial. Não-determinismo versus determinismo. Redutibilidade e problemas NP-completos. Teorema de Cook-Levin.",
+    "position": [0, 1]
+}, {
+    "code": "MAC0325",
+    "name": "Otimização Combinatória",
+    "description": "O escopo da otimização combinatória e programação inteira. Modelagem de vários problemas usando variáveis 0/1. O problema do transporte. Especialização do método simplex para redes. Aplicações: teorema de Hall, teorema de König, teorema de Dilworth. O problema do transporte capacitado: o método primal-dual. Algoritmos para fluxos máximos em redes. Fluxos de custo mínimo e circulações viáveis: o método \"out-of-kilter\". Estudo aprofundado de poliedros de alguns problemas não-unimodulares bem resolvidos (emparelhamentos, branchings, etc.).",
+    "credits": "4",
+    "position": [0, 2]
+}, {
+    "semester": "",
+    "code": "MAC0327",
+    "name": "Desafios de Programação",
+    "description": "A disciplina tem caráter de laboratório, com intensa atividade de programação. Todos os programas criados pelos alunos são submetidos aos \"juízes eletrônicos\" do Programming Challenges (http://www.programming-challenges.com) e do Valladolid Programming Contest Site (http://acm.uva.es).  Os problemas de programação cobrem os seguintes tópicos: estruturas de dados, ordenação, aritmética, álgebra, combinatória, teoria dos números, backtracking, grafos, programação dinâmica, geometria.",
+    "credits": "4",
+    "position": [0, 3]
+}, {
+    "code": "MAC0331",
+    "name": "Geometria Computacional",
+    "credits": "4",
+    "description": "Triangulação de polígonos: teoria, primitivas geométricas, problemas de galeria de arte, algoritmos, questões de implementação. Particionamento de polígonos: particionamento em polígonos monótonos, trapezoidalização de polígonos, particionamento em polígonos convexos. Fecho convexo no plano: algoritmo embrulho-para-presente, algoritmo Quickhull, algoritmo de Graham, algoritmo incremental, algoritmo de divisão-e-conquista, cota inferior. Fecho convexo tridimensional: poliedros, politopos regulares, fórmula de Euler, estruturas de dados, primitivas geométricas, algoritmo embrulho-para-presente. Diagrama de Voronoi: propriedades, diagrama de Delaunay, cota inferior, primitivas geométricas, algoritmo quadrático, algoritmo de divisão-e-conquista. Problemas de localização e intersecção: localização de pontos em polígonos, intersecção de polígonos convexos, intersecção de semiplanos, núcleo de um polígono. Problemas de proximidade: problema do par-mais-próximo, árvore geradora mínima. Arranjos de retas no plano. Ladrilhamentos no Rd.",
+    "position": [0, 4]
+}, {
+    "code": "MAC0336",
+    "name": "Criptografia para Segurança de Dados",
+    "credits": "4",
+    "description": "Métodos tradicionais de criptologia, tais como sistemas mono- e polialfabético e sistemas rotores. Critoanálise utilizando técnicas da estatística e da álgebra linear. Teoria da informação; entropia. Data Encryption Standard (DES) e Advanced Encryption Standard (AES). Outros métodos contemporâneos baseados na intratabilidade computacional do problema da mochila e da fatoração de números. Sistemas de distribuição de chaves públicas e secretas. Assinatura digital e autenticação.",
+    "position": [0, 5]
+}]
