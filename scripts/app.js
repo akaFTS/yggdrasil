@@ -17,8 +17,6 @@ angular.module("yggdrasil", [])
         else {
             $scope.showPanel = true;
             $scope.selectedSkill = skill;
-
-            //marcar nos analytics
         }
     }
 
@@ -28,19 +26,6 @@ angular.module("yggdrasil", [])
         $timeout(function() {
             $scope.selectedSkill = false;            
         }, 500);
-    }
-
-    //abre ou fecha um painel
-    $scope.toggleTrack = function(track) {
-
-        //fecha
-        if(track.collapsed)
-            track.collapsed = false;
-
-        //abre e marca no analytics
-        else {
-            track.collapsed = true;
-        }
     }
 
     //retorna um array de classes CSS para o objeto daquela skill.
@@ -63,6 +48,8 @@ angular.module("yggdrasil", [])
         var classes = [];
 
         if(skill.block) {
+
+            classes.push("blocked");
 
             //adicionar as cores
             classes.push("bg-light-"+skill.block.color);
@@ -105,34 +92,34 @@ angular.module("yggdrasil", [])
         tmptrack = {};
         tmptrack.name = "Obrigatórias";
         tmptrack.icon = "aprendiz";
-        tmptrack.skills = skillService.getSkills(0);
+        tmptrack.skills = skillService.getSkills(0, 8);
+        tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         tmptrack = {};
         tmptrack.name = "Teoria da Computação";
         tmptrack.icon = "mestre";
-        tmptrack.skills = skillService.getSkills(1);
+        tmptrack.skills = skillService.getSkills(1, 8);
         tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         tmptrack = {};
         tmptrack.name = "Sistemas de Software";
         tmptrack.icon = "algoz";
-        tmptrack.skills = skillService.getSkills(2);
-        tmptrack.collapsed = true;
+        tmptrack.skills = skillService.getSkills(2, 3);
         tracks.push(tmptrack);
 
         tmptrack = {};
         tmptrack.name = "Inteligência Artificial";
         tmptrack.icon = "arquimago";
-        tmptrack.skills = skillService.getSkills(3);
+        tmptrack.skills = skillService.getSkills(3, 3);
         tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         tmptrack = {};
         tmptrack.name = "Ciência de Dados";
         tmptrack.icon = "criador";
-        tmptrack.skills = skillService.getSkills(4);
+        tmptrack.skills = skillService.getSkills(4, 3);
         tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
@@ -146,10 +133,10 @@ angular.module("yggdrasil", [])
     //construir o grid de skills de uma certa trilha
     //0 = obrigatorias, 1 = teoria,
     //2 = sistemas, 3 = IA, 4 = e-science
-    this.getSkills = function(track) {
+    this.getSkills = function(track, gridsize) {
 
         //criamos o grid da trilha
-        var skills = this.makeGrid();
+        var skills = this.makeGrid(gridsize);
 
         //buscamos no arquivo da trilha correta
         var options = ["obrigs", "teoria", "sistemas", "ia", "escience"];
@@ -174,9 +161,9 @@ angular.module("yggdrasil", [])
     }
 
     //função criadora de grids
-    this.makeGrid = function() {
+    this.makeGrid = function(gridsize) {
         var rows = [];
-        for(i = 0; i < 8; i++) {
+        for(i = 0; i < gridsize; i++) {
             rows[i] = [];
             for(j = 0; j < 6; j++) {
                 rows[i][j] = {empty: true};

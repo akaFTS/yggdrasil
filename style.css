@@ -113,12 +113,13 @@ body {
 
 .content .skill-list .skill-box .skill-wrap {
     width: 16.5%;
-    margin-bottom: 20px;    
+    margin-bottom: 30px;   
     position: relative;
 }
 
 .content .skill-list .skill-box .skill-wrap .block-label {
     position: absolute;
+    bottom: -25px;
     color: white;
     font-size: 12px;
     padding: 3px 5px;
@@ -147,6 +148,11 @@ body {
 .content .skill-list .skill-box .skill-wrap.block-top {
     border-top: 3px solid transparent;
 }
+
+.content .skill-list .skill-box .skill-wrap.blocked:not(.block-bottom) {
+    margin-bottom: 0;
+}
+
 .content .skill-list .skill-box .skill-wrap.block-bottom {
     border-bottom: 3px solid transparent;
 }
@@ -341,6 +347,38 @@ body {
 
 .bg-light-green {
     background-color: #E8F5E9;
+}
+
+.pink {
+    color: #EC407A !important;
+}
+
+.border-pink {
+    border-color: #EC407A !important;
+}
+
+.bg-pink {
+    background-color: #EC407A !important;
+}
+
+.bg-light-pink {
+    background-color: #ffdbde;
+}
+
+.teal {
+    color: #009688 !important;
+}
+
+.border-teal {
+    border-color: #009688 !important;
+}
+
+.bg-teal {
+    background-color: #009688 !important;
+}
+
+.bg-light-teal {
+    background-color: #cdece8;
 }
 
 .bold {
