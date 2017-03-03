@@ -41,6 +41,9 @@
                             {{track.name}}
                             <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                         </div>
+                        <div class="track-message" ng-show="track.message && !track.collapsed">
+                            {{track.message}}
+                        </div>
                         <div class="skill-box" ng-hide="track.collapsed">
                             <div class="skill-img-wrap hidden-xs hidden-sm">
                                 <img ng-src="images/{{track.icon}}.png" class="skill-img">
@@ -80,7 +83,7 @@
             </div>
         </div>
         <div class="footer">
-            by Gustavo Silva @ IME Workshop. Imagens são copyright de Ragnarok Online.
+            by Gustavo Silva @ IME Workshop. Imagens são copyright de Ragnarok Online. Agradecimentos: Vitor Santa Rosa e Luís Felipe
         </div>
     </body>
 </html>

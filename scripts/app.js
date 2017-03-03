@@ -93,7 +93,6 @@ angular.module("yggdrasil", [])
         tmptrack.name = "Obrigatórias";
         tmptrack.icon = "aprendiz";
         tmptrack.skills = skillService.getSkills(0, 8);
-        tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         tmptrack = {};
@@ -120,7 +119,9 @@ angular.module("yggdrasil", [])
         tmptrack = {};
         tmptrack.name = "Teoria da Computação";
         tmptrack.icon = "mestre";
-        tmptrack.skills = skillService.getSkills(1, 8);
+        tmptrack.message = "Cumprir todas as matérias de 2 dos 3 blocos principais (totalizando 4 ou 5) e mais algumas optativas, completando 7 matérias da trilha."
+        tmptrack.skills = skillService.getSkills(1, 7);
+        tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
         return tracks;

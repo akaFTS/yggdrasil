@@ -15,24 +15,187 @@
     "name": "Otimização Combinatória",
     "description": "O escopo da otimização combinatória e programação inteira. Modelagem de vários problemas usando variáveis 0/1. O problema do transporte. Especialização do método simplex para redes. Aplicações: teorema de Hall, teorema de König, teorema de Dilworth. O problema do transporte capacitado: o método primal-dual. Algoritmos para fluxos máximos em redes. Fluxos de custo mínimo e circulações viáveis: o método \"out-of-kilter\". Estudo aprofundado de poliedros de alguns problemas não-unimodulares bem resolvidos (emparelhamentos, branchings, etc.).",
     "credits": "4",
-    "position": [0, 2]
+    "position": [0, 3]
 }, {
-    "semester": "",
     "code": "MAC0327",
     "name": "Desafios de Programação",
     "description": "A disciplina tem caráter de laboratório, com intensa atividade de programação. Todos os programas criados pelos alunos são submetidos aos \"juízes eletrônicos\" do Programming Challenges (http://www.programming-challenges.com) e do Valladolid Programming Contest Site (http://acm.uva.es).  Os problemas de programação cobrem os seguintes tópicos: estruturas de dados, ordenação, aritmética, álgebra, combinatória, teoria dos números, backtracking, grafos, programação dinâmica, geometria.",
     "credits": "4",
-    "position": [0, 3]
+    "position": [0, 4]
 }, {
     "code": "MAC0331",
     "name": "Geometria Computacional",
     "credits": "4",
     "description": "Triangulação de polígonos: teoria, primitivas geométricas, problemas de galeria de arte, algoritmos, questões de implementação. Particionamento de polígonos: particionamento em polígonos monótonos, trapezoidalização de polígonos, particionamento em polígonos convexos. Fecho convexo no plano: algoritmo embrulho-para-presente, algoritmo Quickhull, algoritmo de Graham, algoritmo incremental, algoritmo de divisão-e-conquista, cota inferior. Fecho convexo tridimensional: poliedros, politopos regulares, fórmula de Euler, estruturas de dados, primitivas geométricas, algoritmo embrulho-para-presente. Diagrama de Voronoi: propriedades, diagrama de Delaunay, cota inferior, primitivas geométricas, algoritmo quadrático, algoritmo de divisão-e-conquista. Problemas de localização e intersecção: localização de pontos em polígonos, intersecção de polígonos convexos, intersecção de semiplanos, núcleo de um polígono. Problemas de proximidade: problema do par-mais-próximo, árvore geradora mínima. Arranjos de retas no plano. Ladrilhamentos no Rd.",
-    "position": [0, 4]
+    "position": [1, 0]
 }, {
     "code": "MAC0336",
     "name": "Criptografia para Segurança de Dados",
     "credits": "4",
     "description": "Métodos tradicionais de criptologia, tais como sistemas mono- e polialfabético e sistemas rotores. Critoanálise utilizando técnicas da estatística e da álgebra linear. Teoria da informação; entropia. Data Encryption Standard (DES) e Advanced Encryption Standard (AES). Outros métodos contemporâneos baseados na intratabilidade computacional do problema da mochila e da fatoração de números. Sistemas de distribuição de chaves públicas e secretas. Assinatura digital e autenticação.",
-    "position": [0, 5]
+    "position": [1, 1]
+}, {
+    "code": "MAC0450",
+    "name": "Algoritmos de Aproximação",
+    "credits": "4",
+    "description": "Recapitulação de resultados básicos sobre grafos, complexidade computacional e probabilidade. Métodos de projeto de algoritmos de aproximação: métricos, de arredondamento, probabilísticos, baseados em programação linear e semidefinida, primais-duais. Algoritmos de aproximação para problemas de escalonamento, bin packing, projeto de redes e otimização em grafos. Complexidade computacional: classes de complexidade Max SNP e APX, reduções, alguns resultados inaproximabilidade.",
+    "position": [1, 4]
+}, {
+    "code": "MAC0465",
+    "name": "Biologia Computacional",
+    "credits": "4",
+    "description": "Comparação de seqüências e suas variações. Busca de seqüências em base de dados. Árvores filogenéticas. Sequenciamento e Montagem. Rearranjo de Genomas. Predição de estruturas moleculares. Aplicações de chips de DNA. ",
+    "position": [1, 3]
+}, {
+    "code": "MAC0466",
+    "name": "Teoria dos Jogos Algorítmica",
+    "credits": "4",
+    "description": "Jogos, estratégias, funções custo e utilidade. Equilibrio de Nash. Custo social. Preço da estabilidade e da anarquia. Complexidade de encontrar um equilíbrio de Nash. Balanceamento de carga. Projeto algorítmico de mecanismos. Leilões combinatórios. Jogos de roteamento. Jogos de formação de redes. ",
+    "position": [1, 2]
+}, {
+    "code": "MAC0320",
+    "name": "Introdução à Teoria dos Grafos",
+    "credits": "4",
+    "description": " Grafos. Isomorfismo. Caminhos e circuitos. Subgrafos. Cortes e pontes. Grafos conexos. Árvores. Grafos aresta-biconexos. Grafos bipartidos. Grafos eulerianos. Grafos hamiltonianos. Emparelhamentos em grafos bipartidos. Conjuntos estáveis e cliques. Coloração de arestas. Coloração de vértices. Noções de planaridade. ",
+    "position": [2, 3]
+}, {
+    "code": "MAT0206",
+    "name": "Análise Real",
+    "credits": "6",
+    "description": "Números reais: introdução axiomática. Sequências numéricas. Limites superior e inferior. Sequências de Cauchy.Sequências limitadas e monótonas limitadas. Intervalos encaixantes. Continuidade: teoremas do anulamento, do máximo e do mínimo, preservação da conexidade.Continuidade por sequências.Continuidade uniforme. Derivabilidade: diferencial e teorema do valor médio. Integral de Riemann: definição e exemplos especiais.Integrabilidade de funções contínuas e teorema fundamental do Cálculo. Critérios de integrabilidade. Séries numéricas: critérios de convergência. Sequências e séries de funções convergência pontual e uniforme, teste - M de Weierstrass. Continuidade, integrabilidade e derivabilidade com convergência uniforme. Séries de potências e propriedades.",
+    "position": [2, 4]
+}, {
+    "code": "MAT0264",
+    "name": "Anéis e Corpos",
+    "credits": "4",
+    "description": "Anéis, homomorfismos, ideais, anel quociente, domínios de integridade, corpos de frações. Anéis fatoriais, domínios de ideais principais, domínios euclidianos. Anéis de polinômios. Extensões de corpos. Construções com régua e compasso.",
+    "position": [2, 5]
+}, {
+    "code": "MAC0414",
+    "name": "Autômatos, Computabilidade e Complexidade",
+    "credits": "4",
+    "description": "Palavras, linguagens, operações sobre linguagens. Linguagens regulares. Autômatos finitos determinísticos e não determinísticos. Teorema de Kleene. Autômatos reduzidos. Modelos de computação; máquinas de Turing. Tese de Church. Redutibilidade e problemas indecidíveis. Complexidade, problemas decidíveis em tempo polinomial. Não-determinismo versus determinismo. Redutibilidade e problemas NP-completos. Teorema de Cook-Levin.",
+    "position": [3, 4]
+}, {
+    "code": "MAC0436",
+    "name": "Tópicos de Matemática Discreta",
+    "credits": "4",
+    "description": "Aplicações de funções geradoras, incluindo aplicações a problemas de enumeração, ao cálculo de probabilidades e à análise de algoritmos. Elementos da teoria dos números com aplicações à criptografia. Problemas computacionais envolvendo a teoria dos números. Tópicos avançados na teoria dos grafos e hipergrafos e a teoria extremal dos conjuntos. Matróides. Algoritmos combinatórios e algébricos avançados. Aspectos combinatórios da geometria, incluindo o estudo de politopos. Teoria de Ramsey. Aplicações de métodos não-combinatórios a problemas discretos, incluindo métodos algébricos e probabilísticos. ",
+    "position": [3, 5]
+}, {
+    "name": "Probabilidade I",
+    "code": "MAE0221",
+    "semester": "3",
+    "credits": "6",
+    "description": "Contagem: princípio multiplicativo, permutações, combinações. Espaço de probabilidade. Probabilidade condicional e independência. Variáveis e vetores aleatórios: definição, caracterizações e propriedades. Esperança matemática, funções geradoras de probabilidade e de momentos e suas propriedades. Principais distribuições de probabilidade (univariadas e multivariadas): uniforme discreta, Bernoulli, binomial, geométrica, Poisson, binomial negativa, hipergeométrica, multinomial, exponencial, normal, Cauchy e uniforme contínua. Transformações de variáveis: direta e método do jacobiano. Distribuição da soma, produto e quociente de variáveis aleatórias. Estatísticas de ordem, distribuições t-Student, F-Snedecor, qui-quadrado, gama, beta e suas relações. Distribuição normal multivariada e propriedades. Lei dos grandes números. Teorema limite central.",
+    "position": [4, 4]
+}, {
+    "code": "MAE0224",
+    "name": "Probabilidade II",
+    "credits": "4",
+    "description": "Convergência de sequências de variáveis aleatórias. Funções características. Leis fortes e leis fracas dos grandes números. Distribuições de somas de variáveis aleatórias. Teorema limite central. Tópicos de passeios aleatórios. Distribuições de valores extremos.",
+    "position": [4, 5]
+}, {
+    "name": "Noções de Probabilidade e Processos Estocásticos",
+    "code": "MAE0228",
+    "semester": "3",
+    "credits": "4",
+    "description": "Probabilidade em espaços amostrais discretos. Probabilidade condicional e independência. Variáveis aleatórias discretas: binomial, hipergeométrica, geométrica e Poisson. Variáveis aleatórias contínuas: exponencial e gama. Noções gerais sobre processos estocásticos. Cadeias de Markov a parâmetro discreto: definição, probabilidade de transição, classificação dos estados e medidas de probabilidade invariantes. Processo de Poisson: propriedades e aplicações. Noções de cadeias de Markov a parâmetro contínuo.",
+    "position": [5, 4]
+}, {
+    "code": "MAE0326",
+    "name": "Aplicações de Processos Estocásticos",
+    "credits": "4",
+    "description": "Modelo de filas. Modelos com muitas / infinitas componentes. Simulação de processos estocásticos(método de Monte Carlo via Cadeias de Markov). Confiabilidade. Inferência em processos estocásticos. Outras aplicações recentes.",
+    "position": [5, 5]
+}, {
+    "code": "MAT0225",
+    "name": "Funções Analíticas",
+    "credits": "4",
+    "description": "Séries de potências e funções elementares. Derivação complexa. Integração complexa, fórmula de Cauchy, fórmula integral para as derivadas;teorema do máximo módulo, teorema de Liouville. Séries de Taylor e Laurent, domínio de convergência e classificação de singularidades. Resíduos, aplicações.Transformação conforme.",
+    "position": [6, 5]
+}, {
+    "code": "MAT0234",
+    "name": "Medida e Integração",
+    "credits": "4",
+    "description": "Medida de Lebesgue em R^n. Espaços de medida; funções mensuráveis e integração; Lema de Fatou; Teorema da convergência monótona; Teorema de convergência dominada. A relação da integral de Lebesgue na reta com a integral de Riemann e com a integral imprópria de Riemann. Aplicação do teorema de convergência dominada: derivação sob o sinal de integral. Espaços L^p; desigualdades de Hölder e Minkowski; completude dos espaços L^p. Teoremas de Fubini e Tonelli para medida de Lebesgue em R^n. Tópicos opcionais (ao menos um desses tópicos deve ser abordado): a) Transformada de Fourier; produto de convolução; aplicações a EDP. b) Teorema de Vitali; funções de variação limitada; funções absolutamente contínuas e teorema fundamental do cálculo. c) Teorema de mudança de variável para integrais de Lebesgue em R^n.",
+    "position": [6, 4]
+}, {
+    "code": "MAT0265",
+    "name": "Grupos",
+    "credits": "4",
+    "description": "Grupos, subgrupos, classes laterais, Teorema de Lagrange, subgrupo normal, grupo quociente, homomorfismo de grupos. Grupos de permutações. Grupos de matrizes. Ações. Grupos de rotações finitos. Teoremas de Sylow. Grupos abelianos finitos.",
+    "position": [6, 3]
+}, {
+    "code": "MAT0311",
+    "name": "Cálculo Diferencial e Integral V",
+    "credits": "6",
+    "description": "Topologia de Rn e espaços métricos (abertos, fechados, vizinhanças, pontos de acumulação, compactos, conexos).Caracterização de compacto de Rn como fechado e limitado. Seqüências em espaços métricos. Convergência. Subseqüências. Caracterização da topologia(aberto, fechado, ponto de acumulação) por seqüências.relação entre compacto e seqüencialmente compacto. Seqüência de Cauchy. Completude.Destaque para o Rn. Continuidade de aplicações de Rn em Rm e entre espaços métricos.Caracterização de continuidade por seqüências.Continuidade de função composta.Preservação de compactos e de conexos. Transformações de Rn em Rm; Diferenciabilidade, teoremas de existência da diferencial, regra da cadeia e desigualdade do valor médio. A classe C1. Teorema da função inversa e teorema da função implícita.Aplicações .6.Derivadas de ordem superior. Polinômio de Taylor.Máximos e mínimos .7.Máximos e mínimos condicionados.Multiplicadores de Lagrange.",
+    "position": [6, 2]
+}, {
+    "code": "MAC0315",
+    "name": "Otimização Linear",
+    "credits": "4",
+    "description": "Introdução: Modelagem de problemas de otimização linear. Representação gráfica e solução gráfica. Geometria de otimização linear: Poliedros e conjuntos convexos. Pontos extremos, vértices e soluções viáveis básicas. Poliedros no formato padrão. Degenerescência. Existência de pontos extremos. Otimalidade de pontos extremos. O método Simplex: Condições de otimalidade. Desenvolvimento do método Simplex. Implementação do método Simplex (implementação trivial, Simplex Revisado e tableau). Anti-ciclagem: ordem lexicográfica e regra de Brand. Encontrando uma solução viável básica inicial. Dualidade: O problema dual. O teorema de dualidade. Variáveis duais ótimas como custos marginais. Problemas no formato padrão e o método Simplex Dual. Análise de sensibilidade.",
+    "position": [2, 0]
+}, {
+    "code": "MAC0325",
+    "name": "Otimização Combinatória",
+    "credits": "4",
+    "description": "O escopo da otimização combinatória e programação inteira. Modelagem de vários problemas usando variáveis 0/1. O problema do transporte. Especialização do método simplex para redes. Aplicações: teorema de Hall, teorema de König, teorema de Dilworth. O problema do transporte capacitado: o método primal-dual. Algoritmos para fluxos máximos em redes. Fluxos de custo mínimo e circulações viáveis: o método \"out - of - kilter\". Estudo aprofundado de poliedros de alguns problemas não-unimodulares bem resolvidos (emparelhamentos, branchings, etc.). ",
+    "position": [2, 1]
+}, {
+    "code": "MAC0300",
+    "name": "Métodos Numéricos da Álgebra Linear",
+    "credits": "4",
+    "description": " Eliminação Gaussiana e variantes: Sistemas de equações lineares. Sistemas triangulares. Sistemas definidos positivos, decomposição de Cholesky. Eliminação Gaussiana e decomposição LU. Eliminação Gaussiana com pivoteamento. Sensibilidade de sistemas lineares: Normas de matrizes e vetores. Número de condição. Análise do erro de arredondamento. Eliminação Gaussiana com matrizes mal condicionadas. Escalamento. Refinamentos iterativos. Matrizes ortogonais e o problema de quadrados mínimos: O problema de quadrados mínimos discreto. Matrizes ortogonais, rotações e reflexões. Solução do problema de quadrados mínimos. Vetores ortonormais e o método de Gram-Schimdt. Sensibilidade do problema de quadrados mínimos. Autovalores e autovetores: Propriedades básicas. O método da potência e algumas extensões simples. Transformações de similaridade. Reduções à forma Hessenberg e triangular. Algoritmo QR. Decomposição em valores singulares: Cálculo da decomposição SVD. Algumas aplicações básicas de valores singulares. ",
+    "position": [3, 0]
+}, {
+    "code": "MAC0343",
+    "name": "Otimização Semidefinida e Aplicações",
+    "credits": "4",
+    "description": "Dualidade, complexidade computacional e métodos de pontos interiores; Como resolver problemas de programação semidefinida no computador; Aplicações à otimização combinatória: relaxações de problemas 0-1, algoritmos de aproximação (MaxCut, Max-2Sat, etc.), conjuntos independentes e o número teta de Lovász; Hierarquias de programação semidefinida para politopos 0-1; Aplicações a códigos binários: o limitante de Delsarte e o uso de simetria em problemas de programação semidefinida; Somas de quadrados e polinômios positivos; otimização polinomial. ",
+    "position": [3, 1]
+}, {
+    "code": "MAC0418",
+    "name": "Tópicos Especiais de Programação Matemática",
+    "credits": "4",
+    "description": "Introdução à programação dinâmica: controle de estoque e problemas de caminho crítico. Programação linear mista: métodos branch and bound, problema da mochila aplicado a problemas de corte e de expansão de sistemas. Linearização. Problemas não lineares: linearização por trechos e caso diferenciável: aplicação a fluxos não lineares. ",
+    "position": [3, 2]
+}, {
+    "code": "MAC0419",
+    "name": "Métodos de Otimização em Finanças",
+    "credits": "4",
+    "description": "Estudo detalhado da implementação computacional de algoritmos para a solução de problemas de políticas economicas ótimas. Estudo da eficiência dos algoritmos propostos, do aproveitamento da esparsidade e estrutura dos problemas, da estabilidade numérica dos métodos, etc.  (Pouca ênfase na tradicional procura de soluções analíticas de problemas simples.) ",
+    "position": [4, 0]
+}, {
+    "code": "MAC0427",
+    "name": "Otimização Não Linear",
+    "credits": "4",
+    "description": "Introdução: Definições básicas. Existência e unicidade de solução: Resultados em otimização convexa e em conjuntos compactos. Otimização sem restrições: Condições de otimalidade. Métodos de Cauchy, Newton e Quasi-Newton. Globalização: Busca linear. Regiões de confiança. Otimização com restrições de igualdade e desigualdade: Restrições lineares. Métodos de restrições ativas. Condições de otimalidade. Métodos de penalidades.",
+    "position": [4, 1]
+}, {
+    "code": "MAC0450",
+    "name": "Algoritmos de Aproximação",
+    "credits": "4",
+    "description": "Recapitulação de resultados básicos sobre grafos, complexidade computacional e probabilidade. Métodos de projeto de algoritmos de aproximação: métricos, de arredondamento, probabilísticos, baseados em programação linear e semidefinida, primais-duais. Algoritmos de aproximação para problemas de escalonamento, bin packing, projeto de redes e otimização em grafos. Complexidade computacional: classes de complexidade Max SNP e APX, reduções, alguns resultados inaproximabilidade. ",
+    "position": [4, 2]
+}, {
+    "code": "MAC0452",
+    "name": "Tópicos de Otimização Combinatória",
+    "credits": "4",
+    "description": "Tópicos atuais de otimização combinatória. ",
+    "position": [5, 0]
+}, {
+    "code": "MAC0461",
+    "name": "Introdução ao Escalonamento e Aplicações",
+    "credits": "4",
+    "description": "Introdução: notações, representação e conceitos. Apresentação de alguns problemas clássicos de escalonamento. Noções de complexidade. Escalonamento em uma única máquina. Escalonamento em máquinas paralelas. Escalonamento com atraso de comunicação. Escalonamento dinâmico. ",
+    "position": [5, 1]
+}, {
+    "code": "MAC0473",
+    "name": "Otimização Inteira",
+    "credits": "4",
+    "description": " Problemas de otimização inteira e técnicas de formulação. Formulações exatas via programação linear, matrizes totalmente unimodulares. Planos de cortes. Os métodos \"branch - and - bound\" e \"branch - and - cut\". Geração de colunas e pricing. Relaxação de Lagrange. Formulações estendidas e projeções (lift-and-project). ",
+    "position": [5, 2]
 }]
