@@ -19,7 +19,7 @@
         <script src="scripts/app.js"></script>
 
     </head>
-    <body ng-app="yggdrasil">
+    <body ng-app="yggdrasil" ng-controller="AppCtrl" ng-class="showPanel ? 'locked' : ''">
 
         <div class="header">
             <img src="images/mestre.png">
@@ -33,7 +33,7 @@
             </div>
             <img src="images/algoz.png">
         </div>
-        <div class="content row nomargin" ng-controller="AppCtrl">
+        <div class="content row nomargin">
             <div class="col-md-8 nopadding">
                 <div class="skill-list">
                     <div ng-repeat="track in tracks">
@@ -65,6 +65,7 @@
                     </div>
                 </div>
             </div>
+            <div class="backdrop" ng-click="deselect()" ng-show="showPanel"></div>
             <div class="drawer-skill-info" ng-class="showPanel  ? '' : 'archived'">
                 <div class="skill-info">
                     <div class="skill-name bg-blue">
@@ -76,7 +77,7 @@
                     </div>
                     <div class="skill-desc">
                         <h3 ng-show="selectedSkill.semester"><b>Semestre ideal: <span class="blue">{{selectedSkill.semester}}º</span></b></h3>
-                        <h3><b>Créditos: <span class="blue">{{selectedSkill.credits}}</span></b></h3>
+                        <h3><b>Créditos: <span class="blue">{{selectedSkill.credits}}</span><span class="light-gray">+</span>{{selectedSkill.wcredits || 0}}</b></h3>
                         <p>{{selectedSkill.description}}</p>
                     </div>
                 </div>

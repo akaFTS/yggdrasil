@@ -3,6 +3,10 @@ body {
     background-color: #F5F5F5;
 }
 
+body.locked {
+    overflow: hidden;
+}
+
 .header {
     background-color: #F0F0F0;
     text-align: center;
@@ -186,7 +190,7 @@ body {
 }
 
 .content .skill-list .skill-box .skill:not(.empty):hover {
-    background-color: #F5F5F5;
+    background-color: rgba(100,100,100,0.1);
     cursor: pointer;
 }
 
@@ -199,7 +203,7 @@ body {
     font-size: 12px;
     margin-bottom: 5px;
     height: 36px;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .content .skill-list .skill-box .skill .skill-code {
@@ -222,6 +226,16 @@ body {
     margin: 0 auto;
 }
 
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
 .drawer-skill-info {
     width: 35%;
     position: fixed;
@@ -229,6 +243,7 @@ body {
     right: 0;
     top: 0;
     overflow-y: scroll;
+    z-index: 5;
 
     -webkit-box-shadow: -2px 0px 9px 0px rgba(50, 50, 50, 0.5);
     -moz-box-shadow:    -2px 0px 9px 0px rgba(50, 50, 50, 0.5);
@@ -302,13 +317,21 @@ body {
 
 @media(max-width: 767px) {
 
+    .header .header-middle {
+        margin: 0 10px;
+    }
+
+    .header .header-title {
+        font-size: 32px;
+    }
+
     .content .skill-list .skill-box .skill-row {
         overflow-x: scroll;
         overflow-y: hidden;
     }
 
     .content .skill-list .skill-box .skill-wrap {
-        width: 23%;
+        width: 31%;
         flex-shrink: 0;
     }
 
@@ -330,7 +353,7 @@ body {
     }
 
     .drawer-skill-info.archived {
-        right: -70%;
+        right: -75%;
     }
 
     .footer {
@@ -338,6 +361,10 @@ body {
         font-size: 11px;
         color: #999;
     }
+}
+
+.light-gray {
+    color: #999 !important;
 }
 
 .blue {
@@ -385,7 +412,7 @@ body {
 }
 
 .bg-light-pink {
-    background-color: #ffdbde;
+    background-color: #ffeae8;
 }
 
 .teal {
@@ -401,7 +428,7 @@ body {
 }
 
 .bg-light-teal {
-    background-color: #cdece8;
+    background-color: #d6fff0;
 }
 
 .orange {
@@ -417,7 +444,7 @@ body {
 }
 
 .bg-light-orange {
-    background-color: #FFE0B2;
+    background-color: #fff6e9;
 }
 
 .red {

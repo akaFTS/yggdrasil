@@ -52,6 +52,7 @@
     "name": "Técnicas de Programação I",
     "description": "Arquitetura de computadores. Linguagem de montagem e ligação de código objeto. Interação com o sistema operacional e Shell scripts. Gerenciamento de compilação de programas Modularização de código. Bibliotecas estáticas e dinâmicas. Teste e depuração. Linguagens procedimentais de alto nível. Linguagens dinâmicas de script. Introdução aos conceitos de orientação a objetos.",
     "credits": "4",
+    "wcredits": "2",
     "semester": "2",
     "position": [1, 3]
 }, {
@@ -108,6 +109,7 @@
     "name": "Algoritmos e Estruturas de Dados II",
     "semester": "3",
     "credits": "4",
+    "wcredits": "2",
     "description": "Tipos abstratos de dados e suas implementações. Tabelas de símbolos: árvores de busca balanceadas, tabelas de espalhamento (hashing). Grafos: busca em profundidade, busca em largura. Processamento de texto: expressões regulares, busca de padrões, compressão de dados.",
     "position": [2, 2]
 }, {
@@ -136,6 +138,7 @@
     "name": "Sistemas Operacionais",
     "semester": "4",
     "credits": "4",
+    "wcredits": "2",
     "description": "Introdução a arquiteturas: convencionais, multiprocessadores, paralelas com memória distribuída e redes. Multiprocessamento e multiprogramação. Gerenciamento de memória: memória real vs virtual, paginação e segmentação, memória cache. Processos: estados, contexto, gerenciamento pelo kernel, escalonamento, sinais e interrupções. Comunicação local: pipes, FIFOs, message queues, memória compartilhada. Comunicação remota: síncrona, assíncrona, sockets, chamada remota de procedimentos (RPC) e rendezvous. Protocolos de comunicação em redes: IP, TCP, UDP.  Threads: gerenciamento, sincronização, semáforos, regiões críticas condicionais, monitores. Entrada e saída: aspectos de hardware e software, dispositivos de bloco e caracteres (terminais, discos, relógio, rede), independência de dispositivo, drivers. Sistemas de arquivos. Tipos de arquivos: seqüenciais, acesso indexado, acesso direto, diretórios hierárquicos, organização física e acesso a arquivos, mecanismos de proteção distribuída. Segurança.",
     "position": [3, 3]
 }, {
@@ -143,6 +146,7 @@
     "name": "Introdução ao Desenvolvimento de Sistemas de Software",
     "semester": "5",
     "credits": "4",
+    "wcredits": "2",
     "description": "Princípios e técnicas de desenvolvimento de sistemas de software de média escala. Arquitetura de software. Manutenção de software. Testes de software. Persistência de dados. Modelo entidade relacionamento e modelo relacional.",
     "position": [4, 3]
 }, {
@@ -155,7 +159,8 @@
 }, {
     "code": "MAC0499",
     "description": "O aluno desenvolverá durante um ano um trabalho de formatura sob supervisão de um docente do Departamento. O trabalho deverá discorrer sobre alguma experiência acadêmica ou profissional do aluno obtida durante a realização de estágio ou participação do programa de Iniciação Científica.",
-    "credits": "16",
+    "credits": "0",
+    "wcredits": "16",
     "semester": "8",
     "name": "Trabalho de Formatura Supervisionado",
     "position": [7, 0]
