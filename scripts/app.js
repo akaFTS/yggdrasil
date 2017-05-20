@@ -2,7 +2,7 @@ angular.module("yggdrasil", [])
 
 
 //controller do sistema
-.controller("AppCtrl", function($scope, trackService, $timeout) {
+.controller("AppCtrl", function($scope, trackService, skillService, $timeout) {
 
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill) {
@@ -17,6 +17,14 @@ angular.module("yggdrasil", [])
         else {
             $scope.showPanel = true;
             $scope.selectedSkill = skill;
+
+            $scope.selectedSkill.deps = [];
+
+            //vamos preparar o array de dependencias
+            angular.forEach(skill.dependencies, function(depskill) {
+                var skill = skillService.fetchSkill(depskill);
+                $scope.selectedSkill.deps.push(skill);
+            });
         }
     }
 
@@ -131,6 +139,13 @@ angular.module("yggdrasil", [])
 //serviço que carrega as matérias (skills) no sistema
 .service("skillService", function($http, blockService) {
 
+    this.skillHash = {};
+
+    //buscar uma skill específica
+    this.fetchSkill = function(code) {
+        return this.skillHash[code];
+    }
+
     //construir o grid de skills de uma certa trilha
     //0 = obrigatorias, 1 = teoria,
     //2 = sistemas, 3 = IA, 4 = e-science
@@ -139,6 +154,8 @@ angular.module("yggdrasil", [])
         //criamos o grid da trilha
         var skills = this.makeGrid(gridsize);
 
+        var that = this;
+
         //buscamos no arquivo da trilha correta
         var options = ["obrigs", "teoria", "sistemas", "ia", "escience"];
         $http.get("skills/"+options[track]+".json").then(function(data) {
@@ -146,6 +163,9 @@ angular.module("yggdrasil", [])
             //preenchemos o grid com as materias buscadas em seus locais corretos
             angular.forEach(data.data, function(item) {
                 skills[item.position[0]][item.position[1]] = item;
+
+                //adicionamos cada materia num hash pra facilitar depois o acesso
+                that.skillHash[item.code] = item;
             });
 
             //buscamos os blocos de optativas desta trilha

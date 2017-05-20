@@ -46,7 +46,8 @@
     "semester": "2",
     "credits": "4",
     "description": "Noções de correção e desempenho de algoritmos. Noções de tipos abstratos de dados. Vetores e matrizes. Alocação dinâmica de memória. Apontadores. Listas ligadas. Árvores binárias. Pilhas e filas. Noções de filas de prioridade. Recursão. Algoritmos de ordenação. Processamento elementar de texto. Tabelas de símbolos elementares, incluindo árvores binárias de busca. Noções de estratégias algorítmicas.",
-    "position": [1, 2]
+    "position": [1, 2],
+    "dependencies": ["MAC0110"]
 }, {
     "code": "MAC0216",
     "name": "Técnicas de Programação I",

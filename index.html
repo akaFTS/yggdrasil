@@ -80,6 +80,16 @@
                         <h3><b>Créditos: <span class="blue">{{selectedSkill.credits}}</span><span class="light-gray">+</span>{{selectedSkill.wcredits || 0}}</b></h3>
                         <p>{{selectedSkill.description}}</p>
                     </div>
+                    <div class="skill-requires" ng-if="selectedSkill.dependencies.length > 0">
+                        <h3>Pré-requisitos</h3>
+                        <div class="require" ng-repeat="dep in selectedSkill.deps" ng-click="selectSkill(dep)">
+                            <img ng-src="images/skills/{{dep.code}}.gif">
+                            <div>
+                                <h4 class="blue">{{dep.code}}</h4>
+                                <p>{{dep.name}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

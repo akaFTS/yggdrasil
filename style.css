@@ -227,7 +227,7 @@ body.locked {
 }
 
 .backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.6);
@@ -306,6 +306,53 @@ body.locked {
     font-size: 16px;
     color: #666;
     margin: 0;
+}
+
+.drawer-skill-info .skill-info .skill-requires {
+    padding: 20px;
+    border-top: 1px solid #F5F5F5;
+}
+
+.drawer-skill-info .skill-info .skill-requires h3 {
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require {
+    display: flex;
+    display: -webkit-flex;
+    padding: 10px 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require h4 {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 2px;
+    margin-top: 1px;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require p {
+    margin: 0 0 0;
+    color: #999;
+    height: 20px;
+    overflow-x: hidden;
 }
 
 .footer {
