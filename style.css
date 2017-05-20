@@ -308,9 +308,20 @@ body.locked {
     margin: 0;
 }
 
+.drawer-skill-info .skill-info .skill-jupiter {
+    font-size: 15px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.drawer-skill-info .skill-info .skill-jupiter a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .drawer-skill-info .skill-info .skill-requires {
     padding: 20px;
-    border-top: 1px solid #F5F5F5;
+    border-top: 1px solid #EEE;
 }
 
 .drawer-skill-info .skill-info .skill-requires h3 {
@@ -353,6 +364,17 @@ body.locked {
     color: #999;
     height: 20px;
     overflow-x: hidden;
+}
+
+.drawer-skill-info .skill-info .skill-back {
+    font-weight: bold;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.drawer-skill-info .skill-info .skill-back:hover{
+    cursor: pointer;
+    color: #666 !important;
 }
 
 .footer {

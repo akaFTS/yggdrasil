@@ -4,8 +4,10 @@ angular.module("yggdrasil", [])
 //controller do sistema
 .controller("AppCtrl", function($scope, trackService, skillService, $timeout) {
 
+    $scope.skillStack = [];
+
     //selecionar uma matéria para mais informações
-    $scope.selectSkill = function(skill) {
+    $scope.selectSkill = function(skill, stackAction) {
 
         if(skill.empty) return;
 
@@ -15,6 +17,13 @@ angular.module("yggdrasil", [])
 
         //se não, selecionar esta
         else {
+
+            //resetamos a pilha se for um clique novo, adicionamos a skill atual caso não
+            if(stackAction == 'reset')
+                $scope.skillStack = [];
+            else if(stackAction == 'push')
+                $scope.skillStack.push($scope.selectedSkill);
+
             $scope.showPanel = true;
             $scope.selectedSkill = skill;
 
@@ -28,12 +37,17 @@ angular.module("yggdrasil", [])
         }
     }
 
+    //voltar uma skill na pilha de chamadas de requisitos
+    $scope.popStack = function() {
+        $scope.selectSkill($scope.skillStack.pop(), 'none');
+    }
+
     //des-seleciona a skill, mas com um timeout pra um visual melhor
     $scope.deselect = function () {
         $scope.showPanel = false;
         $timeout(function() {
             $scope.selectedSkill = false;            
-        }, 500);
+        }, 400);
     }
 
     //retorna um array de classes CSS para o objeto daquela skill.

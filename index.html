@@ -50,7 +50,7 @@
                             </div>
                             <div ng-repeat="row in track.skills" class="skill-row">
                                 <div class="skill-wrap" ng-repeat="skill in row" ng-class="getBlockClasses(skill)">
-                                    <div class="skill" ng-click="selectSkill(skill)" ng-class="getSkillClasses(skill)">
+                                    <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill)">
                                         <div class="skill-name">{{skill.name}}</div>
                                         <div class="empty-skill-icon" ng-if="skill.empty"></div>
                                         <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
@@ -79,10 +79,13 @@
                         <h3 ng-show="selectedSkill.semester"><b>Semestre ideal: <span class="blue">{{selectedSkill.semester}}º</span></b></h3>
                         <h3><b>Créditos: <span class="blue">{{selectedSkill.credits}}</span><span class="light-gray">+</span>{{selectedSkill.wcredits || 0}}</b></h3>
                         <p>{{selectedSkill.description}}</p>
+                        <div class="skill-jupiter">
+                            <a class="blue" target="_blank" href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis={{selectedSkill.code}}">Ver no Jupiter</a>
+                        </div>
                     </div>
                     <div class="skill-requires" ng-if="selectedSkill.dependencies.length > 0">
                         <h3>Pré-requisitos</h3>
-                        <div class="require" ng-repeat="dep in selectedSkill.deps" ng-click="selectSkill(dep)">
+                        <div class="require" ng-repeat="dep in selectedSkill.deps" ng-click="selectSkill(dep, 'push')">
                             <img ng-src="images/skills/{{dep.code}}.gif">
                             <div>
                                 <h4 class="blue">{{dep.code}}</h4>
@@ -90,6 +93,7 @@
                             </div>
                         </div>
                     </div>
+                    <span class="skill-back blue" ng-click="popStack()" ng-show="skillStack.length > 0">Voltar para {{skillStack[skillStack.length - 1].code}}</span>
                 </div>
             </div>
         </div>

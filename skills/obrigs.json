@@ -112,7 +112,8 @@
     "credits": "4",
     "wcredits": "2",
     "description": "Tipos abstratos de dados e suas implementações. Tabelas de símbolos: árvores de busca balanceadas, tabelas de espalhamento (hashing). Grafos: busca em profundidade, busca em largura. Processamento de texto: expressões regulares, busca de padrões, compressão de dados.",
-    "position": [2, 2]
+    "position": [2, 2],
+    "dependencies": ["MAC0121"]
 }, {
     "code": "MAT0236",
     "name": "Funções Diferenciáveis e Séries",
