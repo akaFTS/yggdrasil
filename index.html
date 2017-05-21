@@ -6,14 +6,13 @@
 
         <!-- STYLES -->
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&amp;subset=latin-ext" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
 
 
         <!-- SCRIPTS -->
         <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-slimscroll-aiska/angular-slimscroll-aiska.min.js"></script>
-
 
         <!-- JS DO SISTEMA -->
         <script src="scripts/app.js"></script>
@@ -24,7 +23,7 @@
         <div class="header">
             <img src="images/mestre.png">
             <div class="header-middle">
-                <div class="header-title blue border-blue" ng-click="bla()">
+                <div class="header-title blue border-blue">
                     Yggdrasil
                 </div>
                 <div class="subtitle">
@@ -34,8 +33,21 @@
             <img src="images/algoz.png">
         </div>
         <div class="content row nomargin">
-            <div class="col-md-4 col-md-push-8">
-                Oi
+            <div class="col-md-4 nopadding col-md-push-8">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar" ng-model="searchQuery">
+                    <span class="fa fa-search search-icon" ng-show="!searchQuery.length"></span>
+                    <span class="fa fa-close search-icon" ng-show="searchQuery.length" ng-click="searchQuery = ''"></span>
+                </div>
+                <div class="search-results" ng-if="searchQuery.length">
+                    <div class="search-result" ng-repeat="skill in sks.skillHash | toArray | filterSkill:searchQuery" ng-click="selectSkill(skill)">
+                            <img ng-src="images/skills/{{skill.code}}.gif">
+                            <div>
+                                <h4 class="blue">{{skill.code}}</h4>
+                                <p>{{skill.name}}</p>
+                            </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
@@ -96,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <span class="skill-back blue" ng-click="popStack()" ng-show="skillStack.length > 0">Voltar para {{skillStack[skillStack.length - 1].code}}</span>
+                    <span class="skill-back blue" ng-click="popStack()" ng-show="skillStack.length > 0"><span class="fa fa-arrow-left"></span> Voltar para {{skillStack[skillStack.length - 1].code}}</span>
                 </div>
             </div>
         </div>

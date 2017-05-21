@@ -6,18 +6,12 @@ angular.module("yggdrasil", [])
 
     $scope.skillStack = [];
 
-    $scope.bla = function() {
+    $scope.sks = skillService;
 
-        var hash = angular.copy(skillService.skillHash);
-        angular.forEach(hash, function(skill) {
-            if(typeof skill.dependencies == 'undefined')
-                skill.dependencies = [];
-        });
-        console.log(JSON.stringify(hash));
-    }
 
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
+
 
         if(skill.empty) return;
 
@@ -161,11 +155,11 @@ angular.module("yggdrasil", [])
 })
 
 //serviço que carrega as matérias (skills) no sistema
-.service("skillService", function($http, blockService) {
+.service("skillService", function($http, blockService, $q) {
 
 
     var that = this;
-    $http.get("skills/skills.json").then(function(data) {
+    var skillPromise = $http.get("skills/skills.json").then(function(data) {
         that.skillHash = data.data;
     });
 
@@ -186,10 +180,13 @@ angular.module("yggdrasil", [])
 
         //buscamos no arquivo da trilha correta
         var options = ["obrigs", "teoria", "sistemas", "ia", "escience"];
-        $http.get("skills/"+options[track]+".json").then(function(data) {
+        var trackPromise = $http.get("skills/"+options[track]+".json");
+
+        //vamos aguardar o carregamento dos dois arquivos pra prosseguir
+        $q.all([trackPromise, skillPromise]).then(function(data) {
 
             //preenchemos o grid com as materias
-            angular.forEach(data.data, function(position, code) {
+            angular.forEach(data[0].data, function(position, code) {
 
                 //buscamos os dados da materia no hash, e adicionamos na posição correta
                 var skill = angular.copy(that.fetchSkill(code));
@@ -320,5 +317,44 @@ angular.module("yggdrasil", [])
             }
         }
         return rows;
+    }
+})
+
+.filter('toArray', function () {
+    'use strict';
+
+    return function (obj) {
+        if (!(obj instanceof Object))
+            return obj;
+
+        return Object.keys(obj).map(function (key) {
+            return Object.defineProperty(obj[key], '$key', {__proto__: null, value: key});
+        });
+    }
+})
+
+//filtro para a busca por matérias
+.filter('filterSkill', function () {
+
+    return function (array, query) {
+
+        //se nada tiver sido buscado, retornar nada
+        if(!query)
+            return [];
+
+        query = query.toLowerCase();
+        var out = [];
+
+        //buscar em todas as materias por nome e código
+        angular.forEach(array, function(skill) {
+
+            //se ja tiver 5 materias no array, deixar pra lá
+            if(out.length >= 5) return;
+
+            if(skill.code.toLowerCase().indexOf(query) > -1 || 
+                skill.name.toLowerCase().indexOf(query) > -1)
+                out.push(skill);
+        });
+        return out;
     }
 })
