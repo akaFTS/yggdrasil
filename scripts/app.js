@@ -6,6 +6,16 @@ angular.module("yggdrasil", [])
 
     $scope.skillStack = [];
 
+    $scope.bla = function() {
+
+        var hash = angular.copy(skillService.skillHash);
+        angular.forEach(hash, function(skill) {
+            if(typeof skill.dependencies == 'undefined')
+                skill.dependencies = [];
+        });
+        console.log(JSON.stringify(hash));
+    }
+
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
 
@@ -153,7 +163,11 @@ angular.module("yggdrasil", [])
 //serviço que carrega as matérias (skills) no sistema
 .service("skillService", function($http, blockService) {
 
-    this.skillHash = {};
+
+    var that = this;
+    $http.get("skills/skills.json").then(function(data) {
+        that.skillHash = data.data;
+    });
 
     //buscar uma skill específica
     this.fetchSkill = function(code) {
@@ -174,12 +188,13 @@ angular.module("yggdrasil", [])
         var options = ["obrigs", "teoria", "sistemas", "ia", "escience"];
         $http.get("skills/"+options[track]+".json").then(function(data) {
 
-            //preenchemos o grid com as materias buscadas em seus locais corretos
-            angular.forEach(data.data, function(item) {
-                skills[item.position[0]][item.position[1]] = item;
+            //preenchemos o grid com as materias
+            angular.forEach(data.data, function(position, code) {
 
-                //adicionamos cada materia num hash pra facilitar depois o acesso
-                that.skillHash[item.code] = item;
+                //buscamos os dados da materia no hash, e adicionamos na posição correta
+                var skill = angular.copy(that.fetchSkill(code));
+                skill.position = position;
+                skills[position[0]][position[1]] = skill;
             });
 
             //buscamos os blocos de optativas desta trilha

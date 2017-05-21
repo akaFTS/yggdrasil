@@ -1,63 +1,12 @@
-[{
-    "code": "MAC0317",
-    "name": "Introdução ao Processamento de Sinais Digitais",
-    "description": "Representação digital de sinais de áudio, imagens, e vídeo: amostragem, quantização e \"aliasing\". Transformada Discreta de Fourier e FFT (1D, 2D e 3D). Outras transformações: Transformada do Coseno Discreta, Transformada z, Transformada de Walsh-Hadamard, Transformada de Haar. Convolução linear, circular e secionada. Filtros lineares (FIR) e Filtros recursivos (IIR). Aplicações de filtros: suavização, interpolação, realce, detecção de bordas e segmentação. Janelamento no tempo e no espaço, localização e efeitos no espectro. Bancos de filtros e técnicas de análise-ressíntese. Compressão: Predição Linear, compressão usando DCT, Compensação de Movimento.",
-    "credits": "4",
-    "position": [0, 0]
-}, {
-    "code": "MAC0460",
-    "name": "Aprendizagem Computacional: Modelos, Algoritmos e Aplicações",
-    "credits": "4",
-    "description": "Conceitos, hipóteses e algoritmos de aprendizagem. Representações e fórmulas booleanas. Decomposições por Morfologia Matemática. Decomposições por Redes Neurais. Aprendizagem probabilística. Aprendizagem eficiente. Dimensão VC. Aplicações.",
-    "position": [0, 3]
-}, {
-    "code": "MAC0426",
-    "name": "Sistemas de Bancos de Dados",
-    "credits": "4",
-    "description": "Fundamentos da arquitetura dos sistemas gerenciadores de bancos de dados relacionais (armazenamento, indexação, processamento e otimização de consultas, controle de concorrência, recuperação de falhas). Dados semiestruturados e suas linguagens de consulta. Introdução aos bancos de dados paralelos e distribuídos. Introdução a bancos de dados não relacionais (chave-valor, orientados a documentos, orientados a colunas e orientados a grafos). Paradigma de programação map-reduce.",
-    "position": [0, 1]
-}, {
-    "code": "MAC0219",
-    "name": "Programação Concorrente e Paralela",
-    "credits": "4",
-    "description": "Conceitos básicos: processos, threads, interrupções, escalonamento. Problemas de programação concorrente: deadlock, alocação de recursos, leitura e escrita concorrente, exclusão mútua, consenso. Programação concorrente em UNIX. Semáforos, mutexes e monitores. Otimização sequencial: uso eficiente da memória, unit stride, blocking; instruções vetoriais e super escalares, opções de otimização. Profiling e modelagem de desempenho Controle de processos e paralelização fork-join Memória compartilhada e introdução ao OpenMP Memória distribuída e MPI Programação em GPUs, CUDA e novas tecnologias Computação paralela na nuvem.",
-    "position": [0, 2]
-}, {
-    "name": "Probabilidade I",
-    "code": "MAE0221",
-    "semester": "3",
-    "credits": "6",
-    "description": "Contagem: princípio multiplicativo, permutações, combinações. Espaço de probabilidade. Probabilidade condicional e independência. Variáveis e vetores aleatórios: definição, caracterizações e propriedades. Esperança matemática, funções geradoras de probabilidade e de momentos e suas propriedades. Principais distribuições de probabilidade (univariadas e multivariadas): uniforme discreta, Bernoulli, binomial, geométrica, Poisson, binomial negativa, hipergeométrica, multinomial, exponencial, normal, Cauchy e uniforme contínua. Transformações de variáveis: direta e método do jacobiano. Distribuição da soma, produto e quociente de variáveis aleatórias. Estatísticas de ordem, distribuições t-Student, F-Snedecor, qui-quadrado, gama, beta e suas relações. Distribuição normal multivariada e propriedades. Lei dos grandes números. Teorema limite central.",
-    "position": [0, 4]
-}, {
-    "code": "MAE0312",
-    "name": "Introdução aos Processos Estocásticos",
-    "credits": "4",
-    "description": "Conceitos básicos e exemplos. Construção de cadeias de Markov. Comportamento assintótico das cadeias de Markov. Tempo médio de recorrência. Medidas invariantes. Reversibilidade. Convergência em distribuição via acoplamento. Processos pontuais e processos de Poisson. Teoria da renovação a tempo discreto e teorema chave. Martingales discretos. Processos Markovianos de salto. Construção. Explosão.",
-    "position": [1, 0]
-}, {
-    "name": "Noções de Probabilidade e Processos Estocásticos",
-    "code": "MAE0228",
-    "semester": "3",
-    "credits": "4",
-    "description": "Probabilidade em espaços amostrais discretos. Probabilidade condicional e independência. Variáveis aleatórias discretas: binomial, hipergeométrica, geométrica e Poisson. Variáveis aleatórias contínuas: exponencial e gama. Noções gerais sobre processos estocásticos. Cadeias de Markov a parâmetro discreto: definição, probabilidade de transição, classificação dos estados e medidas de probabilidade invariantes. Processo de Poisson: propriedades e aplicações. Noções de cadeias de Markov a parâmetro contínuo.",
-    "position": [1, 1]
-}, {
-    "code": "MAC0315",
-    "name": "Otimização Linear",
-    "credits": "4",
-    "description": "Introdução: Modelagem de problemas de otimização linear. Representação gráfica e solução gráfica. Geometria de otimização linear: Poliedros e conjuntos convexos. Pontos extremos, vértices e soluções viáveis básicas. Poliedros no formato padrão. Degenerescência. Existência de pontos extremos. Otimalidade de pontos extremos. O método Simplex: Condições de otimalidade. Desenvolvimento do método Simplex. Implementação do método Simplex (implementação trivial, Simplex Revisado e tableau). Anti-ciclagem: ordem lexicográfica e regra de Brand. Encontrando uma solução viável básica inicial. Dualidade: O problema dual. O teorema de dualidade. Variáveis duais ótimas como custos marginais. Problemas no formato padrão e o método Simplex Dual. Análise de sensibilidade.",
-    "position": [1, 3]
-}, {
-    "code": "MAC0325",
-    "name": "Otimização Combinatória",
-    "description": "O escopo da otimização combinatória e programação inteira. Modelagem de vários problemas usando variáveis 0/1. O problema do transporte. Especialização do método simplex para redes. Aplicações: teorema de Hall, teorema de König, teorema de Dilworth. O problema do transporte capacitado: o método primal-dual. Algoritmos para fluxos máximos em redes. Fluxos de custo mínimo e circulações viáveis: o método \"out-of-kilter\". Estudo aprofundado de poliedros de alguns problemas não-unimodulares bem resolvidos (emparelhamentos, branchings, etc.).",
-    "credits": "4",
-    "position": [1, 4]
-}, {
-    "code": "MAC0427",
-    "name": "Otimização Não Linear",
-    "credits": "4",
-    "description": "Introdução: Definições básicas. Existência e unicidade de solução: Resultados em otimização convexa e em conjuntos compactos. Otimização sem restrições: Condições de otimalidade. Métodos de Cauchy, Newton e Quasi-Newton. Globalização: Busca linear. Regiões de confiança. Otimização com restrições de igualdade e desigualdade: Restrições lineares. Métodos de restrições ativas. Condições de otimalidade. Métodos de penalidades.",
-    "position": [1, 5]
-}]
+{
+    "MAC0317": [0, 0],
+    "MAC0460": [0, 3],
+    "MAC0426": [0, 1],
+    "MAC0219": [0, 2],
+    "MAE0221": [0, 4],
+    "MAE0312": [1, 0],
+    "MAE0228": [1, 1],
+    "MAC0315": [1, 3],
+    "MAC0325": [1, 4],
+    "MAC0427": [1, 5]
+}

@@ -1,0 +1,583 @@
+{
+    "-------": {
+        "code": "-------",
+        "semester": "4",
+        "credits": "4",
+        "name": "Optativa de Ciências",
+        "description": "Optativa a ser cursada no IAG, IF ou outro instituto.",
+        "dependencies": []
+    },
+    "FLC0474": {
+        "code": "FLC0474",
+        "semester": "7",
+        "credits": "3",
+        "name": "Língua Portuguesa",
+        "description": "Aspectos linguísticos e discursivos do texto acadêmico. Análise de textos acadêmicos com ênfase aos da área de especialidade (Ciências Exatas: Ciências da Computação, Estatística e Matemática), do ponto de vista da estrutura linguística e discursiva. Produção e edição de textos acadêmicos da área de especialidade (Ciências Exatas: Ciências da Computação, Estatística e Matemática).",
+        "dependencies": []
+    },
+    "MAC0101": {
+        "name": "Integração na Universidade e na Profissão",
+        "code": "MAC0101",
+        "semester": "1",
+        "description": "Apresentar o Bacharelado em Ciência da Computação (BCC) aos estudantes que acabaram de ingressar no curso. Orientar os estudantes sobre as várias possibilidades de formação como indivíduos, como cidadãos e como cientistas da computação que a Universidade de São Paulo, o Instituto de Matemática e Estatística e o Departamento de Ciência da Computação (DCC) oferecem. Expandir os conceitos que os estudantes tem sobre Ciência da Computação e apresentá-los aos recursos disponibilizados a eles pelo DCC. Além disso, está disciplina é um lugar onde os estudantes podem constituir grupos de interesse e estender seus horizontes dentro do DCC.",
+        "credits": 2,
+        "dependencies": []
+    },
+    "MAC0102": {
+        "code": "MAC0102",
+        "name": "Caminhos no Bacharelado em Ciência da Computação",
+        "semester": "3",
+        "credits": "2",
+        "description": "Apresentar o Bacharelado em Ciência da Computação (BCC) aos estudantes que estão prestes a selecionar as suas disciplinas optativas eletivas e livres e eventuais trilhas do BCC que desejam seguir. Orientar os estudantes sobre as várias possibilidades de formação como cientistas da computação que a Universidade de São Paulo, o Instituto de Matemática e Estatística e o Departamento de Ciência da Computação (DCC) oferecem. Expandir os conceitos que os estudantes tem sobre Ciência da Computação e apresentar os diversos grupos de pesquisa do DCC.",
+        "dependencies": []
+    },
+    "MAC0105": {
+        "name": "Fundamentos de Matemática para a Computação",
+        "code": "MAC0105",
+        "semester": "1",
+        "description": "Discurso matemático: leitura e escrita matemática. Estratégias de demonstrações. Princípio da indução finita. Sequências, somas, recorrências e contagem. Algoritmo de Euclides. Divisibilidade nos inteiros. Sistemas de numeração. MDC e MMC. Teorema de Bézout. Teorema fundamental da aritmética. Congruências. O anel dos inteiros módulo m. Os corpos Zp. Relações de equivalência, conjunto quociente, definição de funções e operações no conjunto quociente. Ordem, fecho transitivo de relações. Conjuntos infinitos.",
+        "credits": 4,
+        "dependencies": []
+    },
+    "MAC0110": {
+        "name": "Introdução à Computação",
+        "code": "MAC0110",
+        "semester": 1,
+        "description": "Breve história da computação.  Algoritmos: caracterização, notação, estruturas básicas.  Computadores: unidades básicas, instruções, programa armazenado, endereçamento, programas em linguagem de máquina.  Conceitos de linguagens algorítmicas: expressões; comandos seqüenciais, seletivos e repetitivos; entrada/saída; variáveis estruturadas; funções.  Desenvolvimento e documentação de programas.  Exemplos de processamento não-numérico.  Extensa prática de programação e depuração de programas.",
+        "credits": 4,
+        "dependencies": []
+    },
+    "MAC0121": {
+        "code": "MAC0121",
+        "name": "Algoritmos e Estruturas de Dados I",
+        "semester": "2",
+        "credits": "4",
+        "description": "Noções de correção e desempenho de algoritmos. Noções de tipos abstratos de dados. Vetores e matrizes. Alocação dinâmica de memória. Apontadores. Listas ligadas. Árvores binárias. Pilhas e filas. Noções de filas de prioridade. Recursão. Algoritmos de ordenação. Processamento elementar de texto. Tabelas de símbolos elementares, incluindo árvores binárias de busca. Noções de estratégias algorítmicas.",
+        "dependencies": ["MAC0110"]
+    },
+    "MAC0209": {
+        "code": "MAC0209",
+        "name": "Modelagem e Simulação",
+        "semester": "3",
+        "credits": "4",
+        "description": "Estudo de aspectos da pesquisa científica e seus métodos. Realização de experimentos simples em sala de aula, conceituação de medidas, leis, corroboração, falseamento, levando à modelagem matemática, determinística e estocástica de sistemas físicos. Realização computacional de modelos, com simulações apresentadas na forma analítica e de animações gráficas, em ambientes computacionais especializados para simulação e animação. Estudos de caso: principalmente fenômenos da mecânica clássica com modelos contínuos.",
+        "dependencies": ["MAC0110"]
+    },
+    "MAC0210": {
+        "code": "MAC0210",
+        "name": "Laboratório de Métodos Numéricos",
+        "semester": "3",
+        "credits": "4",
+        "description": "Introduzir conhecimentos práticos sobre técnicas modernas de computação científica. Sem abandonar o rigor matemático, a disciplina enfatiza os aspectos computacionais dos algoritmos introduzidos, analisando seus alcances e limitações. Diferentes algoritmos para a resolução do mesmo problema são abordados, enfatizando a análise de erros e a eficiência computacional. A abordagem algorítmica da disciplina está focada em técnicas de grande aplicação prática nas áreas de ciência da computação, engenharia e matemática industrial.",
+        "dependencies": ["MAC0110", "MAT0122"]
+    },
+    "MAC0216": {
+        "code": "MAC0216",
+        "name": "Técnicas de Programação I",
+        "description": "Arquitetura de computadores. Linguagem de montagem e ligação de código objeto. Interação com o sistema operacional e Shell scripts. Gerenciamento de compilação de programas Modularização de código. Bibliotecas estáticas e dinâmicas. Teste e depuração. Linguagens procedimentais de alto nível. Linguagens dinâmicas de script. Introdução aos conceitos de orientação a objetos.",
+        "credits": "4",
+        "wcredits": "2",
+        "semester": "2",
+        "dependencies": ["MAC0110"]
+    },
+    "MAC0218": {
+        "code": "MAC0218",
+        "name": "Técnicas de Programação II",
+        "description": "Controle de versões tais como git e boas práticas metodológicas para desenvolvimento de software de forma colaborativa. Princípios de orientação a objetos: encapsulamento, herança, polimorfismo, interfaces, tratamento de exceções. Arcabouços orientados a objetos para construção de interfaces gráficas complexas. Introdução a padrões de projeto OO e MVC. Técnicas avançadas de teste de software incluindo arcabouços para automatização de testes e boas práticas de codificação baseadas em testes. Qualidade de Código e Refatoração.",
+        "credits": "4",
+        "wcredits": "2",
+        "dependencies": ["MAC0216"]
+    },
+    "MAC0219": {
+        "code": "MAC0219",
+        "name": "Programação Concorrente e Paralela",
+        "credits": "4",
+        "description": "Conceitos básicos: processos, threads, interrupções, escalonamento. Problemas de programação concorrente: deadlock, alocação de recursos, leitura e escrita concorrente, exclusão mútua, consenso. Programação concorrente em UNIX. Semáforos, mutexes e monitores. Otimização sequencial: uso eficiente da memória, unit stride, blocking; instruções vetoriais e super escalares, opções de otimização. Profiling e modelagem de desempenho Controle de processos e paralelização fork-join Memória compartilhada e introdução ao OpenMP Memória distribuída e MPI Programação em GPUs, CUDA e novas tecnologias Computação paralela na nuvem.",
+        "dependencies": ["MAC0121", "MAC0216"]
+    },
+    "MAC0239": {
+        "code": "MAC0239",
+        "name": "Introdução à Lógica e Verificação de Programas",
+        "semester": "2",
+        "credits": "4",
+        "description": "Lógica Proposicional Clássica: Os conectivos Booleanos e a linguagem da LPC. Semântica clássica. Tabelas da Verdade. Implicação Lógica. Equivalência Lógica e formas normais. Métodos de prova e inferência lógica, tais como Axiomatizações, Dedução Natural e métodos de Tableaux. Noções sobre correção e completude. Algoritmo ingênuo e não-determinístico de decisão da satisfazibilidade (SAT). Lógica de Primeira Ordem: Linguagem, e semântica em termos de estruturas relacionais. Implicação Lógica, Equivalência Lógica e forma normal prenex. Extensão dos Métodos de prova e inferência lógica para LPO, tais como Axiomatizações. Dedução Natural e métodos de Tableaux. Verificação de Programas pelo método Lógica de Hoare extendendo LPO: Semântica axiomática dos comandos básicos de programação. Lógica de Hoare. Pré- e pós-condições. Comandos nulos, atribuição, seleção, iteração; Invariantes. Terminação. Exemplos clássicos de provas de correção parcial e correção total de programas.",
+        "dependencies": ["MAC0110"]
+    },
+    "MAC0300": {
+        "code": "MAC0300",
+        "name": "Métodos Numéricos da Álgebra Linear",
+        "credits": "4",
+        "description": " Eliminação Gaussiana e variantes: Sistemas de equações lineares. Sistemas triangulares. Sistemas definidos positivos, decomposição de Cholesky. Eliminação Gaussiana e decomposição LU. Eliminação Gaussiana com pivoteamento. Sensibilidade de sistemas lineares: Normas de matrizes e vetores. Número de condição. Análise do erro de arredondamento. Eliminação Gaussiana com matrizes mal condicionadas. Escalamento. Refinamentos iterativos. Matrizes ortogonais e o problema de quadrados mínimos: O problema de quadrados mínimos discreto. Matrizes ortogonais, rotações e reflexões. Solução do problema de quadrados mínimos. Vetores ortonormais e o método de Gram-Schimdt. Sensibilidade do problema de quadrados mínimos. Autovalores e autovetores: Propriedades básicas. O método da potência e algumas extensões simples. Transformações de similaridade. Reduções à forma Hessenberg e triangular. Algoritmo QR. Decomposição em valores singulares: Cálculo da decomposição SVD. Algumas aplicações básicas de valores singulares. ",
+        "dependencies": ["MAT0122"]
+    },
+    "MAC0315": {
+        "code": "MAC0315",
+        "name": "Otimização Linear",
+        "credits": "4",
+        "description": "Introdução: Modelagem de problemas de otimização linear. Representação gráfica e solução gráfica. Geometria de otimização linear: Poliedros e conjuntos convexos. Pontos extremos, vértices e soluções viáveis básicas. Poliedros no formato padrão. Degenerescência. Existência de pontos extremos. Otimalidade de pontos extremos. O método Simplex: Condições de otimalidade. Desenvolvimento do método Simplex. Implementação do método Simplex (implementação trivial, Simplex Revisado e tableau). Anti-ciclagem: ordem lexicográfica e regra de Brand. Encontrando uma solução viável básica inicial. Dualidade: O problema dual. O teorema de dualidade. Variáveis duais ótimas como custos marginais. Problemas no formato padrão e o método Simplex Dual. Análise de sensibilidade.",
+        "dependencies": ["MAT0122"]
+    },
+    "MAC0316": {
+        "code": "MAC0316",
+        "name": "Conceitos Fundamentais de Linguagens de Programação",
+        "semester": "4",
+        "credits": "4",
+        "description": "Linguagens funcionais. Funções como valores de primeira ordem; polimorfismo; ambientes e fechamentos; avaliação \"adiada\"; linguagens funcionais; linguagens orientadas a objetos. Tipos abstratos de dados. Módulos. Herança e hierarquias. Linguagens lógicas. Predicados, cláusulas e o modelo de unificação. Implementação dos vários paradigmas em um interpretador; compilação vs implementação. Administração de memória; pilha vs heap; coleta de lixo.",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0317": {
+        "code": "MAC0317",
+        "name": "Introdução ao Processamento de Sinais Digitais",
+        "description": "Representação digital de sinais de áudio, imagens, e vídeo: amostragem, quantização e \"aliasing\". Transformada Discreta de Fourier e FFT (1D, 2D e 3D). Outras transformações: Transformada do Coseno Discreta, Transformada z, Transformada de Walsh-Hadamard, Transformada de Haar. Convolução linear, circular e secionada. Filtros lineares (FIR) e Filtros recursivos (IIR). Aplicações de filtros: suavização, interpolação, realce, detecção de bordas e segmentação. Janelamento no tempo e no espaço, localização e efeitos no espectro. Bancos de filtros e técnicas de análise-ressíntese. Compressão: Predição Linear, compressão usando DCT, Compensação de Movimento.",
+        "credits": "4",
+        "dependencies": []
+    },
+    "MAC0320": {
+        "code": "MAC0320",
+        "name": "Introdução à Teoria dos Grafos",
+        "credits": "4",
+        "description": " Grafos. Isomorfismo. Caminhos e circuitos. Subgrafos. Cortes e pontes. Grafos conexos. Árvores. Grafos aresta-biconexos. Grafos bipartidos. Grafos eulerianos. Grafos hamiltonianos. Emparelhamentos em grafos bipartidos. Conjuntos estáveis e cliques. Coloração de arestas. Coloração de vértices. Noções de planaridade. ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0323": {
+        "code": "MAC0323",
+        "name": "Algoritmos e Estruturas de Dados II",
+        "semester": "3",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Tipos abstratos de dados e suas implementações. Tabelas de símbolos: árvores de busca balanceadas, tabelas de espalhamento (hashing). Grafos: busca em profundidade, busca em largura. Processamento de texto: expressões regulares, busca de padrões, compressão de dados.",
+        "dependencies": ["MAC0121", "MAC0216"]
+    },
+    "MAC0325": {
+        "code": "MAC0325",
+        "name": "Otimização Combinatória",
+        "credits": "4",
+        "description": "O escopo da otimização combinatória e programação inteira. Modelagem de vários problemas usando variáveis 0/1. O problema do transporte. Especialização do método simplex para redes. Aplicações: teorema de Hall, teorema de König, teorema de Dilworth. O problema do transporte capacitado: o método primal-dual. Algoritmos para fluxos máximos em redes. Fluxos de custo mínimo e circulações viáveis: o método \"out - of - kilter\". Estudo aprofundado de poliedros de alguns problemas não-unimodulares bem resolvidos (emparelhamentos, branchings, etc.). ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0327": {
+        "code": "MAC0327",
+        "name": "Desafios de Programação",
+        "description": "A disciplina tem caráter de laboratório, com intensa atividade de programação. Todos os programas criados pelos alunos são submetidos aos \"juízes eletrônicos\" do Programming Challenges (http://www.programming-challenges.com) e do Valladolid Programming Contest Site (http://acm.uva.es).  Os problemas de programação cobrem os seguintes tópicos: estruturas de dados, ordenação, aritmética, álgebra, combinatória, teoria dos números, backtracking, grafos, programação dinâmica, geometria.",
+        "credits": "4",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0328": {
+        "code": "MAC0328",
+        "name": "Algoritmos em Grafos",
+        "description": "Conexão de grafos: componentes, grafos biconexos. Digrafos fortemente conexos (algoritmo de Kosaraju-Sharir, algoritmo de Tarjan) Emparelhamentos máximos em grafos bipartidos. Emparelhamentos em grafos arbitrários (algoritmo de Edmonds). Fluxo máximo (algoritmo de Ford-Fulkerson). Coloração de vértices. Circuitos hamiltonianos. Tópicos opcionais: link analysis, network analysis, redes aleatórias.",
+        "credits": "4",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0329": {
+        "name": "Álgebra Booleana e Circuitos Digitais",
+        "code": "MAC0329",
+        "semester": "1",
+        "description": "Sistemas de representação numérica: bases binária, octal e hexadecimal, conversão entre bases, aritmética com números binários. Noções de circuitos lógicos: funções lógicas, tabelas-verdade, portas lógicas. Noções de organização de computadores. Expressões booleanas: formas canônicas e suas formas minimais, mapas de Karnaugh e outros métodos para minimização de expressões booleanas. PLA e circuitos combinacionais. Circuitos sequenciais: flip-flops e registradores, noções de análise e projeto de circuitos sequenciais. Exemplos de circuitos: somadores, subtratores, multiplicadores, divisores, verificadores de paridade, decodificadores, seletores ou multiplexadores, demultiplexadores, comparadores, conversores de código, deslocadores e contadores. Álgebra booleana: definição axiomática, exemplos (álgebra de conjuntos, cálculo proposicional, funções lógicas), propriedades, e ordens parciais em álgebras booleanas.",
+        "credits": 4,
+        "dependencies": []
+    },
+    "MAC0331": {
+        "code": "MAC0331",
+        "name": "Geometria Computacional",
+        "credits": "4",
+        "description": "Triangulação de polígonos: teoria, primitivas geométricas, problemas de galeria de arte, algoritmos, questões de implementação. Particionamento de polígonos: particionamento em polígonos monótonos, trapezoidalização de polígonos, particionamento em polígonos convexos. Fecho convexo no plano: algoritmo embrulho-para-presente, algoritmo Quickhull, algoritmo de Graham, algoritmo incremental, algoritmo de divisão-e-conquista, cota inferior. Fecho convexo tridimensional: poliedros, politopos regulares, fórmula de Euler, estruturas de dados, primitivas geométricas, algoritmo embrulho-para-presente. Diagrama de Voronoi: propriedades, diagrama de Delaunay, cota inferior, primitivas geométricas, algoritmo quadrático, algoritmo de divisão-e-conquista. Problemas de localização e intersecção: localização de pontos em polígonos, intersecção de polígonos convexos, intersecção de semiplanos, núcleo de um polígono. Problemas de proximidade: problema do par-mais-próximo, árvore geradora mínima. Arranjos de retas no plano. Ladrilhamentos no Rd.",
+        "dependencies": ["MAC0323"]
+    },
+    "MAC0332": {
+        "code": "MAC0332",
+        "name": "Engenharia de Software",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Conceituação de Engenharia de Software. Modelos de ciclos de vida. Paradigmas de Desenvolvimento. Processos de Desenvolvimento. Agilidade no desenvolvimento de software. Gerenciamento de Projetos. Ferramentas de Trabalho. Análise e especificação de requisitos. Modelagem. Projeto (design). Modularidade. Padrões de projeto. Reúso. Arquitetura de Software. Projeto da interface com o usuário. Implementação e implantação. Verificação e validação: testes, revisões e inspeções. Métodos formais. Gerenciamento de versões e configurações. Manutenção e evolução de software. Planejamento e Estimativas. Documentação. Qualidade e métricas. Software livre. Engenharia de Software para sistemas Web. Tópicos atuais de Engenharia de Software. A Pesquisa e o futuro da Engenharia de Software.",
+        "dependencies": ["MAC0350"]
+    },
+    "MAC0336": {
+        "code": "MAC0336",
+        "name": "Criptografia para Segurança de Dados",
+        "credits": "4",
+        "description": "Métodos tradicionais de criptologia, tais como sistemas mono- e polialfabético e sistemas rotores. Critoanálise utilizando técnicas da estatística e da álgebra linear. Teoria da informação; entropia. Data Encryption Standard (DES) e Advanced Encryption Standard (AES). Outros métodos contemporâneos baseados na intratabilidade computacional do problema da mochila e da fatoração de números. Sistemas de distribuição de chaves públicas e secretas. Assinatura digital e autenticação.",
+        "dependencies": ["MAC0105"]
+    },
+    "MAC0338": {
+        "code": "MAC0338",
+        "name": "Análise de Algoritmos",
+        "semester": "4",
+        "credits": "4",
+        "description": "Análise da correção e do desempenho de algoritmos. Análise amortizada de estruturas dinâmicas. Paradigmas de projeto de algoritmos. Estudo de casos. Introdução à complexidade computacional.",
+        "dependencies": ["MAC0323"]
+    },
+    "MAC0343": {
+        "code": "MAC0343",
+        "name": "Otimização Semidefinida e Aplicações",
+        "credits": "4",
+        "description": "Dualidade, complexidade computacional e métodos de pontos interiores; Como resolver problemas de programação semidefinida no computador; Aplicações à otimização combinatória: relaxações de problemas 0-1, algoritmos de aproximação (MaxCut, Max-2Sat, etc.), conjuntos independentes e o número teta de Lovász; Hierarquias de programação semidefinida para politopos 0-1; Aplicações a códigos binários: o limitante de Delsarte e o uso de simetria em problemas de programação semidefinida; Somas de quadrados e polinômios positivos; otimização polinomial. ",
+        "dependencies": ["MAC0315"]
+    },
+    "MAC0344": {
+        "code": "MAC0344",
+        "name": "Arquitetura de Computadores",
+        "credits": "4",
+        "description": "Conceitos básicos de arquitetura. Histórico dos computadores e gerações. Desempenho: pipeline, risc, instruções superescalares, multicore Memória cache, tipos e implementações. Estrutura interna da memória: DRAM, SDRAM, Flash, correções de erros. Memória externa: discos magnéticos, estado sólido, discos óticos, RAID Paginação e segmentação, TLBs, memória virtual Instruções de máquina, RISC e CISC, execução fora de ordem, modos de endereçamento, interrupções e proteção.",
+        "dependencies": ["MAC0121", "MAC0329"]
+    },
+    "MAC0350": {
+        "code": "MAC0350",
+        "name": "Introdução ao Desenvolvimento de Sistemas de Software",
+        "semester": "5",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Princípios e técnicas de desenvolvimento de sistemas de software de média escala. Arquitetura de software. Manutenção de software. Testes de software. Persistência de dados. Modelo entidade relacionamento e modelo relacional.",
+        "dependencies": ["MAC0316"]
+    },
+    "MAC0352": {
+        "code": "MAC0352",
+        "name": "Redes de Computadores e Sistemas Distribuídos",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Arquitetura de redes: modelos em camadas e protocolos, o modelo da Internet. Aplicações e protocolos para Multimídia. O argumento fim-a-fim. Programação através de soquetes em C e em linguagens orientadas a objetos. Nomes, endereçamento e roteamento na Internet. A suíte de protocolos TCP/IP, UDP, IP-Multicast. Protocolos MAC, Ethernet e endereçamento em redes locais. Detecção e correção de erros. IPv6. Segurança. Gerenciamento de redes, SNMP. Redes P2P. Anonimato na Internet (Tor). Virtualização de redes. Comunicação entre processos: cliente-servidor, grupos, RPC. Serviços web. Recuperação e tolerância a falhas.",
+        "dependencies": ["MAC0323"]
+    },
+    "MAC0413": {
+        "code": "MAC0413",
+        "name": "Tópicos Avançados de Programação Orientada a Objetos",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Padrões de Projeto avançados. Escrita de Padrões OO. Teste de Software OO. Reflexão Computacional e Meta-Programação. Continuações, Traits e Mix-ins. Arquitetura de Software OO e Padrões Arquiteturais. Princípios SOLID.",
+        "dependencies": ["MAC0218", "MAC0316"]
+    },
+    "MAC0414": {
+        "code": "MAC0414",
+        "name": "Autômatos, Computabilidade e Complexidade",
+        "credits": "4",
+        "description": "Palavras, linguagens, operações sobre linguagens. Linguagens regulares. Autômatos finitos determinísticos e não determinísticos. Teorema de Kleene. Autômatos reduzidos. Modelos de computação; máquinas de Turing. Tese de Church. Redutibilidade e problemas indecidíveis. Complexidade, problemas decidíveis em tempo polinomial. Não-determinismo versus determinismo. Redutibilidade e problemas NP-completos. Teorema de Cook-Levin.",
+        "dependencies": ["MAC0338"]
+    },
+    "MAC0418": {
+        "code": "MAC0418",
+        "name": "Tópicos Especiais de Programação Matemática",
+        "credits": "4",
+        "description": "Introdução à programação dinâmica: controle de estoque e problemas de caminho crítico. Programação linear mista: métodos branch and bound, problema da mochila aplicado a problemas de corte e de expansão de sistemas. Linearização. Problemas não lineares: linearização por trechos e caso diferenciável: aplicação a fluxos não lineares. ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0419": {
+        "code": "MAC0419",
+        "name": "Métodos de Otimização em Finanças",
+        "credits": "4",
+        "description": "Estudo detalhado da implementação computacional de algoritmos para a solução de problemas de políticas economicas ótimas. Estudo da eficiência dos algoritmos propostos, do aproveitamento da esparsidade e estrutura dos problemas, da estabilidade numérica dos métodos, etc.  (Pouca ênfase na tradicional procura de soluções analíticas de problemas simples.) ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0422": {
+        "code": "MAC0422",
+        "name": "Sistemas Operacionais",
+        "semester": "4",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Introdução a arquiteturas: convencionais, multiprocessadores, paralelas com memória distribuída e redes. Multiprocessamento e multiprogramação. Gerenciamento de memória: memória real vs virtual, paginação e segmentação, memória cache. Processos: estados, contexto, gerenciamento pelo kernel, escalonamento, sinais e interrupções. Comunicação local: pipes, FIFOs, message queues, memória compartilhada. Comunicação remota: síncrona, assíncrona, sockets, chamada remota de procedimentos (RPC) e rendezvous. Protocolos de comunicação em redes: IP, TCP, UDP.  Threads: gerenciamento, sincronização, semáforos, regiões críticas condicionais, monitores. Entrada e saída: aspectos de hardware e software, dispositivos de bloco e caracteres (terminais, discos, relógio, rede), independência de dispositivo, drivers. Sistemas de arquivos. Tipos de arquivos: seqüenciais, acesso indexado, acesso direto, diretórios hierárquicos, organização física e acesso a arquivos, mecanismos de proteção distribuída. Segurança.",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0425": {
+        "code": "MAC0425",
+        "name": "Inteligência Artificial",
+        "description": "Fundamentos da Inteligência Artificial. Arquiteturas de agentes inteligentes. Métodos de busca heurística. Métodos de busca local e gulosa. Jogos adversariais. Planejamento clássico. Planejamento prático. Grafo de planejamento. Planejamento e execução. Aprendizagem de máquina. Aprendizagem supervisionada. Aprendizagem em redes neurais e redes de crença. Aprendizagem por reforço. Agentes robóticos. Comunicação e percepção.",
+        "credits": "4",
+        "dependencies": []
+    },
+    "MAC0426": {
+        "code": "MAC0426",
+        "name": "Sistemas de Bancos de Dados",
+        "credits": "4",
+        "description": "Fundamentos da arquitetura dos sistemas gerenciadores de bancos de dados relacionais (armazenamento, indexação, processamento e otimização de consultas, controle de concorrência, recuperação de falhas). Dados semiestruturados e suas linguagens de consulta. Introdução aos bancos de dados paralelos e distribuídos. Introdução a bancos de dados não relacionais (chave-valor, orientados a documentos, orientados a colunas e orientados a grafos). Paradigma de programação map-reduce.",
+        "dependencies": ["MAC0350"]
+    },
+    "MAC0427": {
+        "code": "MAC0427",
+        "name": "Otimização Não Linear",
+        "credits": "4",
+        "description": "Introdução: Definições básicas. Existência e unicidade de solução: Resultados em otimização convexa e em conjuntos compactos. Otimização sem restrições: Condições de otimalidade. Métodos de Cauchy, Newton e Quasi-Newton. Globalização: Busca linear. Regiões de confiança. Otimização com restrições de igualdade e desigualdade: Restrições lineares. Métodos de restrições ativas. Condições de otimalidade. Métodos de penalidades.",
+        "dependencies": ["MAT0122"]
+    },
+    "MAC0436": {
+        "code": "MAC0436",
+        "name": "Tópicos de Matemática Discreta",
+        "credits": "4",
+        "description": "Aplicações de funções geradoras, incluindo aplicações a problemas de enumeração, ao cálculo de probabilidades e à análise de algoritmos. Elementos da teoria dos números com aplicações à criptografia. Problemas computacionais envolvendo a teoria dos números. Tópicos avançados na teoria dos grafos e hipergrafos e a teoria extremal dos conjuntos. Matróides. Algoritmos combinatórios e algébricos avançados. Aspectos combinatórios da geometria, incluindo o estudo de politopos. Teoria de Ramsey. Aplicações de métodos não-combinatórios a problemas discretos, incluindo métodos algébricos e probabilísticos. ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0439": {
+        "code": "MAC0439",
+        "name": "Laboratório de Bancos de Dados",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Especificação e implementação de um banco de dados com seus procedimentos de inserção, eliminação, atualização e consulta. Ferramentas de apoio para o desenvolvimento do projeto lógico e físico de bancos de dados. Gerenciamento de bancos de dados relacionais por meio de comandos da linguagem SQL: definição de dados e restrições; modificações e consultas sobre os dados; visões, gatilhos e procedimentos armazenados; segurança; transações; índices. Sintonia fina de bancos de dados relacionais. Integração de bancos de dados relacionais a sistemas de software.",
+        "dependencies": ["MAC0350"]
+    },
+    "MAC0444": {
+        "code": "MAC0444",
+        "name": "Sistemas Baseados em Conhecimento",
+        "credits": "4",
+        "description": "Fundamentos da Inteligência Artificial. Resolução de problemas com técnicas de busca. Representação de conhecimento. Raciocínio lógico. Inferência em lógica de predicados de primeira ordem. Provador de teoremas. Construção de bases de conhecimento. Engenharia de conhecimento. Engenharia e uso de ontologias. Programação lógica. Sistemas de produção. Redes semânticas. Aprendizagem de conhecimento. Programação lógica indutiva. Aprendizagem baseada em explicação. Agentes que se comunicam. Processamento de linguagem natural.",
+        "dependencies": ["MAC0323", "MAC0239"]
+    },
+    "MAC0450": {
+        "code": "MAC0450",
+        "name": "Algoritmos de Aproximação",
+        "credits": "4",
+        "description": "Recapitulação de resultados básicos sobre grafos, complexidade computacional e probabilidade. Métodos de projeto de algoritmos de aproximação: métricos, de arredondamento, probabilísticos, baseados em programação linear e semidefinida, primais-duais. Algoritmos de aproximação para problemas de escalonamento, bin packing, projeto de redes e otimização em grafos. Complexidade computacional: classes de complexidade Max SNP e APX, reduções, alguns resultados inaproximabilidade. ",
+        "dependencies": ["MAC0338", "MAC0315"]
+    },
+    "MAC0452": {
+        "code": "MAC0452",
+        "name": "Tópicos de Otimização Combinatória",
+        "credits": "4",
+        "description": "Tópicos atuais de otimização combinatória. ",
+        "dependencies": ["MAC0328", "MAC0338"]
+    },
+    "MAC0459": {
+        "code": "MAC0459",
+        "name": "Ciência e Engenharia de Dados",
+        "credits": "4",
+        "description": "Importância da área e de suas aplicações. Processo de descoberta do conhecimento (KDD). Tratamento, representação e qualificação de grande volumes de dados. Armazém de dados e modelos multidimensionais. Noções de Redes de Petri e Álgebra de Processos. Modelagem e implementação de workflows científicos e processos de negócio. Indexação e recuperação de grandes volumes de dados. Análise exploratória de dados. Redes complexas e bancos de dados orientado a grafos. Exercícios com utilização de dados simulados e reais.",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0460": {
+        "code": "MAC0460",
+        "name": "Aprendizagem Computacional: Modelos, Algoritmos e Aplicações",
+        "credits": "4",
+        "description": "Conceitos, hipóteses e algoritmos de aprendizagem. Representações e fórmulas booleanas. Decomposições por Morfologia Matemática. Decomposições por Redes Neurais. Aprendizagem probabilística. Aprendizagem eficiente. Dimensão VC. Aplicações.",
+        "dependencies": ["MAC0329"]
+    },
+    "MAC0461": {
+        "code": "MAC0461",
+        "name": "Introdução ao Escalonamento e Aplicações",
+        "credits": "4",
+        "description": "Introdução: notações, representação e conceitos. Apresentação de alguns problemas clássicos de escalonamento. Noções de complexidade. Escalonamento em uma única máquina. Escalonamento em máquinas paralelas. Escalonamento com atraso de comunicação. Escalonamento dinâmico. ",
+        "dependencies": ["MAC0323"]
+    },
+    "MAC0463": {
+        "code": "MAC0463",
+        "name": "Computação Móvel",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Introdução: problemas relacionados à Mobilidade e a comunicação sem fio. Conceitos Básicos de Sistemas Móveis. Arquiteturas de Software para computação móvel. Protocolos de rede para Computação Móvel. Gerenciamento de Informação. Gerenciamento de Localização. Desenvolvimento de aplicativos para dispositivos móveis. Redes Móveis ad-hoc. Discussão sobre temas atuais.",
+        "dependencies": ["MAC0323"]
+    },
+    "MAC0465": {
+        "code": "MAC0465",
+        "name": "Biologia Computacional",
+        "credits": "4",
+        "description": "Comparação de seqüências e suas variações. Busca de seqüências em base de dados. Árvores filogenéticas. Sequenciamento e Montagem. Rearranjo de Genomas. Predição de estruturas moleculares. Aplicações de chips de DNA. ",
+        "dependencies": ["MAC0121"]
+    },
+    "MAC0466": {
+        "code": "MAC0466",
+        "name": "Teoria dos Jogos Algorítmica",
+        "credits": "4",
+        "description": "Jogos, estratégias, funções custo e utilidade. Equilibrio de Nash. Custo social. Preço da estabilidade e da anarquia. Complexidade de encontrar um equilíbrio de Nash. Balanceamento de carga. Projeto algorítmico de mecanismos. Leilões combinatórios. Jogos de roteamento. Jogos de formação de redes. ",
+        "dependencies": ["MAC0338"]
+    },
+    "MAC0469": {
+        "code": "MAC0469",
+        "name": "Construção de Software como Serviço em Computação em Nuvem",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "Arquitetura de Aplicações SaaS. Desenvolvimento Ágil de Software Desenvolvimento Guiado por Testes. Linguagens dinâmicas para desenvolvimento Web. Arcabouços OO para desenvolvimento Web. Mapeamento Objeto-Relacional para SaaS. Clientes Web dinâmicos e responsivos. Gestão Ágil de Projetos. Padrões de Projeto e Arquiteturais para a Web. Princípios SOLID.",
+        "dependencies": ["MAC0316"]
+    },
+    "MAC0471": {
+        "code": "MAC0471",
+        "credits": "4",
+        "name": "Desenvolvimento para Web",
+        "wcredits": "2",
+        "description": "Evolução da Web e do desenvolvimento de Software. Estado da arte das tecnologias e técnicas para o desenvolvimento para Web. Arquitetura de sistemas web. Desenvolvimento baseado em componentes. Sistemas Colaborativos e Web 2.0. Computação social e inteligência coletiva. Mineração de dados. Sistemas de recomendação. Algoritmos para busca e ranqueamento. Filtragem colaborativa.",
+        "dependencies": ["MAC0350"]
+    },
+    "MAC0472": {
+        "code": "MAC0472",
+        "name": "Laboratório de Métodos Ágeis",
+        "credits": "4",
+        "wcredits": "2",
+        "description": "O Manifesto Ágil. Os princípios e valores dos métodos ágeis As Práticas de XP. As doze práticas iniciais. As práticas principais e corolárias atuais Testes Automatizados. Como fazer e ferramentas mais usadas. Refatoração: técnicas sistemáticas para melhorar o desenho de software pré-existente. Planejamento Ágil. Cartões de histórias, estimativas e priorização. Padronização de Estilo. Ferramentas para Desenvolvimento Colaborativo de Software. Incluindo ferramentas de integração contínua e ferramentas de avaliação da qualidade do software.",
+        "dependencies": ["MAC0218", "MAC0441"]
+    },
+    "MAC0473": {
+        "code": "MAC0473",
+        "name": "Otimização Inteira",
+        "credits": "4",
+        "description": " Problemas de otimização inteira e técnicas de formulação. Formulações exatas via programação linear, matrizes totalmente unimodulares. Planos de cortes. Os métodos \"branch - and - bound\" e \"branch - and - cut\". Geração de colunas e pricing. Relaxação de Lagrange. Formulações estendidas e projeções (lift-and-project). ",
+        "dependencies": ["MAC0315"]
+    },
+    "MAC0499": {
+        "code": "MAC0499",
+        "description": "O aluno desenvolverá durante um ano um trabalho de formatura sob supervisão de um docente do Departamento. O trabalho deverá discorrer sobre alguma experiência acadêmica ou profissional do aluno obtida durante a realização de estágio ou participação do programa de Iniciação Científica.",
+        "credits": "0",
+        "wcredits": "16",
+        "semester": "8",
+        "name": "Trabalho de Formatura Supervisionado",
+        "dependencies": ["MAC0338", "MAC0422"]
+    },
+    "MAE0119": {
+        "code": "MAE0119",
+        "name": "Introdução à Probabilidade e à Estatística",
+        "semester": "2",
+        "credits": "6",
+        "description": "Estatística Descritiva uni e bidimensional. Probabilidade. Variáveis aleatórias e principais distribuições discretas e contínuas. Aproximação normal. Distribuições amostrais e Teorema Limite Central. Estimadores e propriedades. Estimação pontual e por intervalo. Testes de hipóteses para uma média, uma proporção. Testes de comparação de médias e proporções; Testes qui-quadrado. Teste de Hipóteses para Variância. Regressão e correlação.",
+        "dependencies": []
+    },
+    "MAE0217": {
+        "code": "MAE0217",
+        "name": "Estatística Descritiva",
+        "semester": "3",
+        "credits": "4",
+        "description": "Introdução: estatística descritiva e inferência estatística, tipos de dados, bancos de dados, ordem de grandeza, precisão e arredondamento de dados quantitativos, proporções e porcentagens, taxas e números índices, sugestões para construção e apresentação de gráficos e tabelas. Representação gráfica e tabular da distribuição de dados: tabelas de frequências, gráficos de barras e do tipo \"torta\", histogramas, função de distribuição empírica. Medidas resumo: medidas de posição, de dispersão, de assimetria e curtose, gráficos do tipo \"boxplot\". Modelos para distribuições de frequências: gráficos de probabilidade, estatística de Pearson para avaliação de aderência. Associação entre variáveis qualitativas: tabelas de contingência, coeficientes de associação, sensitividade e especificidade, risco relativo, razão de chances. Associação entre uma variável quantitativa e uma variável qualitativa: homogeneidade de distribuições (análise de variância com um fator), gráficos de médias, gráficos de perfis, regressão logística. Associação entre variáveis quantitativas: gráficos de dispersão, correlação linear, concordância, gráficos de perfis, regressão linear simples, suavização. Associação entre três ou mais variáveis: tabelas de contingência de múltiplas entradas, distribuições multivariadas, matrizes de covariâncias, análise de variância com dois ou mais fatores, regressão linear múltipla. Outros tópicos: elaboração de relatórios técnicos, análise de sobrevivência e tábuas atuariais, modelos estatísticos (parametrização e identificabilidade).",
+        "dependencies": ["MAE0119"]
+    },
+    "MAE0221": {
+        "name": "Probabilidade I",
+        "code": "MAE0221",
+        "semester": "3",
+        "credits": "6",
+        "description": "Contagem: princípio multiplicativo, permutações, combinações. Espaço de probabilidade. Probabilidade condicional e independência. Variáveis e vetores aleatórios: definição, caracterizações e propriedades. Esperança matemática, funções geradoras de probabilidade e de momentos e suas propriedades. Principais distribuições de probabilidade (univariadas e multivariadas): uniforme discreta, Bernoulli, binomial, geométrica, Poisson, binomial negativa, hipergeométrica, multinomial, exponencial, normal, Cauchy e uniforme contínua. Transformações de variáveis: direta e método do jacobiano. Distribuição da soma, produto e quociente de variáveis aleatórias. Estatísticas de ordem, distribuições t-Student, F-Snedecor, qui-quadrado, gama, beta e suas relações. Distribuição normal multivariada e propriedades. Lei dos grandes números. Teorema limite central.",
+        "dependencies": ["MAT2454", "MAE0119"]
+    },
+    "MAE0224": {
+        "code": "MAE0224",
+        "name": "Probabilidade II",
+        "credits": "4",
+        "description": "Convergência de sequências de variáveis aleatórias. Funções características. Leis fortes e leis fracas dos grandes números. Distribuições de somas de variáveis aleatórias. Teorema limite central. Tópicos de passeios aleatórios. Distribuições de valores extremos.",
+        "dependencies": ["MAT0236"]
+    },
+    "MAE0228": {
+        "name": "Noções de Probabilidade e Processos Estocásticos",
+        "code": "MAE0228",
+        "semester": "3",
+        "credits": "4",
+        "description": "Probabilidade em espaços amostrais discretos. Probabilidade condicional e independência. Variáveis aleatórias discretas: binomial, hipergeométrica, geométrica e Poisson. Variáveis aleatórias contínuas: exponencial e gama. Noções gerais sobre processos estocásticos. Cadeias de Markov a parâmetro discreto: definição, probabilidade de transição, classificação dos estados e medidas de probabilidade invariantes. Processo de Poisson: propriedades e aplicações. Noções de cadeias de Markov a parâmetro contínuo.",
+        "dependencies": ["MAE0119"]
+    },
+    "MAE0312": {
+        "code": "MAE0312",
+        "name": "Introdução aos Processos Estocásticos",
+        "credits": "4",
+        "description": "Conceitos básicos e exemplos. Construção de cadeias de Markov. Comportamento assintótico das cadeias de Markov. Tempo médio de recorrência. Medidas invariantes. Reversibilidade. Convergência em distribuição via acoplamento. Processos pontuais e processos de Poisson. Teoria da renovação a tempo discreto e teorema chave. Martingales discretos. Processos Markovianos de salto. Construção. Explosão.",
+        "dependencies": ["MAE0224"]
+    },
+    "MAE0320": {
+        "code": "MAE0320",
+        "name": "Simulação e Mineração de Dados",
+        "credits": "4",
+        "wcredits": "1",
+        "description": "Simulação estática: métodos de inversão, aceitação, rejeição, composição e métodos de reamostragem. Otimização numérica: Newton-Raphson, scoring, quase-Newton. Algoritmo EM. Bootstrap e Jackknife. Métodos de Monte Carlo. Noções de simulação dinâmica (MCMC). Manipulação de arquivos de dados. Análise estatística de grandes bancos de dados. Tratamento de dados para mineração (data mining).",
+        "dependencies": []
+    },
+    "MAE0326": {
+        "code": "MAE0326",
+        "name": "Aplicações de Processos Estocásticos",
+        "credits": "4",
+        "description": "Modelo de filas. Modelos com muitas / infinitas componentes. Simulação de processos estocásticos(método de Monte Carlo via Cadeias de Markov). Confiabilidade. Inferência em processos estocásticos. Outras aplicações recentes.",
+        "dependencies": ["MAE0228"]
+    },
+    "MAE0399": {
+        "code": "MAE0399",
+        "name": "Análise de Dados e Simulação",
+        "credits": "4",
+        "description": "Análise exploratória de um ou mais conjuntos de dados. Métodos gráficos: medidas robustas, P-P e Q-Q plots. Regressão e análise de resíduos. Simulação estática: simulação de variáveis aleatórias, métodos de Monte Carlo. Simulação de eventos discretos: filas, controle de estoques, etc. Reamostragem. Aceitação-rejeição.",
+        "dependencies": ["MAE0212"]
+    },
+    "MAE0515": {
+        "code": "MAE0515",
+        "name": "Introdução à Teoria dos Jogos",
+        "credits": "4",
+        "description": "Caracterização de um jogo. Jogos cooperativos e não-cooperativos. Jogos de uma pessoa. Jogos de duas pessoas: de soma zero, não-cooperativos (de soma não-zero) e cooperativos. Jogos de n pessoas.",
+        "dependencies": ["MAE0119", "MAT2453"]
+    },
+    "MAT0112": {
+        "name": "Vetores e Geometria",
+        "code": "MAT0112",
+        "semester": "1",
+        "description": "Vetores, operações, módulo de um vetor, ângulo de dois vetores. Dependência linear, bases, mudança de bases. Sistema de coordenadas no espaço, transformação de coordenadas. Bases ortogonais, matrizes ortogonais, produto escalar. Orientação do espaço, produto vetorial. Equações vetoriais da reta e do plano no espaço. Paralelismo entre retas e planos. Ortogonalidade entre retas e planos. Distância de dois pontos, de ponto a uma reta e a um plano. Áreas e volumes. Curvas planas, cônicas. Curvas e superfícies no espaço. Noções sobre quádricas.",
+        "credits": 4,
+        "dependencies": []
+    },
+    "MAT0122": {
+        "code": "MAT0122",
+        "name": "Álgebra Linear I",
+        "semester": "2",
+        "credits": "4",
+        "description": "Espaços vetoriais: definição, subespaços, dependência linear, bases, dimensão. Cálculo matricial,\ndeterminantes, sistemas lineares. Transformações lineares e matrizes, núcleo, imagem, posto. Espaços com\nproduto interno: produto interno, norma, ortogonalidade, processo de Gram-Schmidt, complemento ortogonal,\nprojeção. Autovalores e autovetores.",
+        "dependencies": ["MAT0112"]
+    },
+    "MAT0206": {
+        "code": "MAT0206",
+        "name": "Análise Real",
+        "credits": "6",
+        "description": "Números reais: introdução axiomática. Sequências numéricas. Limites superior e inferior. Sequências de Cauchy.Sequências limitadas e monótonas limitadas. Intervalos encaixantes. Continuidade: teoremas do anulamento, do máximo e do mínimo, preservação da conexidade.Continuidade por sequências.Continuidade uniforme. Derivabilidade: diferencial e teorema do valor médio. Integral de Riemann: definição e exemplos especiais.Integrabilidade de funções contínuas e teorema fundamental do Cálculo. Critérios de integrabilidade. Séries numéricas: critérios de convergência. Sequências e séries de funções convergência pontual e uniforme, teste - M de Weierstrass. Continuidade, integrabilidade e derivabilidade com convergência uniforme. Séries de potências e propriedades.",
+        "dependencies": ["MAT2454"]
+    },
+    "MAT0225": {
+        "code": "MAT0225",
+        "name": "Funções Analíticas",
+        "credits": "4",
+        "description": "Séries de potências e funções elementares. Derivação complexa. Integração complexa, fórmula de Cauchy, fórmula integral para as derivadas;teorema do máximo módulo, teorema de Liouville. Séries de Taylor e Laurent, domínio de convergência e classificação de singularidades. Resíduos, aplicações.Transformação conforme.",
+        "dependencies": ["MAT0236"]
+    },
+    "MAT0234": {
+        "code": "MAT0234",
+        "name": "Medida e Integração",
+        "credits": "4",
+        "description": "Medida de Lebesgue em R^n. Espaços de medida; funções mensuráveis e integração; Lema de Fatou; Teorema da convergência monótona; Teorema de convergência dominada. A relação da integral de Lebesgue na reta com a integral de Riemann e com a integral imprópria de Riemann. Aplicação do teorema de convergência dominada: derivação sob o sinal de integral. Espaços L^p; desigualdades de Hölder e Minkowski; completude dos espaços L^p. Teoremas de Fubini e Tonelli para medida de Lebesgue em R^n. Tópicos opcionais (ao menos um desses tópicos deve ser abordado): a) Transformada de Fourier; produto de convolução; aplicações a EDP. b) Teorema de Vitali; funções de variação limitada; funções absolutamente contínuas e teorema fundamental do cálculo. c) Teorema de mudança de variável para integrais de Lebesgue em R^n.",
+        "dependencies": ["MAT0236"]
+    },
+    "MAT0236": {
+        "code": "MAT0236",
+        "name": "Funções Diferenciáveis e Séries",
+        "semester": "3",
+        "credits": "4",
+        "description": "Funções diferenciáveis de R^n em R^p. Regra da Cadeia. Funções de classe C^k. Teorema da Função Implícita para funções de R^2 em R (enunciado e demonstração). Enunciado dos teoremas da função inversa e implícita para funções de R^n em R^p. Método dos multiplicadores de Lagrange para funções em R^n sujeitas a p vínculos. Sequências e séries numéricas. Critérios de convergência. Sequências e séries de funções. Convergência pontual e uniforme. Derivação e integração termo a termo. Séries de potências.",
+        "dependencies": ["MAT2454"]
+    },
+    "MAT0264": {
+        "code": "MAT0264",
+        "name": "Anéis e Corpos",
+        "credits": "4",
+        "description": "Anéis, homomorfismos, ideais, anel quociente, domínios de integridade, corpos de frações. Anéis fatoriais, domínios de ideais principais, domínios euclidianos. Anéis de polinômios. Extensões de corpos. Construções com régua e compasso.",
+        "dependencies": ["MAC0105"]
+    },
+    "MAT0265": {
+        "code": "MAT0265",
+        "name": "Grupos",
+        "credits": "4",
+        "description": "Grupos, subgrupos, classes laterais, Teorema de Lagrange, subgrupo normal, grupo quociente, homomorfismo de grupos. Grupos de permutações. Grupos de matrizes. Ações. Grupos de rotações finitos. Teoremas de Sylow. Grupos abelianos finitos.",
+        "dependencies": ["MAC0105"]
+    },
+    "MAT0311": {
+        "code": "MAT0311",
+        "name": "Cálculo Diferencial e Integral V",
+        "credits": "6",
+        "description": "Topologia de Rn e espaços métricos (abertos, fechados, vizinhanças, pontos de acumulação, compactos, conexos).Caracterização de compacto de Rn como fechado e limitado. Seqüências em espaços métricos. Convergência. Subseqüências. Caracterização da topologia(aberto, fechado, ponto de acumulação) por seqüências.relação entre compacto e seqüencialmente compacto. Seqüência de Cauchy. Completude.Destaque para o Rn. Continuidade de aplicações de Rn em Rm e entre espaços métricos.Caracterização de continuidade por seqüências.Continuidade de função composta.Preservação de compactos e de conexos. Transformações de Rn em Rm; Diferenciabilidade, teoremas de existência da diferencial, regra da cadeia e desigualdade do valor médio. A classe C1. Teorema da função inversa e teorema da função implícita.Aplicações .6.Derivadas de ordem superior. Polinômio de Taylor.Máximos e mínimos .7.Máximos e mínimos condicionados.Multiplicadores de Lagrange.",
+        "dependencies": ["MAT0122", "MAT0206"]
+    },
+    "MAT0359": {
+        "code": "MAT0359",
+        "name": "Lógica",
+        "credits": "4",
+        "description": "O cálculo de predicados de 1 ordem: linguagens de 1 ordem formalizadas, axiomas, a noção de dedução, o teorema da dedução; exemplos e aplicações em teorias matemáticas. A noção de estrutura e a noção de verdade de Tarski: exemplos. O teorema da completude, o teorema da compacidade e aplicações: noções matemáticas não finitamente axiomatizáveis, o teorema de Löwenheim-Skolem, outras. Noções gerais sobre\nalgoritmos.",
+        "dependencies": ["MAC0239", "MAT0264"]
+    },
+    "MAT2453": {
+        "name": "Cálculo Diferencial e Integral I",
+        "code": "MAT2453",
+        "semester": "1",
+        "description": "Funções trigonométricas. Funções exponenciais. Função composta e função inversa. Limites: noção intuitiva, propriedades algébricas. Teorema do Confronto. Continuidade. Derivadas: definição, interpretações geométrica e física. Regras de derivação, regra de cadeia, derivada da função inversa e derivação implícita. Aplicações. Teorema do valor médio e consequências. Regras de L'Hospital. Gráficos. Resolução de problemas de Máximos e Mínimos. Integral de Riemann. Técnicas de integração. Aplicações: cálculos de volumes de revolução, comprimento de curvas. Fórmula de Taylor.",
+        "credits": 6,
+        "dependencies": []
+    },
+    "MAT2454": {
+        "code": "MAT2454",
+        "name": "Cálculo Diferencial e Integral II",
+        "semester": "2",
+        "credits": "4",
+        "description": "Limites e derivadas de funções de duas ou mais variáveis; Teorema de Schwarz; Fórmula de Taylor; Máximos e Mínimos; Multiplicadores de Lagrange.",
+        "dependencies": ["MAT2453"]
+    }
+}

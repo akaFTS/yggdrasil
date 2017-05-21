@@ -1,84 +1,15 @@
-[{
-    "code": "MAC0425",
-    "name": "Inteligência Artificial",
-    "description": "Fundamentos da Inteligência Artificial. Arquiteturas de agentes inteligentes. Métodos de busca heurística. Métodos de busca local e gulosa. Jogos adversariais. Planejamento clássico. Planejamento prático. Grafo de planejamento. Planejamento e execução. Aprendizagem de máquina. Aprendizagem supervisionada. Aprendizagem em redes neurais e redes de crença. Aprendizagem por reforço. Agentes robóticos. Comunicação e percepção.",
-    "credits": "4",
-    "position": [0, 0]
-}, {
-    "code": "MAC0444",
-    "name": "Sistemas Baseados em Conhecimento",
-    "credits": "4",
-    "description": "Fundamentos da Inteligência Artificial. Resolução de problemas com técnicas de busca. Representação de conhecimento. Raciocínio lógico. Inferência em lógica de predicados de primeira ordem. Provador de teoremas. Construção de bases de conhecimento. Engenharia de conhecimento. Engenharia e uso de ontologias. Programação lógica. Sistemas de produção. Redes semânticas. Aprendizagem de conhecimento. Programação lógica indutiva. Aprendizagem baseada em explicação. Agentes que se comunicam. Processamento de linguagem natural.",
-    "position": [0, 2]
-}, {
-    "code": "MAC0459",
-    "name": "Ciência e Engenharia de Dados",
-    "credits": "4",
-    "description": "Importância da área e de suas aplicações. Processo de descoberta do conhecimento (KDD). Tratamento, representação e qualificação de grande volumes de dados. Armazém de dados e modelos multidimensionais. Noções de Redes de Petri e Álgebra de Processos. Modelagem e implementação de workflows científicos e processos de negócio. Indexação e recuperação de grandes volumes de dados. Análise exploratória de dados. Redes complexas e bancos de dados orientado a grafos. Exercícios com utilização de dados simulados e reais.",
-    "position": [0, 3]
-}, {
-    "code": "MAC0460",
-    "name": "Aprendizagem Computacional: Modelos, Algoritmos e Aplicações",
-    "credits": "4",
-    "description": "Conceitos, hipóteses e algoritmos de aprendizagem. Representações e fórmulas booleanas. Decomposições por Morfologia Matemática. Decomposições por Redes Neurais. Aprendizagem probabilística. Aprendizagem eficiente. Dimensão VC. Aplicações.",
-    "position": [0, 4]
-}, {
-    "code": "MAC0218",
-    "name": "Técnicas de Programação II",
-    "description": "Controle de versões tais como git e boas práticas metodológicas para desenvolvimento de software de forma colaborativa. Princípios de orientação a objetos: encapsulamento, herança, polimorfismo, interfaces, tratamento de exceções. Arcabouços orientados a objetos para construção de interfaces gráficas complexas. Introdução a padrões de projeto OO e MVC. Técnicas avançadas de teste de software incluindo arcabouços para automatização de testes e boas práticas de codificação baseadas em testes. Qualidade de Código e Refatoração.",
-    "credits": "4",
-    "wcredits": "2",
-    "position": [1, 1]
-}, {
-    "code": "MAC0332",
-    "name": "Engenharia de Software",
-    "credits": "4",
-    "wcredits": "2",
-    "description": "Conceituação de Engenharia de Software. Modelos de ciclos de vida. Paradigmas de Desenvolvimento. Processos de Desenvolvimento. Agilidade no desenvolvimento de software. Gerenciamento de Projetos. Ferramentas de Trabalho. Análise e especificação de requisitos. Modelagem. Projeto (design). Modularidade. Padrões de projeto. Reúso. Arquitetura de Software. Projeto da interface com o usuário. Implementação e implantação. Verificação e validação: testes, revisões e inspeções. Métodos formais. Gerenciamento de versões e configurações. Manutenção e evolução de software. Planejamento e Estimativas. Documentação. Qualidade e métricas. Software livre. Engenharia de Software para sistemas Web. Tópicos atuais de Engenharia de Software. A Pesquisa e o futuro da Engenharia de Software.",
-    "position": [1, 2]
-}, {
-    "code": "MAC0413",
-    "name": "Tópicos Avançados de Programação Orientada a Objetos",
-    "credits": "4",
-    "wcredits": "2",
-    "description": "Padrões de Projeto avançados. Escrita de Padrões OO. Teste de Software OO. Reflexão Computacional e Meta-Programação. Continuações, Traits e Mix-ins. Arquitetura de Software OO e Padrões Arquiteturais. Princípios SOLID.",
-    "position": [1, 3]
-}, {
-    "code": "MAC0472",
-    "name": "Laboratório de Métodos Ágeis",
-    "credits": "4",
-    "wcredits": "2",
-    "description": "O Manifesto Ágil. Os princípios e valores dos métodos ágeis As Práticas de XP. As doze práticas iniciais. As práticas principais e corolárias atuais Testes Automatizados. Como fazer e ferramentas mais usadas. Refatoração: técnicas sistemáticas para melhorar o desenho de software pré-existente. Planejamento Ágil. Cartões de histórias, estimativas e priorização. Padronização de Estilo. Ferramentas para Desenvolvimento Colaborativo de Software. Incluindo ferramentas de integração contínua e ferramentas de avaliação da qualidade do software.",
-    "position": [1, 4]
-}, {
-    "code": "MAC0414",
-    "name": "Autômatos, Computabilidade e Complexidade",
-    "credits": "4",
-    "description": "Palavras, linguagens, operações sobre linguagens. Linguagens regulares. Autômatos finitos determinísticos e não determinísticos. Teorema de Kleene. Autômatos reduzidos. Modelos de computação; máquinas de Turing. Tese de Church. Redutibilidade e problemas indecidíveis. Complexidade, problemas decidíveis em tempo polinomial. Não-determinismo versus determinismo. Redutibilidade e problemas NP-completos. Teorema de Cook-Levin.",
-    "position": [2, 0]
-}, {
-    "code": "MAE0320",
-    "name": "Simulação e Mineração de Dados",
-    "credits": "4",
-    "wcredits": "1",
-    "description": "Simulação estática: métodos de inversão, aceitação, rejeição, composição e métodos de reamostragem. Otimização numérica: Newton-Raphson, scoring, quase-Newton. Algoritmo EM. Bootstrap e Jackknife. Métodos de Monte Carlo. Noções de simulação dinâmica (MCMC). Manipulação de arquivos de dados. Análise estatística de grandes bancos de dados. Tratamento de dados para mineração (data mining).",
-    "position": [2, 1]
-}, {
-    "code": "MAE0399",
-    "name": "Análise de Dados e Simulação",
-    "credits": "4",
-    "description": "Análise exploratória de um ou mais conjuntos de dados. Métodos gráficos: medidas robustas, P-P e Q-Q plots. Regressão e análise de resíduos. Simulação estática: simulação de variáveis aleatórias, métodos de Monte Carlo. Simulação de eventos discretos: filas, controle de estoques, etc. Reamostragem. Aceitação-rejeição.",
-    "position": [2, 2]
-}, {
-    "code": "MAE0515",
-    "name": "Introdução à Teoria dos Jogos",
-    "credits": "4",
-    "description": "Caracterização de um jogo. Jogos cooperativos e não-cooperativos. Jogos de uma pessoa. Jogos de duas pessoas: de soma zero, não-cooperativos (de soma não-zero) e cooperativos. Jogos de n pessoas.",
-    "position": [2, 3]
-}, {
-    "code": "MAT0359",
-    "name": "Lógica",
-    "credits": "4",
-    "description": "O cálculo de predicados de 1 ordem: linguagens de 1 ordem formalizadas, axiomas, a noção de dedução, o teorema da dedução; exemplos e aplicações em teorias matemáticas. A noção de estrutura e a noção de verdade de Tarski: exemplos. O teorema da completude, o teorema da compacidade e aplicações: noções matemáticas não finitamente axiomatizáveis, o teorema de Löwenheim-Skolem, outras. Noções gerais sobre\nalgoritmos.",
-    "position": [2, 4]
-}]
+{
+    "MAC0425": [0, 0],
+    "MAC0444": [0, 2],
+    "MAC0459": [0, 3],
+    "MAC0460": [0, 4],
+    "MAC0218": [1, 1],
+    "MAC0332": [1, 2],
+    "MAC0413": [1, 3],
+    "MAC0472": [1, 4],
+    "MAC0414": [2, 0],
+    "MAE0320": [2, 1],
+    "MAE0399": [2, 2],
+    "MAE0515": [2, 3],
+    "MAT0359": [2, 4]
+}

@@ -195,7 +195,7 @@ body.locked {
 }
 
 .content .skill-list .skill-box .skill.selected {
-    background-color: #F0F0F0;
+    background-color: rgba(100,100,100,0.1);
 }
 
 .content .skill-list .skill-box .skill .skill-name {
@@ -361,7 +361,7 @@ body.locked {
 
 .drawer-skill-info .skill-info .skill-requires .require p {
     margin: 0 0 0;
-    color: #999;
+    color: #888;
     height: 20px;
     overflow-x: hidden;
 }

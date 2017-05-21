@@ -24,7 +24,7 @@
         <div class="header">
             <img src="images/mestre.png">
             <div class="header-middle">
-                <div class="header-title blue border-blue">
+                <div class="header-title blue border-blue" ng-click="bla()">
                     Yggdrasil
                 </div>
                 <div class="subtitle">
@@ -34,7 +34,10 @@
             <img src="images/algoz.png">
         </div>
         <div class="content row nomargin">
-            <div class="col-md-8 nopadding">
+            <div class="col-md-4 col-md-push-8">
+                Oi
+            </div>
+            <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
                     <div ng-repeat="track in tracks">
                         <div class="skill-title blue" ng-click="track.collapsed = !track.collapsed">
