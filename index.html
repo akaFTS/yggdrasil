@@ -20,6 +20,26 @@
     </head>
     <body ng-app="yggdrasil" ng-controller="AppCtrl" ng-class="showPanel ? 'locked' : ''">
 
+        <!-- API do Facebook -->
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1479807825424520',
+              xfbml      : true,
+              version    : 'v2.9'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <div class="header">
             <img src="images/mestre.png">
             <div class="header-middle">
@@ -52,7 +72,7 @@
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
                     <div ng-repeat="track in tracks">
-                        <div class="skill-title blue" ng-click="track.collapsed = !track.collapsed">
+                        <div class="skill-title blue" ng-click="toggleTrack()">
                             {{track.name}}
                             <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                         </div>
@@ -113,7 +133,7 @@
             </div>
         </div>
         <div class="footer">
-            by Gustavo Silva @ IME Workshop. Imagens são copyright de Ragnarok Online. Agradecimentos: Leonardo Lana e Luís Felipe
+            by Gustavo Silva @ IME Workshop. Imagens são copyright de Ragnarok Online. Agradecimentos: Leonardo Lana e Luís Felipe &nbsp;<a href="https://github.com/akaFTS/yggdrasil" target="_blank"><span class="fa fa-github github"></span></a>
         </div>
     </body>
 </html>
