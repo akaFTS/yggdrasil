@@ -109,10 +109,11 @@ angular.module("yggdrasil", [])
     $scope.toggleTrack = function(track) {
 
         //se estiver abrindo, marcamos um evento
-        if(!track.collapsed)
+        if(!track.collapsed) {
             var params = {};
             params[FB.AppEvents.ParameterNames.DESCRIPTION] = track.name;
             FB.AppEvents.logEvent("Opened track", null, params);
+        }
 
         track.collapsed = !track.collapsed;
     }
