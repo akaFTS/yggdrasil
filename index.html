@@ -72,7 +72,7 @@
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
                     <div ng-repeat="track in tracks">
-                        <div class="skill-title blue" ng-click="toggleTrack()">
+                        <div class="skill-title blue" ng-click="toggleTrack(track)">
                             {{track.name}}
                             <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                         </div>
