@@ -23,7 +23,7 @@ angular.module("yggdrasil", [])
         else {
 
             //analytics
-            FB.AppEvents.logEvent("Opened skill", skill.code);
+            FB.AppEvents.logEvent("Opened skill", null, skill.code);
 
             //resetamos a pilha se for um clique novo, adicionamos a skill atual caso não
             if(stackAction == 'reset')
@@ -108,7 +108,7 @@ angular.module("yggdrasil", [])
 
         //se estiver abrindo, marcamos um evento
         if(!track.collapsed)
-            FB.AppEvents.logEvent("Opened track", track.name);
+            FB.AppEvents.logEvent("Opened track", null, track.name);
 
         track.collapsed = !track.collapsed;
     }
