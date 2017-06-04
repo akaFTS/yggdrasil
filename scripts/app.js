@@ -2,11 +2,15 @@ angular.module("yggdrasil", [])
 
 
 //controller do sistema
-.controller("AppCtrl", function($scope, trackService, skillService, $timeout) {
+.controller("AppCtrl", function($scope, trackService, skillService, myService, $timeout) {
 
     $scope.skillStack = [];
 
     $scope.sks = skillService;
+
+    $scope.blah = function() {
+        console.log(skillService.dependencyTree);
+    }
 
 
     //selecionar uma matéria para mais informações
@@ -23,9 +27,11 @@ angular.module("yggdrasil", [])
         else {
 
             //analytics
-            var params = {};
-            params[FB.AppEvents.ParameterNames.SEARCH_STRING] = skill.code;
-            FB.AppEvents.logEvent("Opened skill", null, params);
+            if(typeof FB != 'undefined') {
+                var params = {};
+                params[FB.AppEvents.ParameterNames.SEARCH_STRING] = skill.code;
+                FB.AppEvents.logEvent("Opened skill", null, params);
+            }
 
             //resetamos a pilha se for um clique novo, adicionamos a skill atual caso não
             if(stackAction == 'reset')
@@ -62,6 +68,8 @@ angular.module("yggdrasil", [])
     //retorna um array de classes CSS para o objeto daquela skill.
     $scope.getSkillClasses = function (skill) {
         var classes = [];
+
+        classes.push(myService.getSkill(skill.code));
 
         if(skill.empty)
             classes.push("empty");
@@ -109,7 +117,7 @@ angular.module("yggdrasil", [])
     $scope.toggleTrack = function(track) {
 
         //se estiver abrindo, marcamos um evento
-        if(!track.collapsed) {
+        if(!track.collapsed && typeof FB != 'undefined') {
             var params = {};
             params[FB.AppEvents.ParameterNames.DESCRIPTION] = track.name;
             FB.AppEvents.logEvent("Opened track", null, params);
@@ -124,6 +132,22 @@ angular.module("yggdrasil", [])
     //criamos um atalho pra usar o objeto global do angular na view (precisamos do equals())
     $scope.angular = angular;
 
+})
+
+//serviço que organiza o curso da pessoa
+.service("myService", function() {
+
+    this.mySkills = {};
+
+    //seta uma skill pra alguma categora
+    this.setSkill = function(skill, cat) {
+        this.mySkills[skill.code] = cat;
+    }
+
+    //descobrir o status de uma skill
+    this.getSkill = function(code) {
+        return this.mySkills[code];
+    }
 })
 
 //serviço que organiza as trilhas
@@ -173,17 +197,45 @@ angular.module("yggdrasil", [])
 })
 
 //serviço que carrega as matérias (skills) no sistema
-.service("skillService", function($http, blockService, $q) {
+.service("skillService", function($http, blockService, $q, myService) {
 
+    this.skillHash = {};
+
+    this.dependencyTree = {};
 
     var that = this;
     var skillPromise = $http.get("skills/skills.json").then(function(data) {
         that.skillHash = data.data;
     });
 
+
+    //construir a estrutura de dependencias
+    skillPromise.then(function() {
+        angular.forEach(that.skillHash, function(skill) {
+
+            //vamos varrer as dependencias de cada skill
+            //e montar uma estrutura skill -> skills que dependem dela
+            angular.forEach(skill.dependencies, function(dep) {
+                if(!that.dependencyTree[dep])
+                    that.dependencyTree[dep] = [];
+
+                that.dependencyTree[dep].push(skill.code);
+            });
+
+            //inicialmente, se tiver pre-requisitos, travar
+            if(skill.dependencies.length)
+                myService.setSkill(skill, "locked");
+        });
+    });
+
     //buscar uma skill específica
     this.fetchSkill = function(code) {
         return this.skillHash[code];
+    }
+
+    //buscar as materias que dependem de uma skill
+    this.getDependent = function(code) {
+        return this.dependencyTree[code];
     }
 
     //construir o grid de skills de uma certa trilha

@@ -43,7 +43,7 @@
         <div class="header">
             <img src="images/mestre.png">
             <div class="header-middle">
-                <div class="header-title blue border-blue">
+                <div class="header-title blue border-blue" ng-click="blah()">
                     Yggdrasil
                 </div>
                 <div class="subtitle">
@@ -90,6 +90,12 @@
                                         <div class="empty-skill-icon" ng-if="skill.empty"></div>
                                         <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
                                         <div class="skill-code blue">{{skill.code}}</div>
+                                        <div class="skill-badge done-badge bg-dark-green">
+                                            <span class="fa fa-check"></span>
+                                        </div>
+                                        <div class="skill-badge locked-badge bg-dark-red">
+                                            <span class="fa fa-lock"></span>
+                                        </div>
                                     </div>
                                     <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
                                         <b>{{skill.block.name}}</b> ({{skill.block.rate}})

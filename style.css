@@ -226,6 +226,44 @@ body.locked {
     margin: 0 auto;
 }
 
+.content .skill-list .skill-box .skill .skill-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 40px;
+    position: absolute;
+    top: 70px;
+    right: 42px;
+    display: none;
+}
+
+.content .skill-list .skill-box .skill .skill-badge span {
+    font-size: 15px;
+    color: #F2F2F2;
+    padding-top: 4px;
+}
+
+
+
+.content .skill-list .skill-box .skill.done .skill-code,
+.content .skill-list .skill-box .skill.locked .skill-code {
+    color: #888 !important;
+}
+
+.content .skill-list .skill-box .skill.done .skill-name,
+.content .skill-list .skill-box .skill.locked .skill-name {
+    color: #AAA;
+}
+
+.content .skill-list .skill-box .skill.done .skill-icon,
+.content .skill-list .skill-box .skill.locked .skill-icon {
+    filter: grayscale(100%) opacity(50%);
+}
+
+.content .skill-list .skill-box .skill.done .done-badge,
+.content .skill-list .skill-box .skill.locked .locked-badge {
+    display: block;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -556,6 +594,10 @@ body.locked {
     background-color: #E8F5E9;
 }
 
+.bg-dark-green {
+    background-color: #449d48 !important;
+}
+
 .pink {
     color: #EC407A !important;
 }
@@ -618,6 +660,10 @@ body.locked {
 
 .bg-light-red {
     background-color: #ffe5e8;
+}
+
+.bg-dark-red {
+    background-color: #af1c14 !important;
 }
 
 .bold {
