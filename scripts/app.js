@@ -1,4 +1,4 @@
-angular.module("yggdrasil", [])
+angular.module("yggdrasil", ["ngStorage"])
 
 
 //controller do sistema
@@ -166,13 +166,23 @@ angular.module("yggdrasil", [])
 })
 
 //serviço que organiza o curso da pessoa
-.service("myService", function() {
+.service("myService", function($localStorage) {
 
-    this.mySkills = {};
+    //se ja existir no cache, pegar
+    if($localStorage.mySkills)
+        this.mySkills = $localStorage.mySkills;
+
+    //senão, criar e guardar no cache
+    else {
+        this.mySkills = {};
+        $localStorage.mySkills = this.mySkills;
+    }
+
+    console.log($localStorage.mySkills);
 
     //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
-        this.mySkills[skill.code] = cat;        
+        this.mySkills[skill.code] = cat;  
     }
 
     //descobrir o status de uma skill
@@ -253,8 +263,8 @@ angular.module("yggdrasil", [])
                 that.dependencyTree[dep].push(skill.code);
             });
 
-            //inicialmente, se tiver pre-requisitos, travar
-            if(skill.dependencies.length)
+            //na primeira config, se tiver pre-requisitos, travar
+            if(myService.mySkills == {} && skill.dependencies.length)
                 myService.setSkill(skill, "locked");
         });
     });

@@ -13,6 +13,7 @@
 
         <!-- SCRIPTS -->
         <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.min.js"></script>
 
         <!-- JS DO SISTEMA -->
         <script src="scripts/app.js"></script>
@@ -60,11 +61,20 @@
                     <span class="fa fa-close search-icon" ng-show="searchQuery.length" ng-click="searchQuery = ''"></span>
                 </div>
                 <div class="search-results" ng-if="searchQuery.length">
-                    <div class="search-result" ng-repeat="skill in sks.skillHash | toArray | filterSkill:searchQuery" ng-click="selectSkill(skill)">
+                    <div class="search-result" ng-repeat="skill in sks.skillHash | toArray | filterSkill:searchQuery" ng-click="selectSkill(skill)" ng-class="getSkillClasses(skill)">
                             <img ng-src="images/skills/{{skill.code}}.gif">
                             <div>
                                 <h4 class="blue">{{skill.code}}</h4>
                                 <p>{{skill.name}}</p>
+                            </div>
+                            <div class="skill-badge done-badge bg-dark-green">
+                                <span class="fa fa-check"></span>
+                            </div>
+                            <div class="skill-badge locked-badge bg-dark-red">
+                                <span class="fa fa-lock"></span>
+                            </div>
+                            <div class="skill-badge doing-badge bg-orange">
+                                <span class="fa fa-pencil"></span>
                             </div>
                     </div>
                 </div>
@@ -151,7 +161,7 @@
                     </div>
                     <div class="skill-requires" ng-if="selectedSkill.dependencies.length > 0">
                         <h3>Pré-requisitos</h3>
-                        <div class="require" ng-repeat="dep in selectedSkill.deps" ng-click="selectSkill(dep, 'push')">
+                        <div class="require" ng-repeat="dep in selectedSkill.deps" ng-class="getSkillClasses(dep)" ng-click="selectSkill(dep, 'push')">
                             <img ng-src="images/skills/{{dep.code}}.gif">
                             <div>
                                 <h4 class="blue">{{dep.code}}</h4>

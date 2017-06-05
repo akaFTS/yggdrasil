@@ -400,6 +400,7 @@ body.locked {
     padding: 10px 20px;
     margin-left: -20px;
     margin-right: -20px;
+    position: relative;
 }
 
 .drawer-skill-info .skill-info .skill-requires .require:hover {
@@ -427,6 +428,48 @@ body.locked {
     height: 20px;
     overflow-x: hidden;
 }
+
+.drawer-skill-info .skill-info .skill-requires .require .skill-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 40px;
+    position: absolute;
+    top: 35px;
+    left: 45px;
+    text-align: center;
+    display: none;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require .skill-badge span {
+    font-size: 15px;
+    color: #F2F2F2;
+    padding-top: 4px;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require.done h4,
+.drawer-skill-info .skill-info .skill-requires .require.locked h4,
+.drawer-skill-info .skill-info .skill-requires .require.doing h4 {
+    color: #888 !important;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require.done p,
+.drawer-skill-info .skill-info .skill-requires .require.locked p,
+.drawer-skill-info .skill-info .skill-requires .require.doing p {
+    color: #AAA;
+}
+
+.drawer-skill-info .skill-info .skill-requires .require.done img,
+.drawer-skill-info .skill-info .skill-requires .require.locked img,
+.drawer-skill-info .skill-info .skill-requires .require.doing img {
+    filter: grayscale(100%) opacity(50%);
+}
+
+.drawer-skill-info .skill-info .skill-requires .require.done .done-badge,
+.drawer-skill-info .skill-info .skill-requires .require.locked .locked-badge,
+.drawer-skill-info .skill-info .skill-requires .require.doing .doing-badge {
+    display: block;
+}
+
 
 .drawer-skill-info .skill-info .skill-back {
     font-weight: bold;
@@ -484,6 +527,7 @@ body.locked {
     display: flex;
     display: -webkit-flex;
     padding: 10px;
+    position: relative;
 }
 
 .search-results .search-result:hover {
@@ -510,6 +554,47 @@ body.locked {
     color: #888;
     height: 20px;
     overflow-x: hidden;
+}
+
+.search-results .search-result .skill-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 40px;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    text-align: center;
+    display: none;
+}
+
+.search-results .search-result .skill-badge span {
+    font-size: 15px;
+    color: #F2F2F2;
+    padding-top: 4px;
+}
+
+.search-results .search-result.done h4,
+.search-results .search-result.locked h4,
+.search-results .search-result.doing h4 {
+    color: #888 !important;
+}
+
+.search-results .search-result.done p,
+.search-results .search-result.locked p,
+.search-results .search-result.doing p {
+    color: #AAA;
+}
+
+.search-results .search-result.done img,
+.search-results .search-result.locked img,
+.search-results .search-result.doing img {
+    filter: grayscale(100%) opacity(50%);
+}
+
+.search-results .search-result.done .done-badge,
+.search-results .search-result.locked .locked-badge,
+.search-results .search-result.doing .doing-badge {
+    display: block;
 }
 
 .side-entry {
@@ -591,7 +676,7 @@ body.locked {
     }
 
     .drawer-skill-info {
-        width: 70%;
+        width: 90%;
     }
 
     .drawer-skill-info.archived {
