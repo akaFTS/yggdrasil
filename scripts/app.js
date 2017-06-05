@@ -7,15 +7,11 @@ angular.module("yggdrasil", ["ngStorage"])
     $scope.skillStack = [];
 
     $scope.sks = skillService;
-
-    $scope.blah = function() {
-        console.log(skillService.dependencyTree);
-    }
+    $scope.ms = myService;
 
 
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
-
 
         if(skill.empty) return;
 
@@ -168,26 +164,105 @@ angular.module("yggdrasil", ["ngStorage"])
 //serviço que organiza o curso da pessoa
 .service("myService", function($localStorage) {
 
+    $localStorage.$reset();
+
     //se ja existir no cache, pegar
-    if($localStorage.mySkills)
+    if($localStorage.mySkills) {
         this.mySkills = $localStorage.mySkills;
+        this.numCredits = $localStorage.numCredits;
+        this.blockSize = $localStorage.blockSize;
+    }
 
     //senão, criar e guardar no cache
     else {
         this.mySkills = {};
         $localStorage.mySkills = this.mySkills;
+        this.numCredits = [0,0,0];
+        $localStorage.numCredits = this.numCredits;
+        this.blockSize = {};
+        $localStorage.blockSize = this.blockSize;
     }
 
-    console.log($localStorage.mySkills);
+    this.totalCredits = [115, 56, 24];
 
     //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
-        this.mySkills[skill.code] = cat;  
+
+        //se ja estiver setado nao tem o que fazer
+        if(this.mySkills[skill.code] == cat) return;
+
+        //se estiver tirando uma feita tem que descontar os creditos
+        if(this.mySkills[skill.code] == 'done') {
+
+            var target = skill.type;
+
+            //verificar se ele é de algum bloco
+            if(skill.block && skill.block.cap != "-") {
+
+                //remover
+                this.blockSize[skill.block.id]--;
+
+                //se for na optativa de estatistica, parece obrigatoria mas é eletiva
+                if(skill.block.id == 1)
+                    target = 1;             
+            }   
+
+            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
+            this.numCredits[target] -= skcr;         
+        }
+
+        this.mySkills[skill.code] = cat;
+
+        //se estiver marcando como feito
+        if(cat == 'done') {
+
+            var target = skill.type;
+
+            //vamos verificar se ele é de algum bloco com tamanho definido
+            if(skill.block && skill.block.cap != "-") {
+
+                //criar a entrada se não tiver
+                if(!this.blockSize[skill.block.id])
+                    this.blockSize[skill.block.id] = 0;
+
+                //incrementar
+                this.blockSize[skill.block.id]++;
+
+                //se for na optativa de estatistica, parece obrigatoria mas é eletiva
+                if(skill.block.id == 1)
+                    target = 1;
+            }
+
+            // adiciona os creditos na contagem
+            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
+            this.numCredits[target] += skcr;
+
+        } else if(cat == '') {
+
+            //se estiver marcando como não feito, verificar se deve ser travado
+            var locked = false;
+            var that = this;
+            angular.forEach(skill.dependencies, function(dep) {
+                if(that.mySkills[dep] != 'done')
+                    locked = true;
+            });
+            if(locked)
+                this.mySkills[skill.code] = 'locked';
+        }
     }
 
     //descobrir o status de uma skill
     this.getSkill = function(code) {
         return this.mySkills[code];
+    }
+
+    //pegar a porcentagem de conclusão de creditos
+    this.getPercentage = function(type) {
+
+        if(this.numCredits[type] > this.totalCredits[type])
+            return 100;
+        else
+            return Math.round(this.numCredits[type]*100/this.totalCredits[type]);
     }
 })
 
@@ -264,7 +339,7 @@ angular.module("yggdrasil", ["ngStorage"])
             });
 
             //na primeira config, se tiver pre-requisitos, travar
-            if(myService.mySkills == {} && skill.dependencies.length)
+            if(typeof myService.mySkills[skill.code] == 'undefined' && skill.dependencies.length)
                 myService.setSkill(skill, "locked");
         });
     });
@@ -303,6 +378,12 @@ angular.module("yggdrasil", ["ngStorage"])
                 var skill = angular.copy(that.fetchSkill(code));
                 skill.position = position;
                 skills[position[0]][position[1]] = skill;
+
+                //marcamos ela como obrigatoria ou eletiva
+                if(track == 0)
+                    skill.type = 0;
+                else
+                    skill.type = 1;
             });
 
             //buscamos os blocos de optativas desta trilha
@@ -343,7 +424,7 @@ angular.module("yggdrasil", ["ngStorage"])
         var blocks = [];
 
         $http.get("skills/blocks.json").then(function(data) {
-            angular.forEach(data.data, function(block) {
+        angular.forEach(data.data, function(block) {
                 if(block.track == track)
                     blocks.push(block);
             });

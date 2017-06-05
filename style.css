@@ -142,6 +142,13 @@ body.locked {
     margin-left: -25%;
 }
 
+.content .skill-list .skill-box .skill-wrap .block-label .fa {
+    font-size: 17px;
+    position: relative;
+    left: 3px;
+    top: 1px;
+}
+
 .content .skill-list .skill-box .skill-wrap .block-label.half-name {
     margin-left: 25%;
 }
@@ -601,12 +608,20 @@ body.locked {
     border-bottom: 1px solid #EEE;
     background-color: white;
     font-size: 17px;
-    color: #888;
+    color: #666;
     padding: 8px 20px;
     display; flex;
     display: -webkit-flex;
     align-items: center;
     -webkit-align-items: center;
+}
+
+.side-entry.divider {
+    font-weight: bold;
+    background-color: #EEE;
+    color: #444;
+    font-size: 16px;
+    padding: 5px 20px;
 }
 
 .side-entry .icon {
@@ -620,6 +635,46 @@ body.locked {
 
 .side-entry .icon .fa-stack-1x {
     font-size: 22px;
+}
+
+.side-prog {
+    border-bottom: 1px solid #EEE;
+    background-color: white;
+    color: #666;
+    padding: 8px 20px;
+    font-size: 16px;
+}
+
+.side-prog .progress-name{
+    text-transform: uppercase;
+    letter-spacing: -0.3;
+    font-weight: bold;
+    font-size: 15px;
+    color: #777;
+}
+
+.side-prog .progress-subtitle{
+    text-align: center;
+}
+
+.side-prog .pbar-wrap {
+    margin: 10px 0;
+    position: relative;
+}
+
+.side-prog .pbar{
+    height: 10px;
+    width: 100%;
+    background-color: #DDD;
+    border-radius: 5px;
+}
+
+.side-prog .pbar-in{
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    transition: width 1s ease-out;
 }
 
 .footer {

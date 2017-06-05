@@ -89,6 +89,39 @@
                         Visão Geral
                     </div>
                 </div>
+                <div class="side-entry divider blue">
+                    Progresso do Curso
+                </div>
+                <div class="side-prog">
+                    <span class="progress-name">Obrigatórias</span>
+                    <div class="pbar-wrap">
+                        <div class="pbar"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(0)+'%'}"></div>
+                    </div>
+                    <div class="progress-subtitle">
+                        <span class="bold"><span class="blue">{{ms.numCredits[0]}}</span>/115</span> créditos
+                    </div>
+                </div>
+                <div class="side-prog">
+                    <span class="progress-name">Eletivas</span>
+                    <div class="pbar-wrap">
+                        <div class="pbar"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(1)+'%'}"></div>
+                    </div>
+                    <div class="progress-subtitle">
+                        <span class="bold"><span class="blue">{{ms.numCredits[1]}}</span>/56</span> créditos
+                    </div>
+                </div>
+                <div class="side-prog">
+                    <span class="progress-name">Livres</span>
+                    <div class="pbar-wrap">
+                        <div class="pbar"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(2)+'%'}"></div>
+                    </div>
+                    <div class="progress-subtitle">
+                        <span class="bold"><span class="blue">{{ms.numCredits[2]}}</span>/24</span> créditos
+                    </div>
+                </div>
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
@@ -122,7 +155,7 @@
                                         </div>
                                     </div>
                                     <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
-                                        <b>{{skill.block.name}}</b> ({{skill.block.rate}})
+                                        <b>{{skill.block.name}}</b> ({{skill.block.cap}}/{{skill.block.max}}) <span ng-show="ms.blockSize[skill.block.id] >= skill.block.cap" class="fa fa-check-circle"></span>
                                     </div>   
                                 </div>
                             </div>
