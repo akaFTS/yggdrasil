@@ -245,22 +245,26 @@ body.locked {
 
 
 .content .skill-list .skill-box .skill.done .skill-code,
-.content .skill-list .skill-box .skill.locked .skill-code {
+.content .skill-list .skill-box .skill.locked .skill-code,
+.content .skill-list .skill-box .skill.doing .skill-code {
     color: #888 !important;
 }
 
 .content .skill-list .skill-box .skill.done .skill-name,
-.content .skill-list .skill-box .skill.locked .skill-name {
+.content .skill-list .skill-box .skill.locked .skill-name,
+.content .skill-list .skill-box .skill.doing .skill-name {
     color: #AAA;
 }
 
 .content .skill-list .skill-box .skill.done .skill-icon,
-.content .skill-list .skill-box .skill.locked .skill-icon {
+.content .skill-list .skill-box .skill.locked .skill-icon,
+.content .skill-list .skill-box .skill.doing .skill-icon {
     filter: grayscale(100%) opacity(50%);
 }
 
 .content .skill-list .skill-box .skill.done .done-badge,
-.content .skill-list .skill-box .skill.locked .locked-badge {
+.content .skill-list .skill-box .skill.locked .locked-badge,
+.content .skill-list .skill-box .skill.doing .doing-badge {
     display: block;
 }
 
@@ -328,7 +332,27 @@ body.locked {
     color: #E0E0E0;
 }
 
+.drawer-skill-info .mystatus-bar {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.drawer-skill-info .mystatus-bar .status {
+    width: 33.3%;
+    text-align: center;
+    font-size: 16px;
+    padding: 8px 0;
+    font-weight: bold;
+    color: white;
+}
+
+.drawer-skill-info .mystatus-bar .status:hover {
+    cursor: pointer;
+    background-color: #EEE
+}
+
 .drawer-skill-info .skill-info .skill-desc {
+    border-top: 1px solid #EEE;
     background-color: white;
     padding: 20px;
 }
@@ -447,6 +471,13 @@ body.locked {
     cursor: pointer;
 }
 
+.search-results {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.6);
+}
+
 .search-results .search-result {
     background-color: white;
     border-bottom: 1px solid #EEE;
@@ -481,6 +512,31 @@ body.locked {
     overflow-x: hidden;
 }
 
+.side-entry {
+    border-bottom: 1px solid #EEE;
+    background-color: white;
+    font-size: 17px;
+    color: #888;
+    padding: 8px 20px;
+    display; flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.side-entry .icon {
+    color: #999;
+    margin-right: 10px;
+}
+
+.side-entry .icon:hover {
+    cursor: pointer;
+}
+
+.side-entry .icon .fa-stack-1x {
+    font-size: 22px;
+}
+
 .footer {
     text-align: center;
     padding: 5px;
@@ -499,15 +555,6 @@ body.locked {
 .footer .github:hover {
     color: #444;
     cursor: pointer;
-}
-
-@media(max-width: 991px) {
-    .search-results {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.6);
-    }
 }
 
 @media(max-width: 767px) {
@@ -594,6 +641,10 @@ body.locked {
     background-color: #E8F5E9;
 }
 
+.dark-green {
+    color: #449d48 !important;
+}
+
 .bg-dark-green {
     background-color: #449d48 !important;
 }
@@ -662,8 +713,12 @@ body.locked {
     background-color: #ffe5e8;
 }
 
+.dark-red {
+    color: #d22218 !important;
+}
+
 .bg-dark-red {
-    background-color: #af1c14 !important;
+    background-color: #d22218 !important;
 }
 
 .bold {

@@ -68,6 +68,17 @@
                             </div>
                     </div>
                 </div>
+                <div class="side-entry with-icon">
+                    <div class="icon" ng-click="general = !general">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x blue" ng-class="general ? 'fa-check' : ''"></i>
+                        </span>
+                    </div>
+                    <div class="text">
+                        Visão Geral
+                    </div>
+                </div>
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
@@ -96,6 +107,9 @@
                                         <div class="skill-badge locked-badge bg-dark-red">
                                             <span class="fa fa-lock"></span>
                                         </div>
+                                        <div class="skill-badge doing-badge bg-orange">
+                                            <span class="fa fa-pencil"></span>
+                                        </div>
                                     </div>
                                     <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
                                         <b>{{skill.block.name}}</b> ({{skill.block.rate}})
@@ -110,10 +124,21 @@
             <div class="drawer-skill-info" ng-class="showPanel  ? '' : 'archived'">
                 <div class="skill-info">
                     <div class="skill-name bg-blue">
-                        <h3>{{selectedSkill.name}}</h3>
+                        <h3><span class="fa fa-lock" ng-if="selectedSkill.status == 'locked'"></span> &nbsp;{{selectedSkill.name}}</h3>
                         <p>{{selectedSkill.code}}</p>
                         <div class="close-skill" ng-click="deselect()">
                             <span>&times;</span>
+                        </div>
+                    </div>
+                    <div class="mystatus-bar">
+                        <div class="status" ng-class="selectedSkill.status == 'done' ? 'bg-dark-green' : 'dark-green'" ng-click="setStatus('done')">
+                            <span class="fa fa-check"></span> &nbsp;Feito
+                        </div>
+                        <div class="status" ng-class="selectedSkill.status == 'doing' ? 'bg-orange' : 'orange'" ng-click="setStatus('doing')">
+                            <span class="fa fa-pencil"></span> &nbsp;Fazendo
+                        </div>
+                        <div class="status" ng-class="selectedSkill.status != 'done' && selectedSkill.status != 'doing' ? 'bg-dark-red' : 'dark-red'" ng-click="setStatus('')">
+                            <span class="fa fa-times"></span> &nbsp;Não Feito
                         </div>
                     </div>
                     <div class="skill-desc">
@@ -131,6 +156,15 @@
                             <div>
                                 <h4 class="blue">{{dep.code}}</h4>
                                 <p>{{dep.name}}</p>
+                            </div>
+                            <div class="skill-badge done-badge bg-dark-green">
+                                <span class="fa fa-check"></span>
+                            </div>
+                            <div class="skill-badge locked-badge bg-dark-red">
+                                <span class="fa fa-lock"></span>
+                            </div>
+                            <div class="skill-badge doing-badge bg-orange">
+                                <span class="fa fa-pencil"></span>
                             </div>
                         </div>
                     </div>

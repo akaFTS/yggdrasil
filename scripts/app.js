@@ -49,7 +49,36 @@ angular.module("yggdrasil", [])
                 var skill = skillService.fetchSkill(depskill);
                 $scope.selectedSkill.deps.push(skill);
             });
+
+            $scope.selectedSkill.status = myService.getSkill($scope.selectedSkill.code);
         }
+    }
+
+    //setar o status da matéria selecionada
+    $scope.setStatus = function(status) {
+        myService.setSkill($scope.selectedSkill, status);
+        $scope.selectedSkill.status = status;
+
+        //atualizar as matérias que dependem dela
+        var deps = skillService.getDependent($scope.selectedSkill.code);
+        angular.forEach(deps, function(dep) {
+
+            //pegar o objeto skill (dep é apenas o código)
+            var skill = skillService.fetchSkill(dep);
+
+            //verificar se todas as dependencias dela estão cumpridas
+            var locked = false;
+            angular.forEach(skill.dependencies, function(skdep) {
+                if(myService.getSkill(skdep) != 'done')
+                    locked = true;
+            });
+
+            //marca-la como travada ou não
+            if(locked)
+                myService.setSkill(skill, 'locked');
+            else
+                myService.setSkill(skill, '');
+        });
     }
 
     //voltar uma skill na pilha de chamadas de requisitos
@@ -69,7 +98,9 @@ angular.module("yggdrasil", [])
     $scope.getSkillClasses = function (skill) {
         var classes = [];
 
-        classes.push(myService.getSkill(skill.code));
+        //se não estiver no modo de visão geral
+        if(!$scope.general)
+            classes.push(myService.getSkill(skill.code));
 
         if(skill.empty)
             classes.push("empty");
@@ -139,9 +170,9 @@ angular.module("yggdrasil", [])
 
     this.mySkills = {};
 
-    //seta uma skill pra alguma categora
+    //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
-        this.mySkills[skill.code] = cat;
+        this.mySkills[skill.code] = cat;        
     }
 
     //descobrir o status de uma skill
