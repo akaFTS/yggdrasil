@@ -77,11 +77,6 @@ angular.module("yggdrasil", ["ngStorage"])
         });
     }
 
-    //marcar ou desmarcar uma disciplina como optativa livre
-    $scope.toggleFree = function() {
-        myService.toggleFree($scope.selectedSkill);
-    }
-
     //voltar uma skill na pilha de chamadas de requisitos
     $scope.popStack = function() {
         $scope.selectSkill($scope.skillStack.pop(), 'none');
@@ -96,11 +91,11 @@ angular.module("yggdrasil", ["ngStorage"])
     }
 
     //retorna um array de classes CSS para o objeto daquela skill.
-    $scope.getSkillClasses = function (skill) {
+    $scope.getSkillClasses = function (skill, noStatus) {
         var classes = [];
 
         //se não estiver no modo de visão geral
-        if(!$scope.general)
+        if(!$scope.general && !noStatus)
             classes.push(myService.getSkill(skill.code));
 
         if(skill.empty)
@@ -177,6 +172,7 @@ angular.module("yggdrasil", ["ngStorage"])
         this.numCredits = $localStorage.numCredits;
         this.blockSize = $localStorage.blockSize;
         this.freeSkills = $localStorage.freeSkills;
+        this.doingNow = $localStorage.doingNow;
     }
 
     //senão, criar e guardar no cache
@@ -189,6 +185,13 @@ angular.module("yggdrasil", ["ngStorage"])
         $localStorage.blockSize = this.blockSize;
         this.freeSkills = {};
         $localStorage.freeSkills = this.freeSkills;
+        this.doingNow = {pointer: 0, array: []};
+        $localStorage.doingNow = this.doingNow;
+
+        //encher com skills vazias
+        for(var i = 0; i < 6; i++)  {
+            this.doingNow.array.push({empty: true});
+        }
     }
 
     this.totalCredits = [115, 56, 24];
@@ -219,6 +222,19 @@ angular.module("yggdrasil", ["ngStorage"])
 
     //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
+
+        //se estiver tirando uma fazendo tem que tirar da listinha
+        if(this.mySkills[skill.code] == 'doing' && cat != 'doing') {
+            var index = this.doingNow.array.indexOf(skill);
+            this.doingNow.array.splice(index, 1);
+            this.doingNow.array.push({empty: true});
+            this.doingNow.pointer--;
+        } else if(cat == 'doing' && this.doingNow.pointer < 6) {
+
+            //temos que adicionar na lista
+            this.doingNow.array[this.doingNow.pointer] = skill;
+            this.doingNow.pointer++;
+        }
 
         //se estiver tirando uma feita tem que descontar os creditos
         if(this.mySkills[skill.code] == 'done' && cat != 'done') {

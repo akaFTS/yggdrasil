@@ -125,6 +125,19 @@
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
+                    <div class="skill-box doing" ng-if="ms.doingNow.pointer > 0">
+                        <div class="skill-row">
+                            <span class="doing-text blue">Cursando agora</span>
+                            <div class="skill-wrap" ng-repeat="skill in ms.doingNow.array">
+                                <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill, true)">
+                                    <div class="skill-name">{{skill.name}}</div>
+                                    <div class="empty-skill-icon" ng-if="skill.empty"></div>
+                                    <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
+                                    <div class="skill-code blue">{{skill.code}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div ng-repeat="track in tracks">
                         <div class="skill-title blue" ng-click="toggleTrack(track)">
                             {{track.name}}
@@ -185,7 +198,7 @@
                         </div>
                     </div>
                     <div class="free-bar" ng-if="selectedSkill.status == 'done' && selectedSkill.type == 1">
-                        <div class="icon" ng-click="toggleFree()">
+                        <div class="icon" ng-click="ms.toggleFree(selectedSkill)">
                             <span class="fa-stack">
                                 <i class="fa fa-circle-thin fa-stack-2x"></i>
                                 <i class="fa fa-stack-1x blue" ng-class="selectedSkill.isFree ? 'fa-check' : ''"></i>

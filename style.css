@@ -275,6 +275,25 @@ body.locked {
     display: block;
 }
 
+.content .skill-list .skill-box.doing {
+    padding-top: 30px;
+}
+
+.content .skill-list .skill-box.doing .doing-text {
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+    letter-spacing: -0.3;
+    top: 5px;
+    left: 10px;
+    font-size: 16px;
+}
+
+.content .skill-list .skill-box.doing .skill-wrap {
+    margin-bottom: 0;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -642,7 +661,7 @@ body.locked {
 
 .side-entry.divider {
     font-weight: bold;
-    background-color: #EEE;
+    background-color: #F5F5F5;
     color: #444;
     font-size: 16px;
     padding: 5px 20px;
