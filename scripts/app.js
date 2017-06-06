@@ -9,7 +9,6 @@ angular.module("yggdrasil", ["ngStorage"])
     $scope.sks = skillService;
     $scope.ms = myService;
 
-
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
 
@@ -164,37 +163,44 @@ angular.module("yggdrasil", ["ngStorage"])
 //serviço que organiza o curso da pessoa
 .service("myService", function($localStorage) {
 
-    //$localStorage.$reset();
-
-    //se ja existir no cache, pegar
-    if($localStorage.mySkills) {
-        this.mySkills = $localStorage.mySkills;
-        this.numCredits = $localStorage.numCredits;
-        this.blockSize = $localStorage.blockSize;
-        this.freeSkills = $localStorage.freeSkills;
-        this.doingNow = $localStorage.doingNow;
+    //reseta o cache e recarrega a pagina
+    this.wipeCache = function() {
+        $localStorage.$reset();
+        location.reload();
     }
 
-    //senão, criar e guardar no cache
-    else {
-        this.mySkills = {};
-        $localStorage.mySkills = this.mySkills;
-        this.numCredits = [0,0,0];
-        $localStorage.numCredits = this.numCredits;
-        this.blockSize = {};
-        $localStorage.blockSize = this.blockSize;
-        this.freeSkills = {};
-        $localStorage.freeSkills = this.freeSkills;
-        this.doingNow = {pointer: 0, array: []};
-        $localStorage.doingNow = this.doingNow;
 
-        //encher com skills vazias
-        for(var i = 0; i < 6; i++)  {
-            this.doingNow.array.push({empty: true});
+    //colocar tudo pra funcionar
+    this.setup = function() {
+
+        //se ja existir no cache, pegar
+        if($localStorage.mySkills) {
+            this.mySkills = $localStorage.mySkills;
+            this.numCredits = $localStorage.numCredits;
+            this.blockSize = $localStorage.blockSize;
+            this.freeSkills = $localStorage.freeSkills;
+            this.doingNow = $localStorage.doingNow;
+        }
+
+        //senão, criar e guardar no cache
+        else {
+            this.mySkills = {};
+            $localStorage.mySkills = this.mySkills;
+            this.numCredits = [0,0,0];
+            $localStorage.numCredits = this.numCredits;
+            this.blockSize = {};
+            $localStorage.blockSize = this.blockSize;
+            this.freeSkills = {};
+            $localStorage.freeSkills = this.freeSkills;
+            this.doingNow = {pointer: 0, array: []};
+            $localStorage.doingNow = this.doingNow;
+
+            //encher com skills vazias
+            for(var i = 0; i < 6; i++)  {
+                this.doingNow.array.push({empty: true});
+            }
         }
     }
-
-    this.totalCredits = [115, 56, 24];
 
 
     //transforma uma optativa eletiva em livre ou vice-versa
@@ -313,6 +319,10 @@ angular.module("yggdrasil", ["ngStorage"])
         else
             return Math.round(this.numCredits[type]*100/this.totalCredits[type]);
     }
+
+
+    this.totalCredits = [115, 56, 24];
+    this.setup();
 })
 
 //serviço que organiza as trilhas

@@ -122,6 +122,12 @@
                         <span class="bold"><span class="blue">{{ms.numCredits[2]}}</span>/24</span> créditos
                     </div>
                 </div>
+                <div class="congrats bg-blue" ng-if="ms.numCredits[0] >= 115 && ms.numCredits[1] >= 56 && ms.numCredits[2] >= 24">
+                    Parabéns! &nbsp;&nbsp;<span class="fa fa-graduation-cap"></span>
+                </div>
+                <div class="side-entry side-button blue" ng-click="ms.wipeCache()">
+                    <span><span class="fa fa-undo"></span> &nbsp;Limpar</span>
+                </div>
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">

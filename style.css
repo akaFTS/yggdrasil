@@ -720,6 +720,28 @@ body.locked {
     transition: width 1s ease-out;
 }
 
+.side-entry.side-button {
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-top: 1px solid #EEE;
+}
+
+.side-entry.side-button:hover {
+    cursor: pointer;
+    background-color: #EEE
+}
+
+.congrats {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 8px 20px;
+    font-size: 18px;
+}
+
 .footer {
     text-align: center;
     padding-bottom: 7px;
@@ -751,6 +773,10 @@ body.locked {
         font-size: 32px;
     }
 
+    .content .skill-list {
+        margin-top: 50px;
+    }
+
     .content .skill-list .skill-box .skill-row {
         overflow-x: scroll;
         overflow-y: hidden;
@@ -772,6 +798,10 @@ body.locked {
     .content .skill-list .skill-box .skill-wrap .block-label.half-name {
         margin-left: 25%;
         width: 150%;
+    }
+
+    .content .skill-list .skill-box.doing {
+        border-top: 1px solid #EEE;
     }
 
     .drawer-skill-info {
