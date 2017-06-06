@@ -77,6 +77,11 @@ angular.module("yggdrasil", ["ngStorage"])
         });
     }
 
+    //marcar ou desmarcar uma disciplina como optativa livre
+    $scope.toggleFree = function() {
+        myService.toggleFree($scope.selectedSkill);
+    }
+
     //voltar uma skill na pilha de chamadas de requisitos
     $scope.popStack = function() {
         $scope.selectSkill($scope.skillStack.pop(), 'none');
@@ -164,13 +169,14 @@ angular.module("yggdrasil", ["ngStorage"])
 //serviço que organiza o curso da pessoa
 .service("myService", function($localStorage) {
 
-    $localStorage.$reset();
+    //$localStorage.$reset();
 
     //se ja existir no cache, pegar
     if($localStorage.mySkills) {
         this.mySkills = $localStorage.mySkills;
         this.numCredits = $localStorage.numCredits;
         this.blockSize = $localStorage.blockSize;
+        this.freeSkills = $localStorage.freeSkills;
     }
 
     //senão, criar e guardar no cache
@@ -181,42 +187,62 @@ angular.module("yggdrasil", ["ngStorage"])
         $localStorage.numCredits = this.numCredits;
         this.blockSize = {};
         $localStorage.blockSize = this.blockSize;
+        this.freeSkills = {};
+        $localStorage.freeSkills = this.freeSkills;
     }
 
     this.totalCredits = [115, 56, 24];
 
+
+    //transforma uma optativa eletiva em livre ou vice-versa
+    this.toggleFree = function(skill) {
+
+        //adicionar no array de livres convertidas
+        if(!skill.isFree) {
+            this.freeSkills[skill.code] = skill;
+
+            //abater do original e adicionar nas livres
+            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
+            this.numCredits[1] -= skcr;
+            this.numCredits[2] += skcr;
+            skill.isFree = true;
+        } else {
+            delete this.freeSkills[skill.code];
+
+            //abater das livres e adicionar no original
+            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
+            this.numCredits[2] -= skcr;
+            this.numCredits[1] += skcr;
+            skill.isFree = false;
+        }
+    }
+
     //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
 
-        //se ja estiver setado nao tem o que fazer
-        if(this.mySkills[skill.code] == cat) return;
-
         //se estiver tirando uma feita tem que descontar os creditos
-        if(this.mySkills[skill.code] == 'done') {
-
-            var target = skill.type;
+        if(this.mySkills[skill.code] == 'done' && cat != 'done') {
 
             //verificar se ele é de algum bloco
             if(skill.block && skill.block.cap != "-") {
 
                 //remover
                 this.blockSize[skill.block.id]--;
-
-                //se for na optativa de estatistica, parece obrigatoria mas é eletiva
-                if(skill.block.id == 1)
-                    target = 1;             
             }   
 
             var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
-            this.numCredits[target] -= skcr;         
+
+            //se ela tiver sido convertida numa optativa livre, descontar dos livres e desconverter
+            if(skill.isFree)
+                this.numCredits[2] -= skcr;
+            else
+                this.numCredits[skill.type] -= skcr;
+            skill.isFree = false;
+
+            this.mySkills[skill.code] = cat;         
         }
-
-        this.mySkills[skill.code] = cat;
-
         //se estiver marcando como feito
-        if(cat == 'done') {
-
-            var target = skill.type;
+        else if(cat == 'done') {
 
             //vamos verificar se ele é de algum bloco com tamanho definido
             if(skill.block && skill.block.cap != "-") {
@@ -227,27 +253,34 @@ angular.module("yggdrasil", ["ngStorage"])
 
                 //incrementar
                 this.blockSize[skill.block.id]++;
-
-                //se for na optativa de estatistica, parece obrigatoria mas é eletiva
-                if(skill.block.id == 1)
-                    target = 1;
             }
 
             // adiciona os creditos na contagem
             var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
-            this.numCredits[target] += skcr;
+            this.numCredits[skill.type] += skcr;
 
-        } else if(cat == '') {
+            this.mySkills[skill.code] = 'done';
 
-            //se estiver marcando como não feito, verificar se deve ser travado
+        } else 
+            this.mySkills[skill.code] = cat;
+
+
+        //se estiver marcando como não feito, verificar se deve ser travado
+        if(cat == '') {
+
             var locked = false;
             var that = this;
             angular.forEach(skill.dependencies, function(dep) {
                 if(that.mySkills[dep] != 'done')
                     locked = true;
             });
+
+            console.log(locked);
+
             if(locked)
                 this.mySkills[skill.code] = 'locked';
+            else
+                this.mySkills[skill.code] = '';
         }
     }
 
@@ -381,9 +414,18 @@ angular.module("yggdrasil", ["ngStorage"])
 
                 //marcamos ela como obrigatoria ou eletiva
                 if(track == 0)
-                    skill.type = 0;
+                    //se for optativa de estat, entra como eletiva
+                    if(skill.code == "MAE0217" || skill.code == "MAE0221" || skill.code == "MAE0228")
+                        skill.type = 1;
+                    else
+                        skill.type = 0;
                 else
                     skill.type = 1;
+
+
+                //verificamos se ela é uma eletiva que está sendo usada como livre
+                if(myService.freeSkills[skill.code])
+                    skill.isFree = true;
             });
 
             //buscamos os blocos de optativas desta trilha

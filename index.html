@@ -184,6 +184,17 @@
                             <span class="fa fa-times"></span> &nbsp;Não Feito
                         </div>
                     </div>
+                    <div class="free-bar" ng-if="selectedSkill.status == 'done' && selectedSkill.type == 1">
+                        <div class="icon" ng-click="toggleFree()">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                <i class="fa fa-stack-1x blue" ng-class="selectedSkill.isFree ? 'fa-check' : ''"></i>
+                            </span>
+                        </div>
+                        <div class="text">
+                            Usar como optativa livre
+                        </div>
+                    </div>
                     <div class="skill-desc">
                         <h3 ng-show="selectedSkill.semester"><b>Semestre ideal: <span class="blue">{{selectedSkill.semester}}º</span></b></h3>
                         <h3><b>Créditos: <span class="blue">{{selectedSkill.credits}}</span><span class="light-gray">+</span>{{selectedSkill.wcredits || 0}}</b></h3>
