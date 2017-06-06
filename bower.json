@@ -19,6 +19,7 @@
   "dependencies": {
     "angular": "^1.6.2",
     "angular-slimscroll-aiska": "angular-slimScroll#*",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "jquery": "^3.2.1"
   }
 }

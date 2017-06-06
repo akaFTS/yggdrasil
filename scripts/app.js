@@ -9,6 +9,8 @@ angular.module("yggdrasil", ["ngStorage"])
     $scope.sks = skillService;
     $scope.ms = myService;
 
+    $scope.collapsed = [];
+
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
 
@@ -367,6 +369,13 @@ angular.module("yggdrasil", ["ngStorage"])
         tmptrack.collapsed = true;
         tracks.push(tmptrack);
 
+        tmptrack = {};
+        tmptrack.name = "Optativas";
+        tmptrack.icon = "";
+        tmptrack.skills = skillService.getSkills(5, 4);
+        tmptrack.collapsed = true;
+        tracks.push(tmptrack);
+
         return tracks;
     }
 })
@@ -424,34 +433,41 @@ angular.module("yggdrasil", ["ngStorage"])
         var that = this;
 
         //buscamos no arquivo da trilha correta
-        var options = ["obrigs", "teoria", "sistemas", "ia", "escience"];
+        var options = ["obrigs", "teoria", "sistemas", "ia", "escience", "opts"];
         var trackPromise = $http.get("skills/"+options[track]+".json");
 
         //vamos aguardar o carregamento dos dois arquivos pra prosseguir
         $q.all([trackPromise, skillPromise]).then(function(data) {
 
             //preenchemos o grid com as materias
-            angular.forEach(data[0].data, function(position, code) {
+            angular.forEach(data[0].data, function(code, poscode) {
 
-                //buscamos os dados da materia no hash, e adicionamos na posição correta
-                var skill = angular.copy(that.fetchSkill(code));
-                skill.position = position;
-                skills[position[0]][position[1]] = skill;
+                //quebramos as coordenadas
+                position = poscode.split(",");
 
-                //marcamos ela como obrigatoria ou eletiva
+                //buscamos os dados da materia no hash
+                var skref = that.fetchSkill(code);
+
+                //marcamos ela como obrigatoria ou eletiva direto no array
                 if(track == 0)
                     //se for optativa de estat, entra como eletiva
-                    if(skill.code == "MAE0217" || skill.code == "MAE0221" || skill.code == "MAE0228")
-                        skill.type = 1;
+                    if(skref.code == "MAE0217" || skref.code == "MAE0221" || skref.code == "MAE0228")
+                        skref.type = 1;
                     else
-                        skill.type = 0;
+                        skref.type = 0;
                 else
-                    skill.type = 1;
+                    skref.type = 1;
 
 
                 //verificamos se ela é uma eletiva que está sendo usada como livre
-                if(myService.freeSkills[skill.code])
-                    skill.isFree = true;
+                if(myService.freeSkills[skref.code])
+                    skref.isFree = true;
+
+                //duplicamos e adicionamos no local correto
+                var skill = angular.copy(skref);
+                skill.position = position;
+                skills[position[0]][position[1]] = skill;
+    
             });
 
             //buscamos os blocos de optativas desta trilha
@@ -614,6 +630,38 @@ angular.module("yggdrasil", ["ngStorage"])
             if(skill.code.toLowerCase().indexOf(query) > -1 || 
                 skill.name.toLowerCase().indexOf(query) > -1)
                 out.push(skill);
+        });
+        return out;
+    }
+})
+
+//filtro para matérias já feitas
+.filter('doneSkills', function (skillService) {
+
+    return function (array, type) {
+
+        var out = [];
+
+        //buscar em todas as materias
+        angular.forEach(array, function(status, code) {
+
+            //se está feita, vamos saber mais
+            if(status == 'done') {
+
+                var skill = skillService.fetchSkill(code);
+                if(!skill) return;
+
+                //para livres, pode ser tipo 2 ou convertida
+                if(type == 2 && (skill.type == 2 || skill.isFree))
+                    out.push(skill);
+                //para eletivas, tem que ser tipo 1 e não convertida
+                else if(type == 1 && skill.type == 1 && !skill.isFree)
+                    out.push(skill);
+                //para obrigatorias é normal
+                else if(type == 0 && skill.type == 0)
+                    out.push(skill);
+            }
+
         });
         return out;
     }

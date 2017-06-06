@@ -93,7 +93,13 @@
                     Progresso do Curso
                 </div>
                 <div class="side-prog">
-                    <span class="progress-name">Obrigatórias</span>
+                    <span class="progress-name">Obrigatórias <span class="menu-caret fa" ng-class="collapsed[0] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[0] = !collapsed[0]"></span></span>
+                    <div class="pbar-list" ng-if="collapsed[0]">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:0" class="pbar-skill">
+                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
+                            <div class="skill-code">{{skill.code}}</div>
+                        </div>
+                    </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
                         <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(0)+'%'}"></div>
@@ -103,7 +109,13 @@
                     </div>
                 </div>
                 <div class="side-prog">
-                    <span class="progress-name">Eletivas</span>
+                    <span class="progress-name">Eletivas <span class="menu-caret fa" ng-class="collapsed[1] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[1] = !collapsed[1]"></span></span>
+                    <div class="pbar-list" ng-if="collapsed[1]">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:1" class="pbar-skill">
+                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
+                            <div class="skill-code">{{skill.code}}</div>
+                        </div>
+                    </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
                         <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(1)+'%'}"></div>
@@ -113,7 +125,13 @@
                     </div>
                 </div>
                 <div class="side-prog">
-                    <span class="progress-name">Livres</span>
+                    <span class="progress-name">Livres <span class="menu-caret fa" ng-class="collapsed[2] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[2] = !collapsed[2]"></span></span>
+                    <div class="pbar-list" ng-if="collapsed[2]">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:2" class="pbar-skill">
+                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
+                            <div class="skill-code">{{skill.code}}</div>
+                        </div>
+                    </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
                         <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(2)+'%'}"></div>
@@ -144,38 +162,40 @@
                             </div>
                         </div>
                     </div>
-                    <div ng-repeat="track in tracks">
-                        <div class="skill-title blue" ng-click="toggleTrack(track)">
-                            {{track.name}}
-                            <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
-                        </div>
-                        <div class="track-message" ng-show="track.message && !track.collapsed">
-                            {{track.message}}
-                        </div>
-                        <div class="skill-box" ng-hide="track.collapsed">
-                            <div class="skill-img-wrap hidden-xs hidden-sm">
-                                <img ng-src="images/{{track.icon}}.png" class="skill-img">
+                    <div class="tracks">
+                        <div ng-repeat="track in tracks" class="track">
+                            <div class="skill-title blue" ng-click="toggleTrack(track)">
+                                {{track.name}}
+                                <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                             </div>
-                            <div ng-repeat="row in track.skills" class="skill-row">
-                                <div class="skill-wrap" ng-repeat="skill in row" ng-class="getBlockClasses(skill)">
-                                    <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill)">
-                                        <div class="skill-name">{{skill.name}}</div>
-                                        <div class="empty-skill-icon" ng-if="skill.empty"></div>
-                                        <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
-                                        <div class="skill-code blue">{{skill.code}}</div>
-                                        <div class="skill-badge done-badge bg-dark-green">
-                                            <span class="fa fa-check"></span>
+                            <div class="track-message" ng-show="track.message && !track.collapsed">
+                                {{track.message}}
+                            </div>
+                            <div class="skill-box" ng-hide="track.collapsed">
+                                <div class="skill-img-wrap hidden-xs hidden-sm">
+                                    <img ng-src="images/{{track.icon}}.png" class="skill-img" ng-if="track.icon">
+                                </div>
+                                <div ng-repeat="row in track.skills" class="skill-row">
+                                    <div class="skill-wrap" ng-repeat="skill in row" ng-class="getBlockClasses(skill)">
+                                        <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill)">
+                                            <div class="skill-name">{{skill.name}}</div>
+                                            <div class="empty-skill-icon" ng-if="skill.empty"></div>
+                                            <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
+                                            <div class="skill-code blue">{{skill.code}}</div>
+                                            <div class="skill-badge done-badge bg-dark-green">
+                                                <span class="fa fa-check"></span>
+                                            </div>
+                                            <div class="skill-badge locked-badge bg-dark-red">
+                                                <span class="fa fa-lock"></span>
+                                            </div>
+                                            <div class="skill-badge doing-badge bg-orange">
+                                                <span class="fa fa-pencil"></span>
+                                            </div>
                                         </div>
-                                        <div class="skill-badge locked-badge bg-dark-red">
-                                            <span class="fa fa-lock"></span>
-                                        </div>
-                                        <div class="skill-badge doing-badge bg-orange">
-                                            <span class="fa fa-pencil"></span>
-                                        </div>
+                                        <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
+                                            <b>{{skill.block.name}}</b> ({{skill.block.cap}}/{{skill.block.max}}) <span ng-show="ms.blockSize[skill.block.id] >= skill.block.cap" class="fa fa-check-circle"></span>
+                                        </div>   
                                     </div>
-                                    <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
-                                        <b>{{skill.block.name}}</b> ({{skill.block.cap}}/{{skill.block.max}}) <span ng-show="ms.blockSize[skill.block.id] >= skill.block.cap" class="fa fa-check-circle"></span>
-                                    </div>   
                                 </div>
                             </div>
                         </div>
@@ -183,7 +203,7 @@
                 </div>
             </div>
             <div class="backdrop" ng-click="deselect()" ng-show="showPanel"></div>
-            <div class="drawer-skill-info" ng-class="showPanel  ? '' : 'archived'">
+            <div class="drawer-skill-info" ng-class="showPanel  ? 'shown' : ''">
                 <div class="skill-info">
                     <div class="skill-name bg-blue">
                         <h3><span class="fa fa-lock" ng-if="selectedSkill.status == 'locked'"></span> &nbsp;{{selectedSkill.name}}</h3>
