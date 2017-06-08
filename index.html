@@ -95,14 +95,14 @@
                 <div class="side-prog">
                     <span class="progress-name">Obrigatórias <span class="menu-caret fa" ng-class="collapsed[0] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[0] = !collapsed[0]"></span></span>
                     <div class="pbar-list" ng-if="collapsed[0]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:0" class="pbar-skill">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:0 | orderBy:'+code'" class="pbar-skill">
                             <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
                             <div class="skill-code">{{skill.code}}</div>
                         </div>
                     </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(0)+'%'}"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(0)+'%'}"></div>
                     </div>
                     <div class="progress-subtitle">
                         <span class="bold"><span class="blue">{{ms.numCredits[0]}}</span>/115</span> créditos
@@ -111,14 +111,14 @@
                 <div class="side-prog">
                     <span class="progress-name">Eletivas <span class="menu-caret fa" ng-class="collapsed[1] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[1] = !collapsed[1]"></span></span>
                     <div class="pbar-list" ng-if="collapsed[1]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:1" class="pbar-skill">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:1 | orderBy:'+code'" class="pbar-skill">
                             <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
                             <div class="skill-code">{{skill.code}}</div>
                         </div>
                     </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(1)+'%'}"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(1)+'%'}"></div>
                     </div>
                     <div class="progress-subtitle">
                         <span class="bold"><span class="blue">{{ms.numCredits[1]}}</span>/56</span> créditos
@@ -127,14 +127,14 @@
                 <div class="side-prog">
                     <span class="progress-name">Livres <span class="menu-caret fa" ng-class="collapsed[2] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[2] = !collapsed[2]"></span></span>
                     <div class="pbar-list" ng-if="collapsed[2]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:2" class="pbar-skill">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:2 | orderBy:'+code'" class="pbar-skill">
                             <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
                             <div class="skill-code">{{skill.code}}</div>
                         </div>
                     </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: ms.getPercentage(2)+'%'}"></div>
+                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(2)+'%'}"></div>
                     </div>
                     <div class="progress-subtitle">
                         <span class="bold"><span class="blue">{{ms.numCredits[2]}}</span>/24</span> créditos
@@ -149,11 +149,12 @@
             </div>
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
-                    <div class="skill-box doing" ng-if="ms.doingNow.pointer > 0">
+                    <div class="loading" ng-show="!ts.isLoaded"><span class="fa fa-spin fa-spinner"></span> Carregando...</div>
+                    <div class="skill-box doing" ng-if="ms.doingNow.pointer > 0 && ts.isLoaded">
                         <div class="skill-row">
                             <span class="doing-text blue">Cursando agora</span>
                             <div class="skill-wrap" ng-repeat="skill in ms.doingNow.array">
-                                <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill, true)">
+                                <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSelectionClasses(skill)">
                                     <div class="skill-name">{{skill.name}}</div>
                                     <div class="empty-skill-icon" ng-if="skill.empty"></div>
                                     <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
@@ -164,12 +165,57 @@
                     </div>
                     <div class="tracks">
                         <div ng-repeat="track in tracks" class="track">
-                            <div class="skill-title blue" ng-click="toggleTrack(track)">
+                            <div class="skill-title blue" ng-click="track.collapsed = !track.collapsed">
                                 {{track.name}}
                                 <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
                             </div>
                             <div class="track-message" ng-show="track.message && !track.collapsed">
                                 {{track.message}}
+                            </div>
+                            <div class="add-skill-box" ng-if="track.id == 5 && !track.collapsed">
+                                <div class="add-skill-button blue" ng-click="openAddBox()">
+                                    <span class="fa fa-plus-circle"></span> <span class="text">Adicionar optativa</span>
+                                </div>
+                                <div class="add-skill-form" ng-if="track.id == 5" ng-show="addBoxOpen">
+                                    <h3 class="blue">Adicionar optativa <span class="closer fa fa-times" ng-click="closeAddBox()"></span></h3>
+                                    <div class="skill-input">
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control" ng-model="newSkill.name">
+                                    </div>
+                                    <div class="skill-input">
+                                        <label>Código</label>
+                                        <input type="text" class="form-control" ng-model="newSkill.code">
+                                    </div>
+                                    <div class="skill-input doubled">
+                                        <div class="half">
+                                            <label>Créditos-aula</label>
+                                            <input type="tel" class="form-control" ng-model="newSkill.credits">  
+                                        </div>
+                                        <div class="half">
+                                            <label>Créditos-trabalho</label>
+                                            <input type="tel" class="form-control" ng-model="newSkill.wcredits">  
+                                        </div>
+                                    </div>
+                                    <div class="skill-input">
+                                        <label>Tipo de optativa</label>
+                                        <div class="selectbox border-blue">
+                                            <div class="option" ng-click="newSkill.type = 1" ng-class="newSkill.type == 1 ? 'bg-blue' : 'blue'">
+                                                Eletiva
+                                            </div>
+                                            <div class="option" ng-click="newSkill.type = 2" ng-class="newSkill.type == 2 ? 'bg-blue' : 'blue'">
+                                                Livre
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="skill-submit blue" ng-click="addSkill()"><span class="fa fa-plus-circle"></span> &nbsp;Adicionar</button>
+                                    <div class="skill-alert dark-red border-dark-red bg-light-red" ng-show="codeExists">
+                                        <span class="fa fa-warning"></span> &nbsp;Esse código já existe!
+                                    </div>
+                                    <div class="skill-alert dark-red border-dark-red bg-light-red" ng-show="fillFields">
+                                        <span class="fa fa-warning"></span> &nbsp;Preencha todos os campos!
+                                    </div>
+                                </div>
+                                <div class="add-skill-backdrop" ng-show="addBoxOpen" ng-click="closeAddBox()"></div>
                             </div>
                             <div class="skill-box" ng-hide="track.collapsed">
                                 <div class="skill-img-wrap hidden-xs hidden-sm">
@@ -180,7 +226,8 @@
                                         <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSkillClasses(skill)">
                                             <div class="skill-name">{{skill.name}}</div>
                                             <div class="empty-skill-icon" ng-if="skill.empty"></div>
-                                            <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
+                                            <img class="skill-icon" ng-if="!skill.empty && !skill.isCustom" ng-src="images/skills/{{skill.code}}.gif">
+                                            <img class="skill-icon" ng-if="skill.isCustom" ng-src="images/skills/custom.gif">
                                             <div class="skill-code blue">{{skill.code}}</div>
                                             <div class="skill-badge done-badge bg-dark-green">
                                                 <span class="fa fa-check"></span>
@@ -242,6 +289,7 @@
                             <a class="blue" target="_blank" href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis={{selectedSkill.code}}">Ver no Jupiter</a>
                         </div>
                     </div>
+                    <button class="skill-exclude dark-red" ng-click="removeSkill(selectedSkill)" ng-if="selectedSkill.isCustom"><span class="fa fa-times"></span> &nbsp;Apagar Matéria</button>
                     <div class="skill-requires" ng-if="selectedSkill.dependencies.length > 0">
                         <h3>Pré-requisitos</h3>
                         <div class="require" ng-repeat="dep in selectedSkill.deps" ng-class="getSkillClasses(dep)" ng-click="selectSkill(dep, 'push')">

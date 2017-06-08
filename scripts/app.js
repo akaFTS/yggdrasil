@@ -8,6 +8,7 @@ angular.module("yggdrasil", ["ngStorage"])
 
     $scope.sks = skillService;
     $scope.ms = myService;
+    $scope.ts = trackService;
 
     $scope.collapsed = [];
 
@@ -16,43 +17,49 @@ angular.module("yggdrasil", ["ngStorage"])
 
         if(skill.empty) return;
 
-        //se já estiver selecionada, des-selecionar
-        if($scope.selectedSkill == skill)
-            $scope.deselect();
 
-        //se não, selecionar esta
-        else {
-
-            //analytics
-            if(typeof FB != 'undefined') {
-                var params = {};
-                params[FB.AppEvents.ParameterNames.SEARCH_STRING] = skill.code;
-                FB.AppEvents.logEvent("Opened skill", null, params);
-            }
-
-            //resetamos a pilha se for um clique novo, adicionamos a skill atual caso não
-            if(stackAction == 'reset')
-                $scope.skillStack = [];
-            else if(stackAction == 'push')
-                $scope.skillStack.push($scope.selectedSkill);
-
-            $scope.showPanel = true;
-            $scope.selectedSkill = skill;
-
-            $scope.selectedSkill.deps = [];
-
-            //vamos preparar o array de dependencias
-            angular.forEach(skill.dependencies, function(depskill) {
-                var skill = skillService.fetchSkill(depskill);
-                $scope.selectedSkill.deps.push(skill);
-            });
-
-            $scope.selectedSkill.status = myService.getSkill($scope.selectedSkill.code);
+        //analytics
+        if(typeof FB != 'undefined') {
+            var params = {};
+            params[FB.AppEvents.ParameterNames.SEARCH_STRING] = skill.code;
+            FB.AppEvents.logEvent("Opened skill", null, params);
         }
+
+        //resetamos a pilha se for um clique novo, adicionamos a skill atual caso não
+        if(stackAction == 'reset')
+            $scope.skillStack = [];
+        else if(stackAction == 'push')
+            $scope.skillStack.push($scope.selectedSkill);
+
+        $scope.showPanel = true;
+        $scope.selectedSkill = skill;
+
+
+        //vamos preparar o array de dependencias
+        $scope.selectedSkill.deps = [];
+        angular.forEach(skill.dependencies, function(depskill) {
+            var skill = skillService.fetchSkill(depskill);
+            $scope.selectedSkill.deps.push(skill);
+        });
+
+        //verificamos o status dela no cache
+        $scope.selectedSkill.status = myService.mySkills[$scope.selectedSkill.code];
     }
 
     //setar o status da matéria selecionada
     $scope.setStatus = function(status) {
+
+        //analytics
+        if(typeof FB != 'undefined') {
+            var params = {};
+            params[FB.AppEvents.ParameterNames.DESCRIPTION] = skill.code;
+            if(status == 'done')
+                FB.AppEvents.logEvent("Did skill", null, params);
+            else if(status == 'doing')
+                FB.AppEvents.logEvent("Doing skill", null, params);
+        }
+
+
         myService.setSkill($scope.selectedSkill, status);
         $scope.selectedSkill.status = status;
 
@@ -66,7 +73,7 @@ angular.module("yggdrasil", ["ngStorage"])
             //verificar se todas as dependencias dela estão cumpridas
             var locked = false;
             angular.forEach(skill.dependencies, function(skdep) {
-                if(myService.getSkill(skdep) != 'done')
+                if(myService.mySkills[skdep] != 'done')
                     locked = true;
             });
 
@@ -91,13 +98,29 @@ angular.module("yggdrasil", ["ngStorage"])
         }, 400);
     }
 
-    //retorna um array de classes CSS para o objeto daquela skill.
-    $scope.getSkillClasses = function (skill, noStatus) {
-        var classes = [];
+    //pegar a porcentagem de conclusão de creditos
+    $scope.getPercentage = function(type) {
+
+        if(myService.numCredits[type] > myService.totalCredits[type])
+            return 100;
+        else
+            return Math.round(myService.numCredits[type]*100/myService.totalCredits[type]);
+    }
+
+    //retorna um array de classes CSS do estado de seleção e do status da skill
+    $scope.getSkillClasses = function (skill) {
+        var classes = $scope.getSelectionClasses(skill);
 
         //se não estiver no modo de visão geral
-        if(!$scope.general && !noStatus)
-            classes.push(myService.getSkill(skill.code));
+        if(!$scope.general)
+            classes.push(myService.mySkills[skill.code]);
+
+        return classes;
+    }
+
+    //retorna um array de classes CSS do estado de seleção da skill
+    $scope.getSelectionClasses = function(skill) {
+        var classes = [];
 
         if(skill.empty)
             classes.push("empty");
@@ -106,7 +129,7 @@ angular.module("yggdrasil", ["ngStorage"])
         if(skill == $scope.selectedSkill && $scope.showPanel)
             classes.push("selected");
 
-        return classes;
+        return classes;        
     }
 
     //retorna um array de classes CSS para o objeto wrapper daquela skill.
@@ -141,17 +164,55 @@ angular.module("yggdrasil", ["ngStorage"])
         return classes;
     }
 
-    //abrir ou fechar a gaveta de um track
-    $scope.toggleTrack = function(track) {
+    //abrir a caixa de adicionar matéria
+    $scope.openAddBox = function() {
+        $scope.newSkill = {type: 1, isCustom: true};
+        $scope.addBoxOpen = true;
+    }
 
-        //se estiver abrindo, marcamos um evento
-        if(!track.collapsed && typeof FB != 'undefined') {
-            var params = {};
-            params[FB.AppEvents.ParameterNames.DESCRIPTION] = track.name;
-            FB.AppEvents.logEvent("Opened track", null, params);
+    //fechar a caixa de adicionar matéria
+    $scope.closeAddBox = function() {
+        $scope.addBoxOpen = false;
+    }
+
+    //adicionar a nova materia
+    $scope.addSkill = function() {
+
+        //validação de campos
+        $scope.fillFields = $scope.codeExists = false;
+        if(!$scope.newSkill.name || !$scope.newSkill.code || !$scope.newSkill.credits || !$scope.newSkill.wcredits) {
+            $scope.fillFields = true;
+            return;
         }
 
-        track.collapsed = !track.collapsed;
+        //verificar se já existe a matéria
+        var skill = skillService.fetchSkill($scope.newSkill.code.toUpperCase());
+        if(skill) {
+            $scope.codeExists = true;
+            return;
+        }
+
+        //parsing dos créditos
+        $scope.newSkill.credits = parseInt($scope.newSkill.credits) || 0;
+        $scope.newSkill.wcredits = parseInt($scope.newSkill.wcredits) || 0;
+
+        //adicionar a skill nas optativas
+        skillService.addSkill(angular.copy($scope.newSkill), $scope.tracks[5].skills);
+
+        $scope.addBoxOpen = false;
+
+        //analytics
+        if(typeof FB != 'undefined') {
+            var params = {};
+            params[FB.AppEvents.ParameterNames.DESCRIPTION] = skill.code;
+            FB.AppEvents.logEvent("Created skill", null, params);
+        }
+    }
+
+    //remova uma skill customizada
+    $scope.removeSkill = function(skill) {
+        skillService.removeSkill(skill, $scope.tracks[5].skills);
+        $scope.deselect();
     }
 
     //carregamos as trilhas
@@ -182,20 +243,17 @@ angular.module("yggdrasil", ["ngStorage"])
             this.blockSize = $localStorage.blockSize;
             this.freeSkills = $localStorage.freeSkills;
             this.doingNow = $localStorage.doingNow;
+            this.customList = $localStorage.customList;
         }
 
         //senão, criar e guardar no cache
         else {
-            this.mySkills = {};
-            $localStorage.mySkills = this.mySkills;
-            this.numCredits = [0,0,0];
-            $localStorage.numCredits = this.numCredits;
-            this.blockSize = {};
-            $localStorage.blockSize = this.blockSize;
-            this.freeSkills = {};
-            $localStorage.freeSkills = this.freeSkills;
-            this.doingNow = {pointer: 0, array: []};
-            $localStorage.doingNow = this.doingNow;
+            $localStorage.mySkills = this.mySkills = {};
+            $localStorage.numCredits = this.numCredits = [0,0,0];
+            $localStorage.blockSize = this.blockSize = {};
+            $localStorage.freeSkills = this.freeSkills = {};
+            $localStorage.doingNow = this.doingNow = {pointer: 0, array: []};
+            $localStorage.customList = this.customList = {};
 
             //encher com skills vazias
             for(var i = 0; i < 6; i++)  {
@@ -208,19 +266,22 @@ angular.module("yggdrasil", ["ngStorage"])
     //transforma uma optativa eletiva em livre ou vice-versa
     this.toggleFree = function(skill) {
 
-        //adicionar no array de livres convertidas
         if(!skill.isFree) {
+
+            //adicionar no array de livres convertidas
             this.freeSkills[skill.code] = skill;
 
-            //abater do original e adicionar nas livres
+            //abater dos creditos originais e adicionar nas livres
             var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
             this.numCredits[1] -= skcr;
             this.numCredits[2] += skcr;
             skill.isFree = true;
         } else {
+
+            //retirar do array
             delete this.freeSkills[skill.code];
 
-            //abater das livres e adicionar no original
+            //abater dos creditos livres e adicionar nos originais
             var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
             this.numCredits[2] -= skcr;
             this.numCredits[1] += skcr;
@@ -299,8 +360,6 @@ angular.module("yggdrasil", ["ngStorage"])
                     locked = true;
             });
 
-            console.log(locked);
-
             if(locked)
                 this.mySkills[skill.code] = 'locked';
             else
@@ -308,73 +367,30 @@ angular.module("yggdrasil", ["ngStorage"])
         }
     }
 
-    //descobrir o status de uma skill
-    this.getSkill = function(code) {
-        return this.mySkills[code];
-    }
-
-    //pegar a porcentagem de conclusão de creditos
-    this.getPercentage = function(type) {
-
-        if(this.numCredits[type] > this.totalCredits[type])
-            return 100;
-        else
-            return Math.round(this.numCredits[type]*100/this.totalCredits[type]);
-    }
-
-
     this.totalCredits = [115, 56, 24];
     this.setup();
 })
 
 //serviço que organiza as trilhas
-.service("trackService", function(skillService) {
+.service("trackService", function($http, skillService) {
 
     //monta os objetos das 5 seções
+    this.isLoaded = false;
     this.getTracks = function() {
         var tracks = [];
+        var that = this;
+        $http.get("skills/tracks.json").then(function(data) {
 
-        tmptrack = {};
-        tmptrack.name = "Obrigatórias";
-        tmptrack.icon = "aprendiz";
-        tmptrack.skills = skillService.getSkills(0, 8);
-        tracks.push(tmptrack);
+            angular.forEach(data.data, function(track) {
 
-        tmptrack = {};
-        tmptrack.name = "Sistemas de Software";
-        tmptrack.icon = "algoz";
-        tmptrack.skills = skillService.getSkills(2, 3);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
+                //apenas o id 0 (obrigatórias) fica aberto
+                track.collapsed = !!track.id;
+                track.skills = skillService.getSkills(track.id, track.canvas_size);
+                tracks.push(track);
+            });
+            that.isLoaded = true;
 
-        tmptrack = {};
-        tmptrack.name = "Inteligência Artificial";
-        tmptrack.icon = "arquimago";
-        tmptrack.skills = skillService.getSkills(3, 3);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
-
-        tmptrack = {};
-        tmptrack.name = "Ciência de Dados";
-        tmptrack.icon = "criador";
-        tmptrack.skills = skillService.getSkills(4, 2);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
-
-        tmptrack = {};
-        tmptrack.name = "Teoria da Computação";
-        tmptrack.icon = "mestre";
-        tmptrack.message = "Cumprir todas as matérias de 2 dos 3 blocos principais (totalizando 4 ou 5) e mais algumas optativas, completando 7 matérias da trilha."
-        tmptrack.skills = skillService.getSkills(1, 7);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
-
-        tmptrack = {};
-        tmptrack.name = "Optativas";
-        tmptrack.icon = "";
-        tmptrack.skills = skillService.getSkills(5, 4);
-        tmptrack.collapsed = true;
-        tracks.push(tmptrack);
+        });
 
         return tracks;
     }
@@ -384,8 +400,8 @@ angular.module("yggdrasil", ["ngStorage"])
 .service("skillService", function($http, blockService, $q, myService) {
 
     this.skillHash = {};
-
     this.dependencyTree = {};
+    this.optSlot = [1,3];
 
     var that = this;
     var skillPromise = $http.get("skills/skills.json").then(function(data) {
@@ -405,10 +421,6 @@ angular.module("yggdrasil", ["ngStorage"])
 
                 that.dependencyTree[dep].push(skill.code);
             });
-
-            //na primeira config, se tiver pre-requisitos, travar
-            if(typeof myService.mySkills[skill.code] == 'undefined' && skill.dependencies.length)
-                myService.setSkill(skill, "locked");
         });
     });
 
@@ -443,7 +455,9 @@ angular.module("yggdrasil", ["ngStorage"])
             angular.forEach(data[0].data, function(code, poscode) {
 
                 //quebramos as coordenadas
-                position = poscode.split(",");
+                position = poscode.split(",").map(function(item) {
+                    return parseInt(item, 10);
+                });
 
                 //buscamos os dados da materia no hash
                 var skref = that.fetchSkill(code);
@@ -467,8 +481,23 @@ angular.module("yggdrasil", ["ngStorage"])
                 var skill = angular.copy(skref);
                 skill.position = position;
                 skills[position[0]][position[1]] = skill;
+
+                //na primeira config, se tiver pre-requisitos, travar
+                if(typeof myService.mySkills[skill.code] == 'undefined' && skill.dependencies.length)
+                    myService.setSkill(skill, "locked");
     
             });
+
+            //optativas, vamos buscar as customizadas no cache também
+            if(track == 5) {
+                angular.forEach(myService.customList, function(skill) {
+                    that.addSkill(skill, skills);
+
+                    //verificamos se ela é uma eletiva que está sendo usada como livre
+                    if(myService.freeSkills[skill.code])
+                        skill.isFree = true;
+                });
+            }
 
             //buscamos os blocos de optativas desta trilha
             blockService.getBlocks(track).then(function(blocks) {
@@ -493,6 +522,71 @@ angular.module("yggdrasil", ["ngStorage"])
             }
         }
         return rows;
+    }
+
+    //função que adiciona uma nova skill
+    this.addSkill = function(skill, track) {
+
+        this.skillHash[skill.code] = skill;
+
+        //se a materia ainda não estiver no cache (i.e. esta sendo criada agora), limpar
+        if(!myService.mySkills[skill.code])
+            myService.setSkill(skill, "");
+
+        //adiciona no grid
+        track[this.optSlot[0]][this.optSlot[1]] = skill;
+        skill.position = [this.optSlot[0], this.optSlot[1]];
+
+        //adiciona no cache
+        myService.customList[skill.code] = skill;
+
+        //atualiza o ponteiro
+        this.optSlot[1] = this.optSlot[1]+1 % 6;
+        if(this.optSlot[1] == 0)
+            this.optSlot[0]++;
+    }
+
+    this.removeSkill = function(skill, track) {
+        //setamos como não-feita pra limpar os créditos
+        myService.setSkill(skill, '');
+
+        //removemos
+        delete this.skillHash[skill.code];
+
+        //removemos do cache
+        delete myService.customList[skill.code];
+
+        //achamos o cara no grid
+        var i;
+        for(i = 3; i <= 23; i++) {
+            var target = track[Math.floor(i/6 + 1)][i%6];
+            if(target.code == skill.code)
+                break;
+        }
+
+        //removemos e shiftamos todo mundo
+        track[Math.floor(i/6 + 1)][i%6] = {empty: true};
+        var j;
+        for(j = i+1; j <= 23; j++) {
+            //pegamos o valor
+            var target  = track[Math.floor(j/6 + 1)][j%6];
+
+            if(target.empty) break;
+
+            //atualizamos o valor da posição dele para um anterior
+            target.position[1] = target.position[1]-1 % 6;
+            if(target.position[1] == 5)
+                target.position[0]--;
+
+            //shiftamos ele para o anterior
+            track[target.position[0]][target.position[1]] = target;
+            track[Math.floor(j/6 + 1)][j%6] = {empty: true};
+        }
+
+        //atualiza o ponteiro
+        this.optSlot[1] = this.optSlot[1]-1 % 6;
+        if(this.optSlot[1] == 5)
+            this.optSlot[0]--;
     }
 })
 

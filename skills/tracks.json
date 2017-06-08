@@ -1,0 +1,32 @@
+[{
+    "name": "Obrigatórias",
+    "icon": "aprendiz",
+    "id" : 0,
+    "canvas_size": 8
+},{
+    "name": "Sistemas de Software",
+    "icon": "algoz",
+    "id" : 2,
+    "canvas_size": 3
+},{
+    "name": "Inteligência Artificial",
+    "icon": "arquimago",
+    "id" : 3,
+    "canvas_size": 3
+},{
+    "name": "Ciência de Dados",
+    "icon": "criador",
+    "id" : 4,
+    "canvas_size": 2
+},{
+    "name": "Teoria da Computação",
+    "icon": "mestre",
+    "message": "Cumprir todas as matérias de 2 dos 3 blocos principais (totalizando 4 ou 5) e mais algumas optativas, completando 7 matérias da trilha.",
+    "id" : 1,
+    "canvas_size": 7
+},{
+    "name": "Optativas",
+    "icon": "",
+    "id" : 5,
+    "canvas_size": 5
+}]

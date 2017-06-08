@@ -50,6 +50,21 @@ body.locked {
     border-right: 1px solid #DDD;
 }
 
+.content .skill-list .loading {
+    text-align: center;
+    font-size: 20px;
+    margin: 50px 0;
+    color: #999;
+}
+
+.content .skill-list .loading .fa-spin{
+    font-size: 32px;
+    color: #666;
+    position: relative;
+    right: 7px;
+    top: 3px;
+}
+
 .content .skill-list .skill-title {
     background-color: #F5F5F5;
     padding: 10px 20px;
@@ -294,6 +309,147 @@ body.locked {
     margin-bottom: 0;
 }
 
+.content .skill-list .add-skill-box {
+    background-color: white;
+    padding: 16px 0 8px;
+    position: relative;
+}
+
+.content .skill-list .add-skill-box .add-skill-button {
+    text-align: center;
+    font-size: 18px;
+    background-color: #EEE;
+    padding: 10px;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 12px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.content .skill-list .add-skill-box .add-skill-button:hover {
+    cursor: pointer;
+    background-color: #DDD;
+}
+
+.content .skill-list .add-skill-box .add-skill-button .fa-plus-circle {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.content .skill-list .add-skill-box .add-skill-button .text {
+    position: relative;
+    top: 2px;
+}
+
+.content .skill-list .add-skill-box .add-skill-backdrop {
+    background-color: black;
+    width: 100%;
+    height: 785px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+}
+
+.content .skill-list .add-skill-box .add-skill-form {
+    background-color: #EEE;
+    padding: 15px 20px;
+    width: 50%;
+    border-radius: 12px;
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 25%;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .selectbox {
+    display: flex;
+    display: -webkit-flex;
+    border: 3px solid black;
+    border-radius: 8px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .selectbox .option {
+    width: 50%;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .selectbox .option:hover {
+    cursor: pointer;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .closer {
+    position: absolute;
+    right: 20px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .closer:hover {
+    cursor: pointer;
+    color: #666 !important;
+}
+
+.content .skill-list .add-skill-box .add-skill-form h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form label {
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input {
+    margin-bottom: 10px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input.doubled {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input.doubled .half{
+    width: calc(50% - 10px);
+}
+
+.content .skill-list .add-skill-box .add-skill-form input {
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-alert {
+    border: 1px solid black;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-submit {
+    margin: 20px 0 10px;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 0;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #CCC;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-submit:hover {
+    cursor: pointer;
+    background-color: #BBB;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -429,6 +585,21 @@ body.locked {
 .drawer-skill-info .skill-info .skill-jupiter a:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.drawer-skill-info .skill-info .skill-exclude {
+    display: block;
+    margin: 20px auto;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #E5E5E5;
+}
+
+.drawer-skill-info .skill-info .skill-exclude:hover {
+    background-color: #D0D0D0;
 }
 
 .drawer-skill-info .skill-info .skill-requires {
@@ -730,6 +901,8 @@ body.locked {
     display: -webkit-flex;
     justify-content: flex-start;
     -webkit-justify-content: flex-start;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
 }
 
 .side-prog .pbar-list .pbar-skill {
@@ -847,6 +1020,11 @@ body.locked {
 
     .content .skill-list .skill-box.doing {
         border-top: 1px solid #EEE;
+    }
+
+    .content .skill-list .add-skill-box .add-skill-form {
+        width: 90%;
+        left: 5%;
     }
 
     .drawer-skill-info {
@@ -975,6 +1153,10 @@ body.locked {
 
 .dark-red {
     color: #d22218 !important;
+}
+
+.border-dark-red {
+    border-color: #d22218 !important;
 }
 
 .bg-dark-red {

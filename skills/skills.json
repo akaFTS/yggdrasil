@@ -283,13 +283,6 @@
         "description": "Arquitetura de redes: modelos em camadas e protocolos, o modelo da Internet. Aplicações e protocolos para Multimídia. O argumento fim-a-fim. Programação através de soquetes em C e em linguagens orientadas a objetos. Nomes, endereçamento e roteamento na Internet. A suíte de protocolos TCP/IP, UDP, IP-Multicast. Protocolos MAC, Ethernet e endereçamento em redes locais. Detecção e correção de erros. IPv6. Segurança. Gerenciamento de redes, SNMP. Redes P2P. Anonimato na Internet (Tor). Virtualização de redes. Comunicação entre processos: cliente-servidor, grupos, RPC. Serviços web. Recuperação e tolerância a falhas.",
         "dependencies": ["MAC0323"]
     },
-    "MAC0412": {
-        "code": "MAC0412",
-        "name": "Organização de Computadores",
-        "credits": "4",
-        "description": "Tecnologias de implementação de circuitos. Organização de um computador; conceito de programa armazenado; endereçamento; formato de instruções e conjunto de instruções; microprogramação; memória e gerenciamento de cache; interrupção e dispositivos de entrada/saída. Arquitetura de computadores de alto desempenho (RISC, pipeline); organização de computadores paralelos.",
-        "dependencies": ["MAC0121"]
-    },
     "MAC0413": {
         "code": "MAC0413",
         "name": "Tópicos Avançados de Programação Orientada a Objetos",
