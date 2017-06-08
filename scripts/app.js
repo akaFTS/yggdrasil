@@ -70,6 +70,10 @@ angular.module("yggdrasil", ["ngStorage"])
             //pegar o objeto skill (dep é apenas o código)
             var skill = skillService.fetchSkill(dep);
 
+            //se já estiver feita ou fazendo, não mexer
+            if(myService.mySkills[dep] == 'done' || myService.mySkills[dep] == 'doing')
+                return;
+
             //verificar se todas as dependencias dela estão cumpridas
             var locked = false;
             angular.forEach(skill.dependencies, function(skdep) {
@@ -292,26 +296,22 @@ angular.module("yggdrasil", ["ngStorage"])
     //seta uma skill pra alguma categoria
     this.setSkill = function(skill, cat) {
 
+        //se for igual nem tem o que fazer
+        if(this.mySkills[skill.code] == cat) return;
+
+
         //se estiver tirando uma fazendo tem que tirar da listinha
-        if(this.mySkills[skill.code] == 'doing' && cat != 'doing') {
+        if(this.mySkills[skill.code] == 'doing') {
             var index = this.doingNow.array.indexOf(skill);
             this.doingNow.array.splice(index, 1);
             this.doingNow.array.push({empty: true});
             this.doingNow.pointer--;
-        } else if(cat == 'doing' && this.doingNow.pointer < 6) {
 
-            //temos que adicionar na lista
-            this.doingNow.array[this.doingNow.pointer] = skill;
-            this.doingNow.pointer++;
-        }
+        } //se estiver tirando uma feita tem que descontar os creditos
+        else if(this.mySkills[skill.code] == 'done') {
 
-        //se estiver tirando uma feita tem que descontar os creditos
-        if(this.mySkills[skill.code] == 'done' && cat != 'done') {
-
-            //verificar se ele é de algum bloco
+            //verificar se ele é de algum bloco e remover
             if(skill.block && skill.block.cap != "-") {
-
-                //remover
                 this.blockSize[skill.block.id]--;
             }   
 
@@ -326,7 +326,21 @@ angular.module("yggdrasil", ["ngStorage"])
 
             this.mySkills[skill.code] = cat;         
         }
-        //se estiver marcando como feito
+
+
+        //marcar a categoria
+        this.mySkills[skill.code] = cat;
+
+        //temos que adicionar na lista
+        if(cat == 'doing' && this.doingNow.pointer < 6) {
+
+            //se estourou a listinha, deixa pra la
+            if(this.doingNow.pointer >= 6) return;
+
+            this.doingNow.array[this.doingNow.pointer] = skill;
+            this.doingNow.pointer++;
+
+        } //se estiver marcando como feito
         else if(cat == 'done') {
 
             //vamos verificar se ele é de algum bloco com tamanho definido
@@ -344,14 +358,8 @@ angular.module("yggdrasil", ["ngStorage"])
             var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
             this.numCredits[skill.type] += skcr;
 
-            this.mySkills[skill.code] = 'done';
-
-        } else 
-            this.mySkills[skill.code] = cat;
-
-
-        //se estiver marcando como não feito, verificar se deve ser travado
-        if(cat == '') {
+        } //se estiver marcando como não feito, verificar se deve ser travado 
+        else if(cat == '') {
 
             var locked = false;
             var that = this;
@@ -362,8 +370,6 @@ angular.module("yggdrasil", ["ngStorage"])
 
             if(locked)
                 this.mySkills[skill.code] = 'locked';
-            else
-                this.mySkills[skill.code] = '';
         }
     }
 
