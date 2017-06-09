@@ -46,6 +46,9 @@ body.locked {
     top: -8px;
 }
 
+
+/* CONTENT */
+
 .content .skill-list {
     border-right: 1px solid #DDD;
 }
@@ -460,6 +463,8 @@ body.locked {
     z-index: 4;
 }
 
+/* MENU POPUP */
+
 .drawer-skill-info {
     width: 35%;
     position: fixed;
@@ -702,6 +707,8 @@ body.locked {
     cursor: pointer;
     color: #666 !important;
 }
+
+/* MENU LATERAL */
 
 .search-bar {
     background-color: #3F51B5;
@@ -977,6 +984,8 @@ body.locked {
     cursor: pointer;
 }
 
+/* MEDIA QUERIES */
+
 @media(max-width: 767px) {
 
     .header .header-middle {
@@ -1042,6 +1051,8 @@ body.locked {
         color: #999;
     }
 }
+
+/* CORES */
 
 .light-gray {
     color: #999 !important;
