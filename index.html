@@ -65,7 +65,8 @@
                 </div>
                 <div class="search-results" ng-if="searchQuery.length">
                     <div class="search-result" ng-repeat="skill in sks.skillHash | toArray | filterSkill:searchQuery" ng-click="selectSkill(skill)" ng-class="getSkillClasses(skill)">
-                            <img ng-src="images/skills/{{skill.code}}.gif">
+                            <img ng-if="!skill.isCustom" ng-src="images/skills/{{skill.code}}.gif">
+                            <img ng-if="skill.isCustom" ng-src="images/skills/custom.gif">
                             <div>
                                 <h4 class="blue">{{skill.code}}</h4>
                                 <p>{{skill.name}}</p>
@@ -95,52 +96,23 @@
                 <div class="side-entry divider blue">
                     Progresso do Curso
                 </div>
-                <div class="side-prog">
-                    <span class="progress-name">Obrigatórias <span class="menu-caret fa" ng-class="collapsed[0] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[0] = !collapsed[0]"></span></span>
-                    <div class="pbar-list" ng-if="collapsed[0]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:0 | orderBy:'+code'" class="pbar-skill">
-                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
+                <div class="side-prog" ng-repeat="type in ['Obrigatórias','Eletivas','Livres']">
+                    <span class="progress-name">{{type}} <span class="menu-caret fa" ng-class="collapsed[$index] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[$index] = !collapsed[$index]"></span></span>
+                    <div class="pbar-list" ng-if="collapsed[$index]">
+                        <div ng-repeat="skill in ms.mySkills | doneSkills:$index | orderBy:'+code'" class="pbar-skill" ng-click="selectSkill(skill)">
+                            <img ng-if="!skill.isCustom" ng-src="images/skills/{{skill.code}}.gif">
+                            <img ng-if="skill.isCustom" ng-src="images/skills/custom.gif">
                             <div class="skill-code">{{skill.code}}</div>
                         </div>
                     </div>
                     <div class="pbar-wrap">
                         <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(0)+'%'}"></div>
+                        <div class="pbar-in bg-blue" ng-style="getBarStyle($index)"></div>
+                        <div class="pbar-in bg-orange" ng-style="getDoingStyle($index)"></div>
                     </div>
                     <div class="progress-subtitle">
-                        <span class="bold"><span class="blue">{{ms.numCredits[0]}}</span>/115</span> créditos
-                    </div>
-                </div>
-                <div class="side-prog">
-                    <span class="progress-name">Eletivas <span class="menu-caret fa" ng-class="collapsed[1] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[1] = !collapsed[1]"></span></span>
-                    <div class="pbar-list" ng-if="collapsed[1]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:1 | orderBy:'+code'" class="pbar-skill">
-                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
-                            <div class="skill-code">{{skill.code}}</div>
-                        </div>
-                    </div>
-                    <div class="pbar-wrap">
-                        <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(1)+'%'}"></div>
-                    </div>
-                    <div class="progress-subtitle">
-                        <span class="bold"><span class="blue">{{ms.numCredits[1]}}</span>/56</span> créditos
-                    </div>
-                </div>
-                <div class="side-prog">
-                    <span class="progress-name">Livres <span class="menu-caret fa" ng-class="collapsed[2] ? 'fa-caret-down' : 'fa-caret-right'" ng-click="collapsed[2] = !collapsed[2]"></span></span>
-                    <div class="pbar-list" ng-if="collapsed[2]">
-                        <div ng-repeat="skill in ms.mySkills | doneSkills:2 | orderBy:'+code'" class="pbar-skill">
-                            <img ng-src="images/skills/{{skill.code}}.gif" ng-click="selectSkill(skill)">
-                            <div class="skill-code">{{skill.code}}</div>
-                        </div>
-                    </div>
-                    <div class="pbar-wrap">
-                        <div class="pbar"></div>
-                        <div class="pbar-in bg-blue" ng-style="{width: getPercentage(2)+'%'}"></div>
-                    </div>
-                    <div class="progress-subtitle">
-                        <span class="bold"><span class="blue">{{ms.numCredits[2]}}</span>/24</span> créditos
+                        <span class="bold"><span class="blue">{{ms.numCredits[$index]}}</span>/{{ms.totalCredits[$index]}}</span> créditos
+                        &nbsp;<span ng-show="ms.numDoing[$index] > 0">(cursando <span class="bold orange">{{ms.numDoing[$index]}}</span>)</span>
                     </div>
                 </div>
                 <div class="congrats bg-blue" ng-if="ms.numCredits[0] >= 115 && ms.numCredits[1] >= 56 && ms.numCredits[2] >= 24">

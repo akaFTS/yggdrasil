@@ -25,16 +25,46 @@ angular.module("yggdrasil")
 
         //senão, criar e guardar no cache
         else {
+
+            //guarda o status de cada materia: feito, fazendo, a fazer, trancado
             $localStorage.mySkills = this.mySkills = {};
+
+            //guarda o numero de creditos feitos entre obrigatorias, eletivas e livres
             $localStorage.numCredits = this.numCredits = [0,0,0];
+
+            //guarda quantas materias de cada bloco ja foram feitas
             $localStorage.blockSize = this.blockSize = {};
+
+            //guarda as materias eletivas convertidas em livres
             $localStorage.freeSkills = this.freeSkills = {};
+
+            //guarda as materias sendo feitas agora, pra exibir no topo
             $localStorage.doingNow = this.doingNow = {pointer: 0, array: []};
+
+            //guarda as materias que o usuario criou
             $localStorage.customList = this.customList = {};
 
             //encher com skills vazias
             for(var i = 0; i < 6; i++)  {
                 this.doingNow.array.push({empty: true});
+            }
+        }
+
+        //estrutura nova - deve ser criada à parte pra não bagunçar o cache existente das pessoas
+        if($localStorage.numDoing)
+            this.numDoing = $localStorage.numDoing
+        else {
+            $localStorage.numDoing = this.numDoing = [0,0,0];
+
+            //vamos varrer as matérias que ele está fazendo e adicionar
+            //isso não acontece nas outras estruturas porque era possivel resetar a base, mas agora
+            //tem gente usando
+            for(var i = 0; i < this.doingNow.pointer; i++) {
+                var sk = this.doingNow.array[i];
+
+                // adiciona os creditos na contagem
+                var skcr = parseInt(parseInt(sk.credits) + parseInt(sk.wcredits || 0));
+                this.numDoing[sk.type] += skcr;    
             }
         }
     }
@@ -72,13 +102,16 @@ angular.module("yggdrasil")
         //se for igual nem tem o que fazer
         if(this.mySkills[skill.code] == cat) return;
 
+        var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
 
-        //se estiver tirando uma fazendo tem que tirar da listinha
+        //se estiver tirando uma fazendo tem que tirar da listinha e do contador
         if(this.mySkills[skill.code] == 'doing') {
             var index = this.doingNow.array.indexOf(skill);
             this.doingNow.array.splice(index, 1);
             this.doingNow.array.push({empty: true});
             this.doingNow.pointer--;
+
+            this.numDoing[skill.type] -= skcr;
 
         } //se estiver tirando uma feita tem que descontar os creditos
         else if(this.mySkills[skill.code] == 'done') {
@@ -88,7 +121,7 @@ angular.module("yggdrasil")
                 this.blockSize[skill.block.id]--;
             }   
 
-            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
+            
 
             //se ela tiver sido convertida numa optativa livre, descontar dos livres e desconverter
             if(skill.isFree)
@@ -113,6 +146,9 @@ angular.module("yggdrasil")
             this.doingNow.array[this.doingNow.pointer] = skill;
             this.doingNow.pointer++;
 
+            // adiciona os creditos na contagem
+            this.numDoing[skill.type] += skcr;
+
         } //se estiver marcando como feito
         else if(cat == 'done') {
 
@@ -128,7 +164,6 @@ angular.module("yggdrasil")
             }
 
             // adiciona os creditos na contagem
-            var skcr = parseInt(parseInt(skill.credits) + parseInt(skill.wcredits || 0));
             this.numCredits[skill.type] += skcr;
 
         } //se estiver marcando como não feito, verificar se deve ser travado 

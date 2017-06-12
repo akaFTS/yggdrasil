@@ -102,12 +102,34 @@ angular.module("yggdrasil")
     }
 
     //pegar a porcentagem de conclusão de creditos
-    $scope.getPercentage = function(type) {
+    $scope.getBarStyle = function(type) {
 
         if(myService.numCredits[type] > myService.totalCredits[type])
-            return 100;
+            return {width: "100%"};
         else
-            return Math.round(myService.numCredits[type]*100/myService.totalCredits[type]);
+            return {width: Math.round(myService.numCredits[type]*100/myService.totalCredits[type])+"%", 'z-index': 3};
+    }
+
+    //pegar a porcentagem de creditos sendo feitos
+    $scope.getDoingStyle = function(type) {
+
+        //pegamos a quantidade de créditos feitos e fazendo
+        var doingwidth = Math.round(myService.numDoing[type]*100/myService.totalCredits[type]);
+        var donewidth = Math.round(myService.numCredits[type]*100/myService.totalCredits[type]);
+
+        //normalizamos os créditos fazendo pra não estourar a barra
+        if(doingwidth + donewidth > 100)
+            doingwidth = 100 - donewidth;
+
+        //retornamos se não for pra exibir nada
+        if(doingwidth <= 0) return;
+
+        //precisamos adicionar alguns pixels pro efeito visual
+        return {
+            width: "calc("+doingwidth+"% + 11px)", 
+            'z-index': 2,
+            left: "calc("+donewidth+"% - 10px)"
+        };
     }
 
     //retorna um array de classes CSS do estado de seleção e do status da skill
