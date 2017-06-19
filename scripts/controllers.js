@@ -16,7 +16,6 @@ angular.module("yggdrasil")
 
         if(skill.empty) return;
 
-
         //analytics
         if(typeof FB != 'undefined') {
             var params = {};
@@ -30,9 +29,9 @@ angular.module("yggdrasil")
         else if(stackAction == 'push')
             $scope.skillStack.push($scope.selectedSkill);
 
-        $scope.showPanel = true;
+        if (!$scope.fastswitch)
+          $scope.showPanel = true;
         $scope.selectedSkill = skill;
-
 
         //vamos preparar o array de dependencias
         $scope.selectedSkill.deps = [];
@@ -43,6 +42,15 @@ angular.module("yggdrasil")
 
         //verificamos o status dela no cache
         $scope.selectedSkill.status = myService.mySkills[$scope.selectedSkill.code];
+        if ($scope.fastswitch) {
+            console.log($scope.selectedSkill.status);
+            if ($scope.selectedSkill.status == 'done')
+              $scope.setStatus('doing');
+            else if ($scope.selectedSkill.status == 'doing')
+              $scope.setStatus('');
+            else if ($scope.selectedSkill.status == '' || $scope.selectedSkill.status == undefined)
+              $scope.setStatus('done');
+        }
     }
 
     //setar o status da matéria selecionada
