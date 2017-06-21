@@ -80,28 +80,20 @@ body.locked {
 
 .content .skill-list .skill-title .arrow {
     position: absolute;
-    width: 0; 
-    height: 0;
+    font-size: 32px;
+    margin-top: -2px;
+}
+
+.content .skill-list .skill-title .arrow.fa-caret-right {
+    right: 25px;
+}
+
+.content .skill-list .skill-title .arrow.fa-caret-down {
+    right: 20px; 
 }
 
 .content .skill-list .skill-title:hover {
     cursor: pointer;
-}
-
-.arrow-left {
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent; 
-    border-left:10px solid #3F51B5;
-    top: calc(50% - 10px); 
-    right: 25px;
-}
-
-.arrow-down {
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #3F51B5;
-    top: calc(50% - 5px);
-    right: 20px; 
 }
 
 .content .skill-list .track-message {
@@ -120,6 +112,10 @@ body.locked {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+.content .skill-list .skill-box.fast {
+    background-color: rgba(138, 34, 155, 0.08);
 }
 
 .content .skill-list .skill-box .skill-img-wrap {
@@ -850,6 +846,10 @@ body.locked {
     margin-right: 10px;
 }
 
+.side-entry .icon .fa-bolt {
+    font-size: 26px !important;
+}
+
 .side-entry .icon:hover {
     cursor: pointer;
 }
@@ -1172,6 +1172,10 @@ body.locked {
 
 .bg-dark-red {
     background-color: #d22218 !important;
+}
+
+.purple {
+    color: #8a229b !important;
 }
 
 .bold {

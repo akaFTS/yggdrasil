@@ -83,6 +83,17 @@
                     </div>
                 </div>
                 <div class="side-entry with-icon">
+                    <div class="icon" ng-click="fastswitch = !fastswitch">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x blue" ng-class="fastswitch ? 'fa-bolt purple' : ''"></i>
+                        </span>
+                    </div>
+                    <div class="text">
+                        Edição Rápida
+                    </div>
+                </div>
+                <div class="side-entry with-icon">
                     <div class="icon" ng-click="general = !general">
                         <span class="fa-stack">
                             <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -91,17 +102,6 @@
                     </div>
                     <div class="text">
                         Visão Geral
-                    </div>
-                </div>
-                <div class="side-entry with-icon">
-                    <div class="icon" ng-click="fastswitch = !fastswitch">
-                        <span class="fa-stack">
-                            <i class="fa fa-circle-thin fa-stack-2x"></i>
-                            <i class="fa fa-stack-1x blue" ng-class="fastswitch ? 'fa-check' : ''"></i>
-                        </span>
-                    </div>
-                    <div class="text">
-                        Edição Rápida
                     </div>
                 </div>
                 <div class="side-entry divider blue">
@@ -136,7 +136,7 @@
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
                     <div class="loading" ng-show="!ts.isLoaded"><span class="fa fa-spin fa-spinner"></span> Carregando...</div>
-                    <div class="skill-box doing" ng-if="ms.doingNow.pointer > 0 && ts.isLoaded">
+                    <div class="skill-box doing" ng-class="fastswitch ? 'fast' : ''" ng-if="ms.doingNow.pointer > 0 && ts.isLoaded">
                         <div class="skill-row">
                             <span class="doing-text blue">Cursando agora</span>
                             <div class="skill-wrap" ng-repeat="skill in ms.doingNow.array">
@@ -151,9 +151,9 @@
                     </div>
                     <div class="tracks">
                         <div ng-repeat="track in tracks" class="track">
-                            <div class="skill-title blue" ng-click="track.collapsed = !track.collapsed">
+                            <div class="skill-title" ng-class="fastswitch ? 'purple' : 'blue'" ng-click="track.collapsed = !track.collapsed">
                                 {{track.name}}
-                                <div class="arrow" ng-class="track.collapsed ? 'arrow-left' : 'arrow-down'"></div>
+                                <div class="arrow fa" ng-class="track.collapsed ? 'fa-caret-right' : 'fa-caret-down'"></div>
                             </div>
                             <div class="track-message" ng-show="track.message && !track.collapsed">
                                 {{track.message}}
@@ -203,7 +203,7 @@
                                 </div>
                                 <div class="add-skill-backdrop" ng-show="addBoxOpen" ng-click="closeAddBox()"></div>
                             </div>
-                            <div class="skill-box" ng-hide="track.collapsed">
+                            <div class="skill-box" ng-class="fastswitch ? 'fast' : ''" ng-hide="track.collapsed">
                                 <div class="skill-img-wrap hidden-xs hidden-sm">
                                     <img ng-src="images/{{track.icon}}.png" class="skill-img" ng-if="track.icon">
                                 </div>
@@ -214,7 +214,7 @@
                                             <div class="empty-skill-icon" ng-if="skill.empty"></div>
                                             <img class="skill-icon" ng-if="!skill.empty && !skill.isCustom" ng-src="images/skills/{{skill.code}}.gif">
                                             <img class="skill-icon" ng-if="skill.isCustom" ng-src="images/skills/custom.gif">
-                                            <div class="skill-code blue">{{skill.code}}</div>
+                                            <div class="skill-code"  ng-class="fastswitch ? 'purple' : 'blue'">{{skill.code}}</div>
                                             <div class="skill-badge done-badge bg-dark-green">
                                                 <span class="fa fa-check"></span>
                                             </div>
