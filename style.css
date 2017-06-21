@@ -130,6 +130,7 @@ body.locked {
     top: -50%;
     left: 0;
     height: 100%;
+    z-index: -1;
 }
 
 .content .skill-list .skill-box .skill-row {
@@ -856,6 +857,13 @@ body.locked {
 
 .side-entry .icon .fa-stack-1x {
     font-size: 22px;
+}
+
+.side-entry.total-credits {
+    display: block;
+    padding: 30px 20px 10px;
+    text-align: center;
+    font-size: 17px;
 }
 
 .side-prog {

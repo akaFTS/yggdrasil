@@ -126,6 +126,9 @@
                         &nbsp;<span ng-show="ms.numDoing[$index] > 0">(cursando <span class="bold orange">{{ms.numDoing[$index]}}</span>)</span>
                     </div>
                 </div>
+                <div class="side-entry total-credits">
+                    Total: <span class="bold"><span class="blue">{{ms.numCredits[0] + ms.numCredits[1] + ms.numCredits[2]}}</span>/195</span> créditos
+                </div>
                 <div class="congrats bg-blue" ng-if="ms.numCredits[0] >= 115 && ms.numCredits[1] >= 56 && ms.numCredits[2] >= 24">
                     Parabéns! &nbsp;&nbsp;<span class="fa fa-graduation-cap"></span>
                 </div>
