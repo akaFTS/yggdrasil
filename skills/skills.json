@@ -355,6 +355,13 @@
         "credits": "4",
         "description": "Introdução: Definições básicas. Existência e unicidade de solução: Resultados em otimização convexa e em conjuntos compactos. Otimização sem restrições: Condições de otimalidade. Métodos de Cauchy, Newton e Quasi-Newton. Globalização: Busca linear. Regiões de confiança. Otimização com restrições de igualdade e desigualdade: Restrições lineares. Métodos de restrições ativas. Condições de otimalidade. Métodos de penalidades.",
         "dependencies": ["MAT0122"]
+    },    
+    "MAC0430": {
+        "code": "MAC0430",
+        "name": "Algoritmos e Complexidade de Computação",
+        "credits": "4",
+        "description": "Modelos de computação; máquinas de Turing. Tese de Church. Redutibilidade e problemas indecidíveis. Complexidade, problemas decidíveis em tempo polinomial. Não-determinismo versus determinismo. Redutibilidade e problemas NP-completos. Hierarquia polinomial de complexidade. Redutibilidade e problemas PESPAÇO-completos.",
+        "dependencies": []
     },
     "MAC0436": {
         "code": "MAC0436",

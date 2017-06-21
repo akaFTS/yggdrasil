@@ -215,7 +215,7 @@ angular.module("yggdrasil")
 
     this.skillHash = {};
     this.dependencyTree = {};
-    this.optSlot = [1,3];
+    this.optSlot = [1,4];
 
     var that = this;
     var skillPromise = $http.get("skills/skills.json").then(function(data) {
@@ -372,7 +372,7 @@ angular.module("yggdrasil")
 
         //achamos o cara no grid
         var i;
-        for(i = 3; i <= 23; i++) {
+        for(i = 4; i <= 24; i++) {
             var target = track[Math.floor(i/6 + 1)][i%6];
             if(target.code == skill.code)
                 break;
@@ -381,7 +381,7 @@ angular.module("yggdrasil")
         //removemos e shiftamos todo mundo
         track[Math.floor(i/6 + 1)][i%6] = {empty: true};
         var j;
-        for(j = i+1; j <= 23; j++) {
+        for(j = i+1; j <= 24; j++) {
             //pegamos o valor
             var target  = track[Math.floor(j/6 + 1)][j%6];
 
