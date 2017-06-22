@@ -315,6 +315,10 @@ body.locked {
     position: relative;
 }
 
+.content .skill-list .add-skill-box.fast {
+    background-color: rgba(138, 34, 155, 0.08);
+}
+
 .content .skill-list .add-skill-box .add-skill-button {
     text-align: center;
     font-size: 18px;
@@ -423,6 +427,37 @@ body.locked {
 .content .skill-list .add-skill-box .add-skill-form input {
     border-radius: 8px;
     box-shadow: none;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input .input-button {
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    height: 34px;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input .input-button input{
+    height: 100%;
+    border: 0;
+    padding: 6px 12px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input .input-button button{
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: none;
+    padding: 0 15px;
+    font-weight: bold;
+    background-color: #CCC;
+}
+
+.content .skill-list .add-skill-box .add-skill-form .skill-input .input-button button:hover{
+    background-color: #BBB;
 }
 
 .content .skill-list .add-skill-box .add-skill-form .skill-alert {

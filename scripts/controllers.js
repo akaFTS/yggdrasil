@@ -1,7 +1,7 @@
 angular.module("yggdrasil")
 
 //controller do sistema
-.controller("AppCtrl", function($scope, trackService, skillService, myService, $timeout) {
+.controller("AppCtrl", function($scope, trackService, skillService, myService, $timeout, $http) {
 
     $scope.skillStack = [];
 
@@ -206,6 +206,33 @@ angular.module("yggdrasil")
     //fechar a caixa de adicionar matéria
     $scope.closeAddBox = function() {
         $scope.addBoxOpen = false;
+    }
+
+    //buscar os dados da matéria no jupiter
+    $scope.askJupiter = function() {
+        if(!$scope.newSkill.code) return;
+
+        $http.get("https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis="+$scope.newSkill.code).then(function(data) {
+            var source = data.data;
+
+            //extraimos a parte da pagina com os dados que queremos
+            var index = source.indexOf("Disciplina:");
+            var structure = source.substring(index, index+1500);
+
+            //verificamos se achou
+            var name = /- ([A-zÀ-ú ]*)/g.exec(structure);
+            if(!name) return;
+
+            //nome da disciplina
+            $scope.newSkill.name = name[1];
+
+            //creditos aula
+            $scope.newSkill.credits = /Aula:[\s\w<>\\\/=",\-\#&;]*([0-9]+)[\s]*<\/span>/gm.exec(structure)[1];
+
+            //creditos trabalho
+            $scope.newSkill.wcredits = /Trabalho:[\s\w<>\\\/=",\-\#&;]*([0-9]+)[\s]*<\/span>/gm.exec(structure)[1];
+
+        });
     }
 
     //adicionar a nova materia

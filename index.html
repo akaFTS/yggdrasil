@@ -161,19 +161,22 @@
                             <div class="track-message" ng-show="track.message && !track.collapsed">
                                 {{track.message}}
                             </div>
-                            <div class="add-skill-box" ng-if="track.id == 5 && !track.collapsed">
-                                <div class="add-skill-button blue" ng-click="openAddBox()">
+                            <div class="add-skill-box" ng-class="fastswitch ? 'fast' : ''" ng-if="track.id == 5 && !track.collapsed">
+                                <div class="add-skill-button" ng-class="fastswitch ? 'purple' : 'blue'" ng-click="openAddBox()">
                                     <span class="fa fa-plus-circle"></span> <span class="text">Adicionar optativa</span>
                                 </div>
                                 <div class="add-skill-form" ng-if="track.id == 5" ng-show="addBoxOpen">
                                     <h3 class="blue">Adicionar optativa <span class="closer fa fa-times" ng-click="closeAddBox()"></span></h3>
                                     <div class="skill-input">
-                                        <label>Nome</label>
-                                        <input type="text" class="form-control" ng-model="newSkill.name">
+                                        <label>Código</label>
+                                        <div class="input-button">
+                                            <input type="text" ng-model="newSkill.code">
+                                            <button class="blue" ng-click="askJupiter()"><span class="fa fa-globe"></span> &nbsp; Buscar</button>
+                                        </div>
                                     </div>
                                     <div class="skill-input">
-                                        <label>Código</label>
-                                        <input type="text" class="form-control" ng-model="newSkill.code">
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control" ng-model="newSkill.name">
                                     </div>
                                     <div class="skill-input doubled">
                                         <div class="half">
