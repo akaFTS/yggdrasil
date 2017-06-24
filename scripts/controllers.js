@@ -208,7 +208,7 @@ angular.module("yggdrasil")
         $scope.addBoxOpen = false;
     }
 
-    //buscar os dados da matéria no jupiter
+    //buscar os dados da matéria no jupiter (SUSPENSO ATÉ EXISTIR BACKEND)
     $scope.askJupiter = function() {
         if(!$scope.newSkill.code) return;
 

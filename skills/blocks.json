@@ -1,5 +1,5 @@
 [{
-    "name": "Optativa de Estatística",
+    "name": "Opt. de Estatística",
     "cap": 1,
     "max": 3,
     "color": "green",
@@ -136,6 +136,7 @@
     "max": "-",
     "color": "red",
     "track": 1,
+    "id": 14,
     "name_position": [6,3],
     "bounds": [[[3,4], [3,5], [5,4], [5,5]], [[6,2], [6,5], [6,2], [6,5]]]
 }, 
@@ -145,6 +146,7 @@
     "max": 2,
     "color": "teal",
     "track": 1,
+    "id": 15,
     "name_position": [2,0],
     "half_name": true,
     "bounds": [[[2,0], [2,1], [2,0], [2,1]]]
@@ -155,6 +157,7 @@
     "max": "-",
     "color": "teal",
     "track": 1,
+    "id": 16,
     "name_position": [5,1],
     "bounds": [[[3,0], [3,2], [5,0], [5,2]]]
 }]

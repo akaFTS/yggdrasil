@@ -1,7 +1,7 @@
 angular.module("yggdrasil")
 
 //serviço que organiza o curso da pessoa
-.service("myService", function($localStorage) {
+.service("myService", function($localStorage, blockService) {
 
     //reseta o cache e recarrega a pagina
     this.wipeCache = function() {
@@ -52,7 +52,7 @@ angular.module("yggdrasil")
 
         //estrutura nova - deve ser criada à parte pra não bagunçar o cache existente das pessoas
         if($localStorage.numDoing)
-            this.numDoing = $localStorage.numDoing
+            this.numDoing = $localStorage.numDoing;
         else {
             $localStorage.numDoing = this.numDoing = [0,0,0];
 
@@ -116,9 +116,11 @@ angular.module("yggdrasil")
         } //se estiver tirando uma feita tem que descontar os creditos
         else if(this.mySkills[skill.code] == 'done') {
 
-            //verificar se ele é de algum bloco e remover
-            if(skill.block && skill.block.cap != "-") {
-                this.blockSize[skill.block.id]--;
+            //verificar se ele possui blocos associados e decrementar
+            var blocklist = blockService.skillBlocks[skill.code];
+            if(blocklist) {
+                for(var i = 0; i < blocklist.length; i++)
+                    this.blockSize[blocklist[i]]--;
             }   
 
             
@@ -152,16 +154,19 @@ angular.module("yggdrasil")
         } //se estiver marcando como feito
         else if(cat == 'done') {
 
-            //vamos verificar se ele é de algum bloco com tamanho definido
-            if(skill.block && skill.block.cap != "-") {
+            //verificar se ele possui blocos associados e incrementar
+            var blocklist = blockService.skillBlocks[skill.code];
+            if(blocklist) {
+                for(var i = 0; i < blocklist.length; i++) {
+                    
+                    //criar a entrada se não tiver
+                    if(!this.blockSize[blocklist[i]])
+                        this.blockSize[blocklist[i]] = 0;
 
-                //criar a entrada se não tiver
-                if(!this.blockSize[skill.block.id])
-                    this.blockSize[skill.block.id] = 0;
-
-                //incrementar
-                this.blockSize[skill.block.id]++;
-            }
+                    //incrementar
+                    this.blockSize[blocklist[i]]++;
+                }
+            } 
 
             // adiciona os creditos na contagem
             this.numCredits[skill.type] += skcr;
@@ -407,6 +412,9 @@ angular.module("yggdrasil")
 //serviço que gerencia o layout dos blocos de matérias
 .service("blockService", function($http, $q) {
 
+    //guardar um mapa de skills para os blocks que incluem elas
+    this.skillBlocks = {};
+
     //buscar os blocos relacionados a uma certa trilha
     //os codigos são os mesmos do trackService
     this.getBlocks = function(track) {
@@ -488,6 +496,18 @@ angular.module("yggdrasil")
 
             if(!grid[x][y+1])
                 skil.block_y.push("right");
+
+            //adicionamos o bloco no nosso mapeamento para skill
+            //se ele for um bloco com tamanho definido
+            if(!skil.empty && block.cap != '-') {
+
+                //se não existir o array, criamos
+                if(!this.skillBlocks[skil.code])
+                    this.skillBlocks[skil.code] = [];
+
+                if(this.skillBlocks[skil.code].indexOf(block.id) < 0)
+                    this.skillBlocks[skil.code].push(block.id);
+            }
         }
     }
 

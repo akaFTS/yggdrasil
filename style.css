@@ -1058,11 +1058,16 @@ body.locked {
     }
 
     .content .skill-list .skill-box .skill-wrap .block-label {
-        font-size: 10px;
-        padding: 3px;
+        font-size: 12px;
+        padding: 1px;
         width: 200%;
         margin-left: -50%;
         bottom: -20px;
+    }
+
+    .content .skill-list .skill-box .skill-wrap .block-label .fa {
+        font-size: 16px;
+        margin-left: 3px;
     }
 
     .content .skill-list .skill-box .skill-wrap .block-label.half-name {
