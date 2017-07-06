@@ -96,8 +96,9 @@
     "color": "blue",
     "track": 3,
     "id": 10,
-    "name_position": [2,2],
-    "bounds": [[[2,0], [2,4], [2,0], [2,4]]]
+    "name_position": [2,1],
+    "half_name": true,
+    "bounds": [[[2,0], [2,3], [2,0], [2,3]]]
 }, 
 {
     "name": "Algoritmos 1",

@@ -536,14 +536,6 @@
         "description": "Conceitos básicos e exemplos. Construção de cadeias de Markov. Comportamento assintótico das cadeias de Markov. Tempo médio de recorrência. Medidas invariantes. Reversibilidade. Convergência em distribuição via acoplamento. Processos pontuais e processos de Poisson. Teoria da renovação a tempo discreto e teorema chave. Martingales discretos. Processos Markovianos de salto. Construção. Explosão.",
         "dependencies": ["MAE0224"]
     },
-    "MAE0320": {
-        "code": "MAE0320",
-        "name": "Simulação e Mineração de Dados",
-        "credits": "4",
-        "wcredits": "1",
-        "description": "Simulação estática: métodos de inversão, aceitação, rejeição, composição e métodos de reamostragem. Otimização numérica: Newton-Raphson, scoring, quase-Newton. Algoritmo EM. Bootstrap e Jackknife. Métodos de Monte Carlo. Noções de simulação dinâmica (MCMC). Manipulação de arquivos de dados. Análise estatística de grandes bancos de dados. Tratamento de dados para mineração (data mining).",
-        "dependencies": []
-    },
     "MAE0326": {
         "code": "MAE0326",
         "name": "Aplicações de Processos Estocásticos",
