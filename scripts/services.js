@@ -4,14 +4,26 @@ angular.module("yggdrasil")
 .service("myService", function($localStorage, blockService) {
 
     //reseta o cache e recarrega a pagina
-    this.wipeCache = function() {
+    this.wipeCache = function(cleanID) {
+        var clid = $localStorage.forceCleanID;
         $localStorage.$reset();
+
+        //se estivermos passando um novo ID de limpeza, usar ele
+        if(cleanID)
+            $localStorage.forceCleanID = cleanID;
+        else
+            $localStorage.forceCleanID = clid;
+
         location.reload();
     }
 
 
     //colocar tudo pra funcionar
     this.setup = function() {
+
+        //forçar o reload de todo mundo, pra evitar bugs
+        if(!$localStorage.forceCleanID || $localStorage.forceCleanID < 1)
+            this.wipeCache(1);
 
         //se ja existir no cache, pegar
         if($localStorage.mySkills) {
@@ -21,6 +33,7 @@ angular.module("yggdrasil")
             this.freeSkills = $localStorage.freeSkills;
             this.doingNow = $localStorage.doingNow;
             this.customList = $localStorage.customList;
+            this.numDoing = $localStorage.numDoing;
         }
 
         //senão, criar e guardar no cache
@@ -39,33 +52,13 @@ angular.module("yggdrasil")
             $localStorage.freeSkills = this.freeSkills = {};
 
             //guarda as materias sendo feitas agora, pra exibir no topo
-            $localStorage.doingNow = this.doingNow = {pointer: 0, array: []};
+            $localStorage.doingNow = this.doingNow = [];
 
             //guarda as materias que o usuario criou
             $localStorage.customList = this.customList = {};
 
-            //encher com skills vazias
-            for(var i = 0; i < 6; i++)  {
-                this.doingNow.array.push({empty: true});
-            }
-        }
-
-        //estrutura nova - deve ser criada à parte pra não bagunçar o cache existente das pessoas
-        if($localStorage.numDoing)
-            this.numDoing = $localStorage.numDoing;
-        else {
+            //guarda o numero de creditos que se está fazendo, entre obrigatorias, eletivas e livres
             $localStorage.numDoing = this.numDoing = [0,0,0];
-
-            //vamos varrer as matérias que ele está fazendo e adicionar
-            //isso não acontece nas outras estruturas porque era possivel resetar a base, mas agora
-            //tem gente usando
-            for(var i = 0; i < this.doingNow.pointer; i++) {
-                var sk = this.doingNow.array[i];
-
-                // adiciona os creditos na contagem
-                var skcr = parseInt(parseInt(sk.credits) + parseInt(sk.wcredits || 0));
-                this.numDoing[sk.type] += skcr;    
-            }
         }
     }
 
@@ -106,10 +99,8 @@ angular.module("yggdrasil")
 
         //se estiver tirando uma fazendo tem que tirar da listinha e do contador
         if(this.mySkills[skill.code] == 'doing') {
-            var index = this.doingNow.array.indexOf(skill);
-            this.doingNow.array.splice(index, 1);
-            this.doingNow.array.push({empty: true});
-            this.doingNow.pointer--;
+            var index = this.doingNow.indexOf(skill);
+            this.doingNow.splice(index, 1);
 
             this.numDoing[skill.type] -= skcr;
 
@@ -140,13 +131,9 @@ angular.module("yggdrasil")
         this.mySkills[skill.code] = cat;
 
         //temos que adicionar na lista
-        if(cat == 'doing' && this.doingNow.pointer < 6) {
+        if(cat == 'doing') {
 
-            //se estourou a listinha, deixa pra la
-            if(this.doingNow.pointer >= 6) return;
-
-            this.doingNow.array[this.doingNow.pointer] = skill;
-            this.doingNow.pointer++;
+            this.doingNow.push(skill);
 
             // adiciona os creditos na contagem
             this.numDoing[skill.type] += skcr;

@@ -70,3 +70,14 @@ angular.module("yggdrasil")
         return out;
     }
 })
+
+//fazer um ng-repeat com tamanho definido
+.filter('range', function() {
+    return function(n) {
+        var res = [];
+        for (var i = 0; i < n; i++) {
+            res.push(i);
+        }
+        return res;
+    };
+});

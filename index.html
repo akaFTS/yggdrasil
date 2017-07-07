@@ -139,15 +139,20 @@
             <div class="col-md-8 nopadding col-md-pull-4">
                 <div class="skill-list">
                     <div class="loading" ng-show="!ts.isLoaded"><span class="fa fa-spin fa-spinner"></span> Carregando...</div>
-                    <div class="skill-box doing" ng-class="fastswitch ? 'fast' : ''" ng-if="ms.doingNow.pointer > 0 && ts.isLoaded">
+                    <div class="skill-box doing" ng-class="fastswitch ? 'fast' : ''" ng-if="ms.doingNow.length > 0 && ts.isLoaded">
                         <div class="skill-row">
                             <span class="doing-text blue">Cursando agora</span>
-                            <div class="skill-wrap" ng-repeat="skill in ms.doingNow.array">
+                            <div class="skill-wrap" ng-repeat="skill in ms.doingNow | limitTo: 6">
                                 <div class="skill" ng-click="selectSkill(skill, 'reset')" ng-class="getSelectionClasses(skill)">
                                     <div class="skill-name">{{skill.name}}</div>
-                                    <div class="empty-skill-icon" ng-if="skill.empty"></div>
-                                    <img class="skill-icon" ng-if="!skill.empty" ng-src="images/skills/{{skill.code}}.gif">
+                                    <img class="skill-icon" ng-src="images/skills/{{skill.code}}.gif">
                                     <div class="skill-code blue">{{skill.code}}</div>
+                                </div>
+                            </div>
+                            <div class="skill-wrap" ng-repeat="empty in (6 - ms.doingNow.length) | range">
+                                <div class="skill empty">
+                                    <div class="skill-name"></div>
+                                    <div class="empty-skill-icon"></div>
                                 </div>
                             </div>
                         </div>
