@@ -14,7 +14,7 @@ angular.module("yggdrasil")
     //selecionar uma matéria para mais informações
     $scope.selectSkill = function(skill, stackAction) {
 
-        if(skill.empty) return;
+        if(skill.empty || $scope.closingPanel) return;
 
         //analytics
         if(typeof FB != 'undefined') {
@@ -104,7 +104,9 @@ angular.module("yggdrasil")
     //des-seleciona a skill, mas com um timeout pra um visual melhor
     $scope.deselect = function () {
         $scope.showPanel = false;
+        $scope.closingPanel = true;
         $timeout(function() {
+            $scope.closingPanel = false;
             $scope.selectedSkill = false;            
         }, 400);
     }
