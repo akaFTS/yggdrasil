@@ -16,13 +16,34 @@ angular.module("yggdrasil")
 //filtro para a busca por matérias
 .filter('filterSkill', function () {
 
+    function removeAccents(str, cache) {
+        if (cache && cleanSkillNames[str] !== undefined)
+            return cleanSkillNames[str];
+
+        var accents   = 'ãàáêéíóç';
+        var noAccents = 'aaaeeioc';
+        var clean = str.split('');
+
+        clean.forEach(function(letter, index) {
+            var i = accents.indexOf(letter);
+            if (i != -1)
+              clean[index] = noAccents[i];
+        });
+        clean = clean.join('');
+
+        if (cache)
+            cleanSkillNames[str] = clean;
+
+        return clean;
+    }
+
     return function (array, query) {
 
         //se nada tiver sido buscado, retornar nada
         if(!query)
             return [];
 
-        query = query.toLowerCase();
+        query = removeAccents(query.toLowerCase(), false);
         var out = [];
 
         //buscar em todas as materias por nome e código
@@ -31,8 +52,9 @@ angular.module("yggdrasil")
             //se ja tiver 5 materias no array, deixar pra lá
             if(out.length >= 5) return;
 
-            if(skill.code.toLowerCase().indexOf(query) > -1 || 
-                skill.name.toLowerCase().indexOf(query) > -1)
+            var skillName = removeAccents(skill.name.toLowerCase(), true);
+            if(skill.code.toLowerCase().indexOf(query) > -1 ||
+                skillName.indexOf(query) > -1)
                 out.push(skill);
         });
         return out;
@@ -81,3 +103,5 @@ angular.module("yggdrasil")
         return res;
     };
 });
+
+var cleanSkillNames = {};
