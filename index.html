@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Yggdrasil - BCC</title>
@@ -187,11 +188,11 @@
                                     <div class="skill-input doubled">
                                         <div class="half">
                                             <label>Créditos-aula</label>
-                                            <input type="tel" class="form-control" ng-model="newSkill.credits">  
+                                            <input type="tel" class="form-control" ng-model="newSkill.credits">
                                         </div>
                                         <div class="half">
                                             <label>Créditos-trabalho</label>
-                                            <input type="tel" class="form-control" ng-model="newSkill.wcredits">  
+                                            <input type="tel" class="form-control" ng-model="newSkill.wcredits">
                                         </div>
                                     </div>
                                     <div class="skill-input">
@@ -239,7 +240,7 @@
                                         </div>
                                         <div class="block-label" ng-show="skill.block && angular.equals(skill.position, skill.block.name_position)" ng-class="['bg-'+skill.block.color, skill.block.half_name ? 'half-name' : '']">
                                             <b>{{skill.block.name}}</b> ({{ms.blockSize[skill.block.id] || 0}}/{{skill.block.cap}}) <span ng-show="ms.blockSize[skill.block.id] >= skill.block.cap" class="fa fa-check-circle"></span>
-                                        </div>   
+                                        </div>
                                     </div>
                                 </div>
                             </div>
